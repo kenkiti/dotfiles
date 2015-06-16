@@ -1,0 +1,37 @@
+escape ^Oo
+defhstatus "^En:^Et"
+# コピーモードで Emacs のような移動を可能にする
+# (man にも載っている定番)
+markkeys h=^b:l=^f:$=^e
+
+# 現在位置から行末までコピーする
+# URL のコピペに使えます(C-a C-k)
+bind ^k  eval "copy" "stuff ' $ '"
+
+# “C-z (スペース)”でコピーモードに入った直後に最初のマークを付ける
+# スペースのかわりに生の ^@ とかを指定するとそれっぽくなります
+bind ' ' eval "copy" "stuff ' '"
+
+# Emacs の yank っぽいペースト法(C-z C-y)
+bind ^y paste .
+
+# Emacs風画面分割
+bind 2 split
+bind o focus
+bind 1 only
+bind 0 remove
+
+#タブ風のキャプション表示
+caption always "%{= wg} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wb}%y/%m/%d %{=b wm}%c"
+
+# etc
+vbell off
+startup_message off
+
+# screen -t ssh 0 /usr/bin/ssh -C -L 7144:192.168.0.9:7144 localhost
+screen 0
+screen 1
+# screen 2
+
+# 文字コード
+# C-o :encoding (utf8|euc|sjis)

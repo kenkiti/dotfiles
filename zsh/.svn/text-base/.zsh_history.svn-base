@@ -1,0 +1,9419 @@
+ll
+ls -al
+vi .zshrc
+exit
+ls
+ll
+vi .zshrc
+exit
+ll
+cd work
+ssh sc430
+ll
+cd ..
+vi synergy.conf
+ifconfig
+ifconfig eth0
+ifconfig en0
+ifconfig
+ping www.yahoo.com
+ll
+ls --color
+man ls
+ls -G
+ll -G
+ll
+synergys
+synergy
+which synergy
+svn
+vi .zshrc
+exit
+svn
+ll
+synergys --config synergy.conf
+ll
+ifconfig
+sudo synergys --config synergy.conf
+tail /var/log/system.log
+hostname
+vi synergy.conf
+killall 
+killall synergys
+sudo killall synergys
+sudo synergys ./synergy.conf
+sudo synergys --config ./synergy.conf
+tail /var/log/system.log
+tail /Library/Logs/CrashReporter/synergys.crash.log
+sudo synergys --config ./synergy.conf
+tail /var/log/system.log
+/Users/tadashi/Desktop/synergy-1.3.1/synergys; exit
+/Users/tadashi/Desktop/synergy-1.3.1/synergys --config ~/synergy.conf
+tail /var/log/system.log
+/Users/tadashi/Desktop/synergy-1.3.0/synergys --config ~/synergy.conf
+tail /var/log/system.log
+/Users/tadashi/Desktop/synergy-1.3.0/synergys --config ~/synergy.conf
+tail /var/log/system.log
+ifconfig en0
+ifconfig
+ll
+sudo mv synergy.conf /etc
+vi local/bin/autosynergy
+cd local/bin
+chmod +x autosynergy
+ll
+./autosynergy
+/opt/local/bin/synergys --config /etc/synergy.conf
+tail /var/log/system.log
+sudo mv /Users/tadashi/Desktop/synergy-1.3.0/synergys /opt/local/bin
+sudo mv /Users/tadashi/Desktop/synergy-1.3.0/synergyc /opt/local/bin
+cd ../../work
+svn co svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten.autopilot affiliate.rakuten.autopilot
+ll
+cd affiliate.rakuten.autopilot
+e autopilot.py
+cd
+rsync -avz -e ssh sc430:/home/samba/dict ~/local/
+ll
+cd local
+cd dict
+svn
+python
+ll
+cd
+vi .zshrc
+exit
+ls
+vi .inputrc
+vi .zshenv
+which zsh
+ls /usr/bin/
+ll /usr/bin/ | grep zsh
+ll /usr/bin/ | grep z
+ll /usr/bin/ | grep ^z
+ll /usr/bin/ | grep [^z]
+ll /usr/bin/ | grep ^z
+ll /usr/bin/ | grep ^a
+ll /usr/bin/ | grep h$
+/usr/bin/zsh
+which zsh
+ll /bin/zsh/
+ll /bin/zsh
+vi .zshenv
+exit
+ls
+zsh -v
+zsh --version
+curl -O http://www.zsh.org/pub/zsh-4.3.3.tar.gz
+mv zsh-4.3.3.tar.gz temp
+cd temp
+tar zxvf zsh-4.3.3.tar.gz
+cd zsh-4.3.3
+./Util/preconfig
+./configure --enable-multibyte --enable-locale
+make 
+sudo make install
+cd
+vi .zshenv
+chsh 
+zsh
+which zsh
+exit
+exit
+exit
+ll
+vi .zshrc
+/usr/local/bin/zsh
+ll
+exit
+cd local/dict
+exit
+ll
+exit
+ll
+/usr/local/bin/zsh-4.3.3
+ll
+cd temp/zsh-4.3.3
+./configure --enable-multibyte --enable-locale
+ls /usr/local/bin
+rm /usr/local/bin
+sudo rm /usr/local/bin/
+sudo rm -r /usr/local/bin/
+ll
+ls /usr/local/bin
+sudo mkdir /usr/local/bin
+ls /usr/local/man
+sudo rm /usr/local/man/man1/*
+sudo rm -r /usr/local/lib/zsh/
+sudo rm -r /usr/local/share/zsh
+chsh
+cd
+vi .zshenv
+port list | grep zsh
+sudo port install zsh-devel
+sudo port uninstall zsh
+sudo port install zsh-devel
+exit
+exit
+ll
+zsh --version
+/opt/local/bin/zsh --version
+exit
+ll
+zsh --version
+sudo shutdown -r now
+zsh --version
+which zsh
+/opt/local/bin/zsh
+ll
+/opt/local/bin/zsh --version
+exit
+chsh
+cd /bin
+ll
+sudo mv zsh zsh.org
+ll
+ln -s zsh /opt/local/bin/zsh-4.3.2
+ln -s /opt/local/bin/zsh-4.3.2 zsh
+sudo ln -s /opt/local/bin/zsh-4.3.2 zsh
+ll
+exit
+zsh --version
+ll
+vi .zshrc
+vi .zshenv
+exit
+ll
+tcsh
+sudo port uninstall zsh
+chsh 
+ll
+exit
+ll
+svn
+ls -al
+ll
+export LANG=ja_JP.UTF-8
+ll
+zsh --version
+sudo port uninstall zsh-devel
+sudo port install zsh-devel +dp_completion +utf8
+exit
+ll
+exit
+ll
+svn
+„Åª„ÅÉ≤
+ls -F
+port variants zsh-devel
+ll
+cd Desktop
+ll
+cd ..
+cd local/dict
+which ls
+LANG=ja_JP.UTF-8 /bin/ls
+LANG=ja_JP.EUC-JP /bin/ls
+exit
+ll
+exit		
+ll
+zsh --version
+svn
+sudo port deactive python
+sudo port deactivate python
+sudo port list | grep python
+sudo port search python
+sudo port activate python24
+exit
+port dir
+synergys --config /etc/synergy.conf
+ssh sc430
+man port
+chsh
+exit
+ls
+ls -v
+man ls
+vi .zshrc
+source .zshrc
+ls
+ll
+la
+ll
+vi .tcshrc
+ssh tadashi.kicks-ass.net -p 11022
+python
+cd work
+mydebug.py
+ll
+python mydebug.py 
+python mydebug.py  > test.txt
+cd affiliate.rakuten.autopilot
+ll
+python autopilot.py
+python
+/opt/local/bin/python autopilot.py
+sudo port install -d py-yaml
+/opt/local/bin/python autopilot.py
+cd
+ls /etc/pam.d
+ls /etc/pam.d/cups
+cat /etc/pam.d/login
+ssh x3105
+ssh sc430
+sudo shutdown -r nwo
+sudo shutdown -r now
+ssh sc430
+ll
+cd ..
+cd Library
+cd ..
+cd Network
+..
+cd Volumes
+cd ..
+cd Applications
+cd Emacs.app
+cd con
+cd Contents
+cd MacOS
+cd bin
+emacs
+..
+cd Emacs.app
+cd Contents
+cd Library
+cd coral.app
+cd Contents
+cd MacOS
+..
+cd Contents
+cd Resources
+..
+cd MacOS
+./Emacs
+ssh sc430
+cd
+keychain
+cd
+mkdir .MacOSX
+ll
+la
+cd .MacOSX
+vi environment.plist
+cd
+open -a Emacs
+ssh x3105
+ssh sc430
+exit
+cd work
+rm mydebug.py
+rm test.txt
+ll
+cd affiliate.rakuten.autopilot
+svn status
+svn ci autopilot.py
+svn ci autopilot.py -m "fixed bug in openurl.read()"
+ssh sc430
+ssh x3105
+exit
+cd
+cat .ssh/id_dsa.pub | ssh x3105 "cat >> ./.ssh/authorized_keys"
+ssh x3105
+vi .zshrc
+ll
+open -a emacsclient
+/Applications/Emacs.app/Contents/MacOS/bin/emacsclient work/dotfiles/symlink.rb
+source .zshrc
+e
+/Applications/Emacs.app/Contents/MacOS/bin/emacsclient work/dotfiles/symlink.rb
+vi .zshrc
+source .zshrc
+emacs
+ssh x3105
+ssh sc430
+exit
+ll
+ssh sc430
+synergys --config /etc/synergy
+synergys --config /etc/synergy.conf
+ifconfig
+tail /var/log/system.log
+exit
+ssh x3105
+ll
+cd work
+cd affiliate.rakuten.autopilot
+python autopilot.py
+PATH
+$PATH
+echo $PATH
+vi .zshenv
+cd
+vi .zshenv
+vi .zshrc
+export $PATH=/opt/local/bin:$PATH
+export PATH=/opt/local/bin:$PATH
+echo $PATH
+python
+cd work
+cd affiliate.rakuten.autopilot
+python autopilot.py
+emacs
+cd..
+..
+svn co svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten.post affiliate.rakuten.post
+port list | grep mechanize
+port list | grep ruby
+port list | grep rb-m
+ruby -c
+ruby -v
+port list | grep ruby
+port list | grep ruby | grep -v rb-
+sudo port install ruby
+sudo port install -d ruby
+port search gems
+exit
+ruby -v
+echo $PATH
+/opt/local/bin/ruby -v
+ruby -v
+python
+rehash
+ruby -v
+sudo port install rb-gems
+port search gems
+sudo port install rb-rubygems
+rehash
+sudo gem install mechanize
+sudo gem search mechanize
+sudo gem install mechanize
+ll
+cd affiliate.rakuten.post
+ruby post_rakuten_blog.rb
+ll
+ruby autopilot.rb
+ruby autopilot.rb > test.html
+ruby autopilot.rb
+ll
+rm test.html
+ruby autopilot.rb
+ll
+ruby autopilot.rb
+cat test.html
+less test.html
+more test.html
+bash
+ll
+ruby autopilot.rb
+ruby test_rakuten.rb
+ruby autopilot.rb
+ruby test_rakuten.rb
+ruby autopilot.rb
+ping www.yahoo.com
+ll
+cd ll
+ll
+cd work
+cd affiliate.rakuten.
+cd affiliate.rakuten.post
+irb
+ruby autopilot.rb
+ruby -v
+rehash
+ruby -v
+echo $PATH
+export PATH=/opt/local/bin:$PATH
+echo $PATH
+rehash
+ruby -v
+ruby autopilot.rb
+ll
+ruby test.rb
+ruby autopilot.rb
+ruby test.rb
+ruby test_rakuten.rb
+ruby autopilot.rb
+ruby test.rb
+ruby test_rakuten.rb
+irb
+ping 192.168.0.1
+ping 192.168.0.5
+ping 192.168.0.21
+ssh sc430
+exit
+cd work
+cd affiliate.rakuten.post
+ruby autopilot.rb
+echo $ath
+echo $path
+export PATH=/opt/local/bin:$PATH
+ruby autopilot.rb
+ruby post_rakuten_blog.rb
+synergys --config /etc/synergy.conf
+tail /var/log/system.log
+irb
+ll
+svn status
+ll
+cd ..
+mv affiliate.rakuten.ruby affiliate.rakuten.pilot
+ll
+svn import ./affiliate.rakuten.pilot svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten.pilot
+svn import ./affiliate.rakuten.pilot svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten.pilot -m 'initial import'
+cd affiliate.rakuten.pilot
+svn co svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten.pilot .
+ll
+svn status
+svn add autopilot.rb
+mv test_rakuten.rb test_pilot.rb
+ll
+svn add *.rb
+svn status
+svn add *.yaml
+svn status
+svn ci -m "initial import"
+svn up
+ps 
+ps -a
+ps -au
+ps -aux
+ps -aux | grep coo
+kill 1427
+ps -aux | grep coo
+sudo kill 1427
+ps -aux | grep coo
+ll
+emacs
+cd ..
+cd affiliate.rakuten.autopilot
+svn status
+svn add core.py -m "initial import"
+svn add core.py
+svn status
+python
+python autopilot.py
+svn status
+svn ci -m 'export main function to core.py'
+ssh sc430
+ll
+cd ../affiliate.rakuten.pilot
+ri
+ri YAML
+ll
+ruby core.rb
+ri Hash
+ri Hash::delete
+ri Hash
+ri Hash::clear
+ri Hash.clear
+ruby core.rb
+ri open
+ri IO::open
+ruby core.rb
+ll
+cat rakuten_main.yaml
+rm rakuten_main.yaml
+ll
+rm hoge.txt
+ruby core.rb
+ll
+ruby core.rb
+ll
+ruby core.rb
+ll
+ruby core.rb
+cat rakuten_main.yaml
+ruby core.rb
+cd ../affiliate.rakuten.autopilot
+cd ..
+cd affiliate.rakuten.post
+cd ..
+cd affiliate.rakuten.post
+ruby test.rb
+cd ../affiliate.rakuten.pilot
+ruby core.rb
+vi rakuten_main.yaml
+ruby core.rb
+vi rakuten_main.yaml
+ruby core.rb
+rm rakuten_main.yaml
+ruby core.rb
+ll
+rm rakuten_main.yaml
+ll
+ruby core.rb
+rm rakuten_main.yaml
+ruby core.rb
+vi rakuten_main.yaml
+ruby core.rb
+vi rakuten_main.yaml
+ruby core.rb
+ruby autopilot.rb
+ll
+svn status
+ssh sc430
+ll
+cp ../affiliate.rakuten.autopilot/checkpilot.sh .
+ll
+e checkpilot.sh
+ssh sc430
+ll
+send_error_mail.sh
+vi send_error_mail.sh
+chmod +x send_error_mail.sh
+ll
+./send_error_mail.sh
+vi send_error_mail.sh
+./send_error_mail.sh
+vi send_error_mail.sh
+./send_error_mail.sh
+mail
+su -
+sudo su
+ruby autopilot.rb
+ssh sc430
+ll
+svn status
+svn up
+cd ..
+mkdir affiliate.rakuten.pilot.debug
+cd affiliate.rakuten.pilot.debug
+svn co -r 73 svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten.pilot
+svn co -r 73 svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten.pilot .
+ll
+svn co -r 72 svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten.pilot .
+ruby autopilot.rb
+ssh sc430
+ll
+cd
+cd work
+ssh sc430
+emacs
+cd affiliate.rakuten.post
+ruby test.rb
+ruby test.rb > null
+cd ..
+cd affiliate.rakuten.post
+cd ..
+cd affiliate.rakuten.pilot
+rm \#post.rb\#
+ll
+svn status
+ruby autopilot.rb
+locate mechanize
+ls /opt/local
+ls /opt/local/Library
+ls /opt/local/share
+cd
+ls -F
+ls -C
+man ls
+ls -G
+man ls
+ls -G
+ll
+ll -G
+cd work
+cd affiliate.rakuten.autopilot
+ll -G
+cd
+vi .zshrc
+source .zshrc
+ll
+cd work
+ll
+gem help command
+irb
+cd affiliate.rakuten.post
+ruby test.rb
+irb
+synergys --config /etc/synergy.conf
+cd ..
+cd affiliate.rakuten.pilot
+ruby test
+ruby test.rb
+ruby test.rb > test.html
+firefox
+open -a firefox test.html
+ruby test.rb
+ruby test.rb > test.html
+open -a firefox test.html
+ruby test.rb > test.html
+open -a firefox test.html
+ruby test.rb > test.html
+open -a firefox test.html
+ruby test.rb > test.html
+open -a firefox test.html
+ruby test.rb > test.html
+open -a firefox test.html
+ruby test.rb
+ruby test.rb > test.html
+open -a firefox test.html
+ruby test.rb
+ruby test.rb > test.html
+open -a firefox test.html
+ruby test.rb > test.html
+open -a firefox test.html
+ruby test.rb > test.html
+open -a firefox test.html
+ruby test.rb > test.html
+open -a firefox test.html
+ruby test.rb
+ssh sc430
+ll
+mv test_pilot.rb autopilot_tc.rb
+ll
+mkdir test
+ll
+mv autopilot_tc.rb test
+cd test
+ruby autopilot_tc.rb
+ruby search_tc.rb
+ll
+ssh sc430
+ll
+cd ..
+ll
+cd test
+mv autopilot_tc.rb ../core_tc.rb
+mv search_tc.rb ../
+ll
+cd ..
+rmdir test
+ll
+perl
+perl -v
+cpan
+ssh sc430
+open -a emacsclient
+open -a Emacs
+sudo shutdown -r 
+sudo shutdown -r now
+emacs
+cd work
+rm -rf affiliate.rakuten.pilot.debug
+ll
+cd affiliate.rakuten.autopilot/
+synergys --config /etc/synergy.conf
+cd
+vi .zshrc
+source .zshrc
+firefox
+vi .zshrc
+source .zshrc
+firefox
+ll
+cd temp
+ll
+mkdir temp
+cd temp
+vi testlwp.pl
+ll
+perl testlwp.pl
+perl -MCPAN -e shell
+perl testlwp.pl
+perl -MCPAN -e shell
+sudo cpan
+sudo perl -MCPAN -e 'install libwww-perl'
+sudo cpan
+perl testlwp.pl
+sudo cpan
+sudo port install wget
+sudo cpan
+perl testlwp.pl
+port list openssl
+sudo port installed
+sudo cpan
+perldoc HTTP::Request
+perl testlwp.pl
+perl testlwp.pl > test.htmk
+perl testlwp.pl > test.html
+rm test.htmk
+firefox test.html
+perl testlwp.pl > test.html
+firefox test.html
+cpan
+sudo cpan
+perl testlwp.pl
+hoge
+emacs
+emacs -nw
+which emacs
+ll
+exit
+ll
+rm \#testlwp.pl\#
+ll
+cp ../work/affiliate.rakuten.pilot/rakuten_honten.yaml .
+cp ../work/affiliate.rakuten.pilot/rakuten_shiten.yaml .
+ll
+perl testlwp.pl
+cd 
+vi .zshrc
+emacs -nw
+vi .zshrc
+ee
+source .zshrc
+ee
+ll
+ls
+exit
+mv .zshrc .zshrc.bak
+source .zshrc
+ll
+exit
+source .zshrc
+ll
+svn
+diff .zshrc .zshrc.bak
+ssh sc430
+ll
+vi .zshrc
+uid
+$uid
+$UID
+echo $UID
+vi .zshrc
+source .zshrc
+vi .zshrc
+ll
+ssh sc430
+vi .zshrc
+source .zshrc
+vi .zshrc
+source .zshrc
+ssh sc430
+vi .zshrc
+source .zshrc
+ssh sc430
+source .zshrc
+vi .zshrc
+source .zshrc
+ssh sc430
+ll
+ssh sc430
+vi .zshrc
+source .zshrc
+ll
+ssh sc430
+cd temp/
+perl testlwp.pl
+perl testlwp.pl > test.html
+firefox test.html
+ll
+vi hoge.pl
+chmod +x hoge.pl
+./hoge.pl
+vi hoge.pl
+ee hoge.pl
+./hoge.pl
+ee hoge.pl
+./hoge.pl
+fg
+./hoge.pl
+fg
+./hoge.pl
+fg
+ll
+chmod +x hage.pl
+./hage.pl
+fg
+ll
+mv hoge.pl Hoge.pm
+ee Hoge.pm
+ee hage.pl
+./hage.pl
+ll
+chmod +x testlwp.pl
+./testlwp.pl
+./testlwp.pl | less
+./testlwp.pl 
+ll
+./testlwp.pl 
+sudo cpan
+perldoc YAML
+./hage.pl
+perldoc YAML
+./hage.pl
+./testlwp.pl
+./hage.pl
+./hage.pl > test.html
+ll
+rm new
+firefox test
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+ll
+rm Japanese
+ll
+./hage.pl
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+./testlwp.pl > test.html
+firefox test.html
+ll
+exit
+exit
+emacs
+./hage.pl
+./hage.pl > test.html
+firefox test.html
+vi test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+firefox test.html
+emacs
+ll
+mkdir plagger
+cd plagger/
+svn co http://svn.bulknews.net/repos/plagger/trunk/plagger
+ll
+cd plagger
+find . -name *.* "mechanize"
+grep "mechanize"
+grep -r "mechanize"
+grep -r mechanize *
+grep -r "mechanize" *
+grep -r "LWP" *
+grep -r "Mechanize" *
+grep -r "rakuten" *
+grep -r "rakuten" * | grep .svn
+grep -r "rakuten" * | grep -v .svn
+emacs assets/plugins/Filter-EntryFullText/plaza_rakuten.yaml
+grep -r "Mechanize" * | grep -v .svn
+emacs lib/Plagger/Mechanize.pm
+grep -r "rakuten" * | grep -v .svn
+cd 
+cd temp
+./hage.pl
+./hage.pl > test.html
+firefox test.html
+./hage.pl > test.html
+./hage.pl
+mech-dump
+mech-dump --forms http://search.cpan.org
+mech-dump --forms https://grp02.id.rakuten.co.jp/nms/nid/login
+mech-dump --forms https://grp02.id.rakuten.co.jp/rms/nid/login
+./hage.pl
+./hage.pl > test.html
+firefox test.html
+./hage.pl 
+./hage.pl > test.html
+firefox test.html
+./hage.pl
+ll
+chmod +x autopilot.pl
+./autopilot.pl
+./autopilot.pl > test.html
+firefox test.html
+./autopilot.pl > test.html
+firefox test.html
+./autopilot.pl 
+./autopilot.pl  | less
+./autopilot.pl 
+shutdown -r now
+sudo shutdown -r now
+emacs
+synergys --config /etc/synergy.conf
+ssh sc430
+emacs
+cd temp/
+./autopilot.pl
+ll
+cd work/
+cd affiliate.rakuten.autopilot/
+cd ..
+svn move affiliate.rakuten.autopilot/ affiliate.rakuten.autopilot.python
+svn status
+cd affiliate.rakuten.
+svn co svn+ssh://home/svn/repos/private .
+svn co svn+ssh://x3105/home/svn/repos/private .
+svn move -m "Move a directory" svn+ssh://x3105/home/svn/repos/privates/affiliate.rakuten.autopilot svn+ssh://x3105/home/svn/repos/privates/affiliate.rakuten.autopilot.python
+ssh x3105
+exit
+sudo shutdown -r now
+cd work
+ssh x3105
+ll
+cd affiliate.rakuten.autopilot/
+svn status
+cd ../affiliate.rakuten.pilot/
+svn status
+svn ci -m "no comment"
+ll
+svn ci -m "no comment"
+ll
+svn status
+cd ..
+svn co svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten.autopilot.ruby .
+svn up
+ll
+cd affiliate.rakuten.autopilot
+svn status
+cd..
+..
+rm -rf affiliate.rakuten.autopilot
+ll
+cd affiliate.rakuten.post/
+svn status
+mv post_rakuten_blog.rb ../affiliate.rakuten.autopilot.ruby/
+ll
+svn status
+cd ..
+rm -rf affiliate.rakuten.post/
+ll
+cd affiliate.rakuten.autopilot.ruby/
+svn statu
+svn status
+diff post_rakuten_blog.rb post_rakuten.rb
+ll
+rm post_rakuten_blog.rb
+ll
+vi core.rb
+cd ..
+synergys --config /etc/synergy.conf
+cd affiliate.rakuten.pilot/
+svn status
+vi core.rb
+cd -9
+diff core.rb ../affiliate.rakuten.pilot/core.rb
+cd ..
+rm -rf affiliate.rakuten.pilot/
+ll
+cd affiliate.rakuten.autopilot.perl/
+cp ../../temp/autopilot.pl .
+cp ../../temp/rakuten_honten.yaml .
+cp ../../temp/rakuten_shiten.yaml .
+ll
+svn status
+svn add rakuten_honten.yaml
+svn add *
+svn ci -m "initial import"
+emacs
+cd
+cd temp
+mv hage.pl ..
+ll
+cd ..
+mv hage.pl temp/
+cd temp
+cd plagger/
+cd ..
+mv plagger/plagger/ ../
+ll
+cd plagger/
+ll
+..
+rmdir plagger/
+ll
+cd ..
+mkdir trash
+cd temp
+mv autopilot.pl ../trash/
+mv rakuten_* ../trash/
+ll
+rm test.html
+vi testlwp.pl
+rm testlwp.pl
+ll
+vi Hoge.pm
+./hage.pl
+perldoc time
+perldoc Time
+perldoc Time::CTime
+perldoc Time::Piece
+perldoc date
+perldoc print
+perldoc
+perldoc -f Time
+perldoc -q Time
+perldoc -q Time::CTime
+perldoc -q Time::Piece
+perldoc -f Time
+perldoc -f Date
+perldoc -f Time::Seconds
+perldoc -f localtime
+./hage.pl
+sudo cpan
+./hage.pl
+rehash
+./hage.pl
+cd -13
+./autopilot.pl
+cd -22
+./hage.pl
+cd
+cd -22
+./autopilot.pl
+ll
+svn status
+svn ci -m "version 0.0.1"
+ssh sc430
+ll
+cd
+vi .ssh/config
+ssh lavie
+ping 192.168.0.7
+exit
+emacs
+exit
+ssh sc430
+ssh lavie
+ssh sc430
+ssh lavie
+cd work/affiliate.rakuten.autopilot.perl/
+./autopilot.pl
+ssh lavie
+ll
+ssh lavie
+ssh x3105
+ssh lavie
+exit
+ssh lavie
+ssh sc430
+ssh x3105
+ssh lavie
+ll
+ssh 192.168.0.13
+ssh sc430
+ssh 192.168.0.13
+ssh sc430
+ssh lavie
+exit
+ll
+ssh lavie
+ll
+ssh lavie
+perldoc $@
+perldoc
+perldoc $@
+perldoc -q $@
+perldoc -f srand
+perldoc -f print
+perldoc
+ps -aux | grep perl
+perldoc -f sprint
+sudo killall perl
+perldoc -f sprintf
+exit
+perldoc -f sprintf
+perldoc -f srand
+perldoc perlvar
+cd temp
+ll
+gcc -D0 assemble.c -o assemble
+gcc assemble.c
+ll
+gcc -O0 assemble.c -o assemble
+ll
+rm a.out
+ll
+./assemble
+gcc -O0 assemble.c -o assemble
+objdump -d assemble
+ssh lavie
+cd
+cat .ssh/id_dsa.pub | ssh lavie `cat >> .ssh/authorized_keys`
+cat .ssh/id_dsa.pub | ssh lavie "cat >> .ssh/authorized_keys"
+ssh lavie
+ll
+mv plagger/ temp/
+ll
+cd temp/
+cd ..
+cd work/
+cd
+cd local
+cd html/
+cd ..
+cd mikity/
+emacs mikity_ex.html
+ll
+firefox mikity_ex.html
+ll
+cd ..
+cd wo
+cd
+cd work/
+cd affiliate.rakuten.autopilot.ruby
+emacs core.rb
+ll
+mkdir temp
+cp rakuten_honten.yaml temp/
+cd temp/
+ll
+ruby test.rb
+cd
+cd Sites/
+ssh lavie
+cd
+cd Desktop/
+mv debug.js ../
+cd
+mv debug.js local/mikity/
+cd local/mikity/
+emacs debug.js
+cd
+cp local/mikity/ work/
+cp -r local/mikity/ work/
+cd work/
+mkdir affiliate.rakuten.mikity
+mv *.html affiliate.rakuten.mikity/
+ll
+mv *.js affiliate.rakuten.mikity/
+mv *.txt affiliate.rakuten.mikity/
+mv *.cgi affiliate.rakuten.mikity/
+ll
+cd affiliate.rakuten.mikity/
+vi blogpost.html
+ll
+mv mikity.html mikity.html.org
+ll
+chmod 666 mikity.html.org
+ll
+chmod 666 mikity_ex.html
+ll
+chmod +x create_yaml_file.py
+ll
+which python
+which env
+./create_yaml_file.py
+ll
+mv create_yaml_file.py create_yaml_file.rb
+ll
+./create_yaml_file.rb
+vi ../../mikity_ex.html
+./create_yaml_file.rb
+cp ../affiliate.rakuten.autopilot.ruby/rakuten_honten.yaml .
+ll
+./create_yaml_file.rb
+./create_yaml_file.rb | less
+./create_yaml_file.rb
+ll
+rm rakuten_honten.yaml
+ll
+emacs mikity.js
+ll
+cd ..
+cd affiliate.rakuten.autopilot.python/
+emacs tool_create_html.py
+cd ..
+svn status
+cd affiliate.rakuten.autopilot.perl/
+svn ci
+svn ci -m "no comment"
+cd ..
+svn status
+cd dotfiles/
+svn status
+svn up
+svn status
+svn ci -m "no comment"
+cd ..
+svn status
+cd misc/
+svn status
+cd ..
+cd affiliate
+svn statu
+svn status
+cd ..
+rmdir affiliate
+rm -rf affiliate
+cd affiliate.rakuten
+svn status
+cd ..
+rm -rf affiliate.rakuten
+ll
+cd affiliate.rakuten.autopilot.perl/
+svn status
+cd ..
+rm -rf affiliate.rakuten.autopilot.perl/
+ll
+cd affiliate.rakuten.autopilot.python/
+svn status
+cd ..
+rm -rf affiliate.rakuten.autopilot.python/
+ll
+cd affiliate.rakuten.autopilot.ruby/
+svn status
+cd temp
+cat test.rb
+cd ..
+rmdir temp/
+rm -rf temp/
+ll
+svn status
+cd ..
+rm -rf affiliate.rakuten.autopilot.ruby/
+ll
+cd affiliate.rakuten.old/
+svn status
+cd ..
+rm -rf affiliate.rakuten.old/
+ll
+cd bin/
+svn status
+cd ..
+cd mecab/
+svn status
+cd ..
+rm -rf mecab/
+cd misc/
+svn status
+ll
+cd ..
+rmdir misc/
+rm -rf misc/
+ll
+ssh x3105
+ll
+cd temp
+mkdir temp
+rm -rf bin/
+ll
+cd temp
+mkdir mikity
+svn import mikity svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten/mikity -m 'initial import'
+ll
+cd ..
+mkdir mikity
+cd mikity/
+svn co svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten/mikity .
+mv ../affiliate.rakuten.mikity/* .
+ll
+chmod +x create_adminpage_from_yaml.rb
+ll
+emacs create_adminpage_from_yaml.rb
+svn add *
+svn ci -m "initial import"
+ll
+./create_adminpage_from_yaml.rb
+ll
+svn status
+cd ..
+svn co svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten/autopilot.old2.python old2
+ll
+cd old2/
+cd ..
+svn co svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten/autopilot.python autopilot.python
+ll
+cd autopilot.python/
+cp tool_create_html.py ../mikity/
+cd ..
+cd affiliate.rakuten.mikity/
+cd ..
+rmdir affiliate.rakuten.mikity/
+ll
+cd mikity/
+./create_adminpage_from_yaml.rb
+ll
+./create_adminpage_from_yaml.rb > rakuten_main.yaml
+./create_adminpage_from_yaml.rb
+rm rakuten_main.yaml
+ll
+./create_adminpage_from_yaml.rb
+ll
+rm rakten_main.yaml
+./create_adminpage_from_yaml.rb
+ll
+emacs rakuten_main.yaml
+./create_adminpage_from_yaml.rb
+ll
+rm rakuten_main.yaml
+./create_adminpage_from_yaml.rb
+rm rakuten_main.yaml
+./create_adminpage_from_yaml.rb
+ri type
+./create_adminpage_from_yaml.rb
+ri type
+ri Object.Type
+ri Type
+ri type
+./create_adminpage_from_yaml.rb
+ll
+rm rakuten_main.yaml
+./create_adminpage_from_yaml.rb
+ls ..
+cp ../autopilot.python/*.yaml .
+ll
+rm rakuten_main.yaml
+ll
+cd ..
+cd autopilot.python/
+cp rakuten_shiten.yaml ../mikity/
+cd ../mikity/
+chmod -x rakuten_shiten.yaml
+ll
+./create_adminpage_from_yaml.rb
+./create_adminpage_from_yaml.rb > hoge.html
+firefox hoge.html
+./create_adminpage_from_yaml.rb > hoge.html
+firefox hoge.html
+./create_adminpage_from_yaml.rb > hoge.html
+firefox hoge.html
+./create_adminpage_from_yaml.rb > hoge.html
+firefox hoge.html
+ll
+rm hoge.html
+rm tool_create_html.py
+svn status
+svn add *
+svn ci -m 'version 0.01'
+svn status
+sudo shutdown -r now
+ps -aux | grep firefox
+synergys --config /etc/synergy.conf
+ps -aux | grep synergy
+sudo shutdown -r now
+synergys --config /etc/synergy.conf
+emacs
+ll
+cd work/
+cd mikity/
+emacs readme.txt
+ll
+cd ..
+cd autopilot.python/
+cd ..
+cd old2/
+emacs rakuten.py
+cd ..
+svn co svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten/autopilot.ruby autopilot.ruby
+ll
+cd autopilot.ruby/
+emacs core.rb
+ll
+ruby test_pilot.rb
+gem
+gem list --local
+ruby core.rb
+gem help
+echo PATH
+echo $PATH
+cd
+vi .zshenv
+vi .zshrc.mine
+source .zshrc
+cd -
+ruby core.rb
+ruby test_pilot.rb
+ll
+firefox hoge.html
+ruby test_pilot.rb
+firefox hoge.html
+ruby test_pilot.rb
+ruby core.rb
+firefox hoge.html
+ruby core.rb
+ruby test_pilot.rb
+firefox hoge.html
+ruby test_pilot.rb
+firefox hoge.html
+ruby core.rb
+firefox hoge.html
+ruby core.rb
+firefox hoge.html
+ruby core.rb
+ruby test_pilot.rb
+ri rand
+ri srand
+irb
+ruby test_pilot.rb
+irb 
+ruby test_pilot.rb
+irb
+ruby test_pilot.rb
+ll
+cd ../mikity/
+firefox mikity_ex.html
+./create_yaml_file.rb
+./create_yaml_file.rb > rakuten_shiten_tomoko.yaml
+ll
+cd
+mv mikity_ex.html mikity_shiten_tomoko.html
+ll
+cd -
+./create_yaml_file.rb
+ll
+./create_yaml_file.rb > rakuten_oosaka_tomoko.yaml
+ll
+./create_adminpage_from_yaml.rb
+./create_adminpage_from_yaml.rb > admin.html
+ll
+firefox admin.html
+./create_adminpage_from_yaml.rb > admin.html
+firefox admin.html
+rm rakuten_main.yaml
+./create_adminpage_from_yaml.rb > admin.html
+firefox admin.html
+./create_adminpage_from_yaml.rb > admin.html
+firefox admin.html
+./create_adminpage_from_yaml.rb 
+./create_adminpage_from_yaml.rb > admin.html
+firefox admin.html
+ll
+chmod +x initial_setting.rb
+ll
+./initial_setting.rb
+./initial_setting.rb > hoge.html
+firefox hoge.html
+./initial_setting.rb > hoge.html
+firefox hoge.html
+./initial_setting.rb > hoge.html
+firefox hoge.html
+irb
+cd work/mikity/
+./initial_setting.rb
+./initial_setting.rb > hoge.html
+firefox hoge.html
+./initial_setting.rb > hoge.html
+firefox hoge.html
+./initial_setting.rb > hoge.html
+firefox hoge.html
+./initial_setting.rb > hoge.html
+firefox hoge.html
+./initial_setting.rb 
+ri object.method=
+ri method=
+ri method
+irb
+emacs
+ssh sc430
+ll
+cd temp/
+emacs hoge.pl
+ls
+emacs hage.pl
+ll
+./hage.pl
+timeit.py
+cd ..
+cd work/mikity/
+firefox admin.html
+ssh sc430
+ifconfig
+exit
+ll
+cd 
+cd temp/
+synergys --config /etc/synergy.conf
+synergys --config synergy.conf
+synergys --config /etc/synergy.conf
+sudo shutdown -r now
+cd work/mikity/
+firefox admin.html
+emacs 
+ll
+emacs initial_setting.rb
+./initial_setting.rb
+irb
+./initial_setting.rb
+irb 
+./initial_setting.rb
+irb
+./initial_setting.rb
+firefox hoge.html
+./initial_setting.rb
+firefox ami
+firefox admin.html
+./initial_setting.rb
+firefox hoge.html
+./initial_setting.rb
+firefox hoge.html
+ls ../autopilot.ruby/
+cp ../autopilot.ruby/name_generator.rb
+cp ../autopilot.ruby/name_generator.rb .
+emacs name_generator.rb
+ruby name_generator.rb
+irb
+ruby name_generator.rb
+irb
+ri rand
+ruby name_generator.rb
+ri toint
+ri to_i
+ruby name_generator.rb
+ll
+./initial_setting.rb
+ruby name_generator.rb
+./initial_setting.rb
+ruby name_generator.rb
+./initial_setting.rb
+firefox hoge.html
+./initial_setting.rb
+firefox hoge.html
+./initial_setting.rb
+firefox hoge.html
+./initial_setting.rb
+irb
+./initial_setting.rb
+firefox hoge.html
+emacs hoge.html
+./initial_setting.rb
+ruby name_generator.rb
+synergys --config /etc/synergy.conf
+ll
+cd ..
+cd autopilot.ruby/
+ruby core.rb
+cat rakuten_main.yaml
+cat ../mikity/rakuten_main.yaml
+ssh sc430
+ll
+cat rakuten_m
+cat rakuten_main.yaml
+cp ../mikity/rakuten_main.yaml
+cp ../mikity/rakuten_main.yaml .
+cat rakuten_main.yaml
+ll
+ruby core.rb
+ll
+cat rakuten_main.yaml
+ruby core.rb
+ping -a 192.168.0.1
+ping -a 192.168.10.1
+ifconfig
+ifconfig /renew
+man ifconfig 
+ifconfig
+ping www.yahoo.com
+sudo shutdpwn -r now
+sudo shutdown -r now
+ssh sc430
+shutdown -r now
+sudo shutdown -r now
+ssh x3105
+synergys --config /etc/synergy.conf
+ifconfig
+synergys --config /etc/synergy.conf
+cd work/mikity/
+firefox admin.html
+ll
+cd ..
+cd autopilot.ruby/
+rm hoge.html
+svn status
+svn ci *.rb
+svn add name_generator.rb
+svn add rakuten_main.yaml
+svn ci 
+svn ci -m "no comments"
+svn status
+svn up
+ll
+emacs autopilot.rb
+emacs *.rb
+ll
+mkdir trash
+mv search.rb trash/
+ll
+mv post.rb trash/
+ll
+mv post_rakuten.rb trash/
+ll
+irb
+ll
+mkdir yaml
+ll
+mv rakuten_honten.yaml
+mv rakuten_honten.yaml yaml/
+mv rakuten_shiten.yaml yaml/
+ll
+mv rakuten_main.yaml yaml/
+ll
+svn status
+ll
+svn delete rakuten_shiten.yaml
+svn delete rakuten_honten.yaml
+svn delete rakuten_main.yaml
+svn status
+svn delete post.rb
+svn delete search.rb
+svn status
+svn delete post_rakuten.rb
+svn status
+svn add yaml
+svn propset
+svn help
+svn propset:ignore trash
+svn pset:ignore trash
+svn pedit
+svn pedit ignore
+svn pedit ignore trash
+svn pe svn:ignore
+svn pe svn:ignore trash
+ll
+svn status
+svn pe svn:ignore ./trash/
+svn ci -m 'move yaml'
+svn status
+svn propset svn:ignore trash
+svn propset svn:ignore ./trash/
+svn propset svn:ignore trash/
+svn add trash/
+svn propset svn:ignore trash/
+svn propset svn:ignore trash/*
+svn delete trash
+svn --force delete trash
+svn propset svn:ignore trash/*
+svn status
+svn propset svn:ignore trash/*
+svn propset svn:ignore trash/*.rb
+svn ci -m 'no comment'
+svn up
+ll
+ruby core.rb
+ruby name_generator.rb
+ruby core.rb
+cd
+cd work/mikity/
+cd ../autopilot.ruby/
+ruby core.rb
+ll
+firefox debug_135739.html
+ruby core.rb
+ll
+rm debug_1*
+ruby core.rb
+ll
+firefox debug_140341.html
+rm debug_1*
+ll
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+irb
+cd work/autopilot.ruby/
+ruby core.rb
+ll
+ls yaml/
+cd yaml
+cp ../../mikity/rakuten_oosaka_tomoko.yaml
+cp ../../mikity/rakuten_oosaka_tomoko.yaml .
+cp ../../mikity/rakuten_shiten_tomoko.yaml .
+ll
+cd ..
+ruby core.rb
+irb
+ri choice
+ri random
+ri choose
+irb
+ruby name_generator.rb
+ruby core.rb
+emacs yaml/rakuten_shiten_tomoko.yaml
+cp yaml/rakuten_shiten_tomoko.yaml yaml/rakuten_ttt.yaml
+emacs yaml/rakuten_ttt.yaml
+ruby core.rb
+emacs yaml/rakuten_ttt.yaml
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+ruby name_generator.rb
+ps -aux | grep Desktop
+sudo kill 2186
+ll
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+cd ..
+cd temp/
+cd mikity/
+ll
+cd ..
+rmdir mikity/
+cd ..
+rmdir temp/
+ll
+cd autopilot.ruby/
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+ruby core.rb
+ls yaml/
+rm yaml/rakuten_ttt.yaml
+ruby core.rb
+cd ../mikity/
+firefox admin.html
+cd ../autopilot.ruby/
+ruby core.rb
+exit
+emacs
+ll
+cd work/autopilot.ruby/
+emacs *.rb
+cd
+cd local/
+cd documents/
+cd
+ssh sc430
+cd local/
+cd mikity/
+cd ..
+cd dict/
+cd ..
+cd lisp/
+ll
+cd ..
+mv mikity/ temp/
+ll
+cd temp/
+rm -rf muse-3.02.93
+rm -rf zsh-4.3.3
+ll
+cd ..
+cd temp
+cd \!Documents/
+cd misc
+cd ..
+cd work/
+cd ..
+synergys --config /etc/synergy.conf
+ifconfig
+cd
+cd work/
+cd autopilot.ruby/
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+ll
+ruby core.rb
+ll
+firefox affi.html
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+irb
+firefox debug.html
+ruby core.rb
+cd work/autopilot.ruby/
+firefox debug.html
+exit
+ri Kconv
+irb
+ruby core.rb
+firefox debug.html
+ruby core.rb
+cd work/autopilot.ruby/
+firefox debug.html
+exit
+ruby -v
+ruby core.rb
+ruby client.rb
+firefox ../mikity/admin.html
+ruby client.rb
+irb
+ruby client.rb
+firefox ../mikity/admin.html
+ruby core.rb
+ruby client.rb
+ll
+cat client.rb | wc -l
+cat core.rb | wc -l
+ll
+svn status
+rm *.html
+ll
+svn status
+rm yaml/rakuten_ttt.yaml
+svn add client.rb
+svn add yaml/*
+svn status
+svn ci
+svn ci -m 'add client.rb'
+svn pe svn:ignore
+svn propedit svn:ignore *.html
+svn propedit svn:ignore "*.html"
+svn up
+touch hoge.html
+svn propedit svn:ignore "*.html"
+ll
+svn propset svn:ignore "*.html"
+svn propset svn:ignore "*.html" /
+svn propset svn:ignore "*.html" ./
+svn propedit svn:ignore
+svn propedit svn:ignore ./
+ruby core.rb
+firefox ../mikity/admin.html
+firefox debug.html
+sudo shutdown -r now
+cd work/autopilot.ruby/
+emacs *.rb
+cat core.rb|wc -l
+cat core.rb|wc -l > today.log
+cat today.log
+irb
+ll
+ruby core.rb
+ruby client.rb
+firefox ../mikity/admin.html
+ruby client.rb
+irb
+ruby client.rb
+irb
+ruby client.rb
+[16:01:48] NG: #<NoMethodError: undefined method `action' for nil:NilClass> by line 301 in ./core.rb.\
+[16:01:56] OK: otopxx0aj1 logined to my rakuten.\
+[16:02:05] OK: search and getting affiliate pages...\
+[16:02:12] OK: tpvpk6ih7d logined to rakuten plaza.\
+[16:02:20] OK: posted blog entry.\
+[16:02:26] OK: otopxx0aj1 logined to my rakuten.\
+[16:02:42] OK: search and getting affiliate pages...\
+[16:02:48] OK: pwegvozaub logined to rakuten plaza.\
+[16:02:53] OK: posted blog entry.\
+[16:02:58] OK: otopxx0aj1 logined to my rakuten.\
+[16:03:10] OK: search and getting affiliate pages...\
+[16:03:17] OK: 3yivesjv82 logined to rakuten plaza.\
+[16:03:22] OK: posted blog entry.\
+[16:03:30] OK: otopxx0aj1 logined to my rakuten.\
+[16:03:45] OK: search and getting affiliate pages...\
+[16:03:52] OK: w2eu99k307 logined to rakuten plaza.\
+[16:04:00] NG: w2eu99k307 is failed to post blog entry by line 158 in ./core.rb.\
+[16:04:07] OK: otopxx0aj1 logined to my rakuten.\
+[16:04:22] OK: search and getting affiliate pages...\
+[16:04:28] OK: z6apy5hkfv logined to rakuten plaza.\
+[ searc:05:14ined and gOK: otraking xx0ajplazaliate ogined16:09ges...o 16:10uten.sted b] OK:6:12g eb2m0j OK: s\
+[16: logi58] OK to rgine[16:00:17] OK: Client initialize to id=otopxx0aj1, list=rakuten_oosaka_tomoko.yaml.\
+[16:00:21] OK: otopxx0aj1 logined to my rakuten.\
+[16:00:46] OK: search and getting affiliate pages...\
+[16:00:53] OK: 4fhm7cuf1z logined to rakuten plaza.\
+[16:00:57] OK: posted blog entry.\
+[16:01:06] OK: otopxx0aj1 logined to my rakuten.\
+[16:01:22] OK: search and getting affiliate pages...\
+[16:01:30] OK: 5nfr8oile7 logined to rakuten plaza.\
+[16:01:39] OK: posted blog entry.
+ruby client.rb
+ll
+cd ..
+cd autopilot.ruby/
+ruby client.rb
+ruby client.rb > name.txt
+emacs name.txt
+ruby client.rb > name.txt
+ruby name_generator.rb
+calc
+ll
+cat client.rb
+cd ..
+svn co svn+ssh://x3105/home/svn/repos/private/affiliate.rakuten/report.ruby report.ruby
+ll
+cd report.ruby/
+emacs rakuten_affiliate.rb
+ll
+cp rakuten_affiliate.rb ../autopilot.ruby/mail_report_to_me.rb
+cd ..
+cd autopilot.ruby/
+chmod u+x client.rb
+ll
+svn status
+svn ps svn:ignore ChangeLog ./
+svn ps svn:ignore *.log ./
+svn status
+svn add mail_report_to_me.rb
+svn ci -m "add mail_report_to_me.rb"
+svn up
+svn status
+vim
+vi
+vi ~/.zshrc
+source ~/.zsh
+source ~/.zshrc
+svn pe svn:ignore
+svn pe svn:ignore ./
+svn status
+svn ci 
+svn status
+ll
+clean
+vi clean.sh
+rm today.log
+ll
+chmod u+x clean.sh
+ll
+emacs *.rb
+irb
+ruby client.rb
+ll
+irb
+./mail_report_to_me.rb
+irb
+./mail_report_to_me.rb
+cd temp/
+python test.py
+python
+python test.py
+sudo shutdown -r now
+emacs -nw
+e
+cat .zshrc
+cat .zshrc.mine
+ee
+e
+vi .zshrc.mine
+source .zshrc
+e
+emacs
+e
+port search python-mode
+port search python
+ls
+ll
+cd ..
+cd Applications/
+cd Emacs.app/
+cd con
+cd Contents/
+cd Resources
+cd site-lisp/
+cd python-mode/
+ll
+cd
+cd local/
+cd lisp/
+ll
+cd ..
+cd lisp/
+cd
+emacs .emacs
+e
+e .emacs
+cd local/
+rmdir lisp/
+mkdir emacs.d
+e
+cd emacs.d/
+tar zxvf python-mode-1.0.tar.gz
+ll
+rm python-mode-1.0
+rm python-mode-1.0.tar.gz
+ll
+e
+cd python-mode-1.0/
+mv * ../
+ll
+cd ..
+e
+emacs
+e
+ll
+mv *.el python-mode-1.0/
+ll
+mv pycomplete.py python-mode-1.0/
+ll
+emacs
+emacs 
+cd
+e .emacs
+emacs
+e
+cd local/emacs.d/
+cd ..
+mv emacs.d/ .emacs.d
+ll
+cd .emacs.d/
+cd ..
+e
+cd .emacs.d/
+cd
+e .emacs
+e temp/test.py
+e
+cd local/.emacs.d/
+cp /usr/share/emacs/site-lisp/subdirs.el
+cp /usr/share/emacs/site-lisp/subdirs.el .
+exit
+ll
+e
+ls local/.emacs.d/
+e .emacs
+ll
+mv snippet.el local/.emacs.d/
+emacs .emacs.macbook.el
+emacs
+ll
+la
+mv .emacs.macbook.el work/dotfiles/emacs/
+ll
+la
+cd work/dotfiles/
+ruby symlink.rb
+cd
+emacs .emacs.macbook.el
+emacs
+la
+cd local/.emacs.d/
+svn co http://svn.ruby-lang.org/repos/ruby/trunk/misc/ .
+ll
+mkdir ruby
+mv README ruby
+mv *.el ruby
+ll
+la
+rm -rf .svn/
+ll
+cd ruby
+svn co http://svn.ruby-lang.org/repos/ruby/trunk/misc/ .
+rm ./*
+rm -f ./*
+rm -rf ./*
+cd ..
+rm -rf ruby/
+mkdir ruby
+cd ruby
+svn co http://svn.ruby-lang.org/repos/ruby/trunk/misc/ .
+ll
+cd ..
+svn co svn://rubyforge.org/var/svn/emacs-rails/trunk emacs-rails
+ll
+curl
+cd ruby
+cd ..
+cd python-mode-1.0/
+cd ..
+cd local/.emacs.d/
+cd ruby/
+curl -O http://www.kazmier.com/computer/snippet.el
+ll
+curl -o find-recursive.el http://www.webweavertech.com/ovidiu/emacs/find-recursive.txt
+ll
+emacs
+cd ..
+curl -O http://www.santafe.edu/~nelson/tools/tempo.el
+emacs
+cd
+cd temp
+ll
+cd \!Documents/
+cd ..
+ll
+mkdir src
+cd src
+curl -O http://0xcc.net/ttyrec/ttyrec-1.0.8.tar.gz
+ll
+tar zxf ttyrec-1.0.8.tar.gz
+ll
+cd ttyrec-1.0.8/
+make
+ls
+sudo mv ttyrec ttytime ttyplay /usr/local/bin/
+ttyrec
+rehash
+ttyrec
+/usr/local/bin/ttyrec
+exit
+ll
+ttyplay ttyrecord
+/usr/local/bin/ttyplay ttyrecord
+ls /usr/local/bin/
+/usr/local/bin/ttyrec ./hoge.tty
+ls
+python
+exit
+ll
+/usr/local/bin/ttyplay hoge.tty
+ll
+/usr/local/bin/ttyplay hage.tty
+/usr/local/bin/ttyrec hage.tty
+e
+emacs -nw
+exit
+emacs -nw test.pyu
+emacs -nw test.py
+exit
+touch test.py
+/usr/local/bin/ttyrec hage.tty
+emacs -nw test.py
+exit
+ll
+/usr/local/bin/ttyrec hage.tty
+ls
+touch hoge.py
+ls
+emacs -nw hoge.py
+exit
+ll
+cd
+/usr/local/bin/ttyrec hage.tty
+emacs -nw
+exit
+e
+e .emacs .emacs.macbook.el
+ll
+mv test.py hoge.py
+e hoge.py
+e .emacs
+cd local/.emacs.d/
+rm tempo.el
+ll
+cd ruby/
+cd ..
+cd python-mode-1.0/
+cd ..
+cd emacs-rails/
+cd ..
+cp /usr/share/emacs/site-lisp/subdirs.el .
+ll
+cd
+e hoge.py
+exit
+e
+ee
+emacs
+la
+exit
+ps -aux tty
+ps -aux ttyrec
+ps -aux | grep ttyrec
+ps -aux | grep tty
+exit
+e
+ee
+emacs
+source .zshrc
+e
+vi .zshrc
+vi .zshrc.mine
+sudo shutdown -r now
+ll
+emacs
+ls
+ls -al
+vi .zshrc.mine
+ll
+source .zshrc.mine
+e
+vi .zshrc
+e
+emacs
+e
+mv hage.tty temp
+mv hoge.py temp
+cd temp
+/usr/local/bin/ttyrec hage.tty
+e
+exit
+ll
+/usr/local/bin/ttyplay hage.
+/usr/local/bin/ttyplay hage.tty
+e hoge.py
+e .emacs
+cd
+rm \#.emacs.macbook.el\#
+emacs .emacs
+e .emacs
+e temp/hoge.py
+e .emacs
+e temp/hoge.py
+e .emacs
+e temp/hoge.py
+e .emacs
+e temp/hoge.py
+memo
+textpad
+pad
+memopad
+e temp/hoge.py
+/usr/local/bin/ttyplay hage.tty
+/usr/local/bin/ttyrec emacs.tty
+e temp/hoge.py
+exit
+e .emacs
+e temp/hoge.py
+e .emacs
+/usr/local/bin/ttyrec emacs.tty
+e temp/hoge.py
+exit
+e .emacs
+/usr/local/bin/ttyrec emacs.tty
+e temp/hoge.py
+exit
+e temp/hoge.py
+exit
+e .emacs
+/usr/local/bin/ttyrec emacs.tty
+e temp/hoge.py
+exit
+e temp/hoge.py
+exit
+/usr/local/bin/ttyplay emacs.tty
+exit
+cd temp
+/usr/local/bin/ttyrec emacs.tty
+e temp/hoge.py
+exit
+e hoge.py
+exit
+e hoge.py
+exit
+/usr/local/bin/ttyplay emacs.tty
+/usr/local/bin/ttyrec emacs.tty
+e hoge.py
+exit
+e hoge.py
+exit
+rm hoge.py
+/usr/local/bin/ttyrec emacs.tty
+e hoge.py
+exit
+/usr/local/bin/ttyplay emacs.tty
+rm hoge.py
+/usr/local/bin/ttyrec emacs.tty
+e hoge.py
+exit
+rm hoge.py
+/usr/local/bin/ttyrec emacs.tty
+e hoge.py
+exit
+/usr/local/bin/ttyplay emacs.tty
+\
+\
+
+cd 
+cd Desktop
+mv vnc2swf-0.5.0.tar.gz ../
+cd ..
+mv vnc2swf-0.5.0.tar.gz temp
+cd temp
+tar zxvf vnc2swf-0.5.0.tar.gz
+cd vnc2swf-0.5.0
+make
+ls
+./configure
+make
+cd ..
+..
+cd Desktop
+mv pyvnc2swf-0.9.3.tar.gz ../temp
+cd ../temp
+tar zxvf pyvnc2swf-0.9.3.tar.gz
+cd p
+cd pyvnc2swf-0.9.3
+cd bin
+port search py
+port search py-game
+sudo port install py-game
+sudo port remove py-game
+sudo port delete py-game
+sudo port uninstall py-game
+sudo port uninstall XFree86
+cd
+ssh
+ssh sc430
+cd temp
+/usr/local/bin/ttyplay emacs.tty
+/usr/local/bin/ttyrec emacs.tty
+e hoge.py
+exit
+/usr/local/bin/ttyplay emacs.tty
+ll
+cd
+e .emacs
+e hoge.py
+e .emacs
+/usr/local/bin/ttyrec emacs.tty
+e hoge.py
+exit
+cd temp
+/usr/local/bin/ttyplay emacs.tty
+python
+cd ..
+cd Desktop
+cd pyvnc2swf-0.9.3
+cd pyvnc2swf
+./vnc2swf.py
+which python
+cd
+vi ./zshrc.mine
+vi .zshrc.mine
+source .zshrc
+python
+which python
+exit
+python
+which python
+"/usr/local/bin/pythonw"  "/Users/tadashi/Desktop/pyvnc2swf-0.9.3/pyvnc2swf/vnc2swf.py"  && echo Exit status: $? && exit 1
+exit
+emacs
+emacs hoge.py
+touch hoge.py
+emacs hoge.py
+e .emacs
+emacs hoge.py 
+e .emacs
+emacs hoge.py 
+emacs hoge.py
+touch hoge.py
+cat hoge.py
+rm hoge.py
+touch hoge.py
+"/usr/local/bin/pythonw"  "/Users/tadashi/Desktop/ÂÉ∞É≠Áß∞ÊÉº™Ë®≠ÂÆÉ∫„É£Éµ„Ç©„É£´„É£Ä/pyvnc2swf-0.9.3/pyvnc2swf/vnc2swf.py"  && echo Exit status: $? && exit 1
+emacs
+emacs hoge.py
+"/usr/local/bin/pythonw"  "/Users/tadashi/Desktop/pyvnc2swf-0.9.3/pyvnc2swf/vnc2swf.py"  && echo Exit status: $? && exit 1
+cd Desktop
+cd pyvnc2swf-0.9.3
+python
+/Applications
+ls /Applications | grep Python
+ls /Applications/MacPython\ 2.4
+ls /Applications/MacPython\ 2.4/PythonLauncher.app
+cd '/Users/tadashi/Desktop/pyvnc2swf-0.9.3/pyvnc2swf/' && '/usr/local/bin/pythonw'  '/Users/tadashi/Desktop/pyvnc2swf-0.9.3/pyvnc2swf/vnc2swf.py'  && echo Exit status: $? && exit 1
+cd /Applications/MacPython\ 2.4/PythonLauncher.app
+cd Contents
+cd MacOS
+./PythonLauncher
+python
+cd ..
+cd Extras
+cd ..
+cd /usr/local/bin
+python2.4
+cd
+cd Desktop
+cd pyvnc2swf-0.9.3
+cd pyvnc2swf
+python2.4
+python2.4 vnc2swf.py
+cd -13
+pythonw
+cd
+cd Desktop
+cd pyvnc2swf-0.9.3/pyvnc2swf
+pythonw2.4 vnc2swf.py
+cd
+rm hoge.py
+touch hoge.py
+emacs hoge.py
+rm hoge.py
+touch hoge.py
+emacs hoge.py
+ssh sc430
+scp sc430:~/local/documents/password.xls .
+open password.xls
+ll
+ssh x3105
+top
+exit
+ssh x3105
+/usr/local/bin/ttyplay ttyrecord
+bc
+port search typespeed
+python
+cd temp
+tar zxvf typespeed-0.6.0-20070303.tar.gz
+cd typespeed-0.6.0/
+./configure
+make
+sudo make install
+vi configure
+sudo make install
+rehash
+typespeed
+ls /usr/bin
+ls /usr/local/bin
+cd /usr/local/bin
+./typespeed
+sudo ./typespeed
+/usr/local/bin/ttyplay ttyrecord
+cd
+/usr/local/bin/ttyplay ttyrecord
+cd -3
+sudo chown tadashi typespeed
+ll
+./typespeed
+chmod 755 /usr/local/var/games/typespeed.score
+sudo chmod 755 /usr/local/var/games/typespeed.score
+./typespeed
+sudo chmod 666 /usr/local/var/games/typespeed.score
+./typespeed
+abcdefghijklmnopqrstuvwxyz
+cd
+ll
+cd work
+cd autopilot.
+cd autopilot.ruby
+emacs ".rb
+emacs *.rb
+./client.rb
+vi ~/.zshrc.mine
+source ~/.zshrc.mine
+./client.rb
+ssh sc430
+cd work/autopilot.ruby
+svn status
+svn ci =m 'no comment'
+svn ci =m "no comments\
+"
+svn
+svn ci -m "no comments"
+ssh sc430
+exit
+./client.rb hoge
+./client.rb --name
+./client.rb --namea
+./client.rb --name
+ssh sc430
+./client.rb --post
+ssh sc430
+cd work
+cd autopilot.
+cd autopilot.python
+emacs autopilot.py
+ssh sc430
+ll
+mail
+./mail_report_to_me.rb
+ssh sc430
+ssh x3105
+cat .ssh/config
+emacs .ssh/config
+ssh vmware
+cd work
+cd autopilot.ruby
+svn status
+svn add config.rb
+svn ci -m 'add config.rb'
+ssh vmware
+ll
+cd
+ssh x3105
+scp x3105:/var/lib/vmware/Virtual\\\ Machines/FreeBSD62min .
+sudo scp x3105:/var/lib/vmware/Virtual\\\ Machines/FreeBSD62min .
+ll
+mkdir vmware
+sudo scp x3105:/var/lib/vmware/Virtual\\\ Machines/FreeBSD62min/* vmware/
+sudo scp x3105:/var/lib/vmware/Virtual\\\ Machines/FreeBSD62min/ vmware/
+sudo scp x3105://var/lib/vmware/Virtual\\\ Machines/FreeBSD62min/ vmware/
+sudo scp x3105:/var/lib/vmware/Virtual\\\ Machines/FreeBSD62min/ vmware/
+sudo scp x3105:/var/lib/vmware/Virtual\\\ Machines/ vmware/
+ssh x3105
+ifconfig
+ssh x3105
+exit
+sudo scp root@x3105:/var/lib/vmware/Virtual\\\ Machines/FreeBSD62min/ vmware/
+scp x3105:/var/lib/vmware/Virtual\\\ Machines/FreeBSD62min/ vmware/
+scp root@x3105:/var/lib/vmware/Virtual\\\ Machines/FreeBSD62min/ vmware/
+ssh x3105
+rsync -avz -e ssh x3105:/var/lib/vmware/Virtual\\\ Machines/FreeBSD62min vmware
+cd vmware
+cd FreeBSD62min
+exit
+ll
+ssh x3105
+ssh sc430
+synergys --config /etc/synergy.conf
+ssh sc430
+ifconfig
+tail /var/log/system.log
+ssh sc430
+ssh x
+ssh x3105
+ifconfig
+ll
+open 003l.jpg
+emacs .ssh/config
+ssh vmware2
+scp .ssh/config vmware2:~/.ssh/config
+ssh vmware2
+ssh x3105
+ssh vmware2
+ll
+ssh vmware2
+ll
+ssh sc430
+ssh vmware2
+cd work/autopilot.ruby
+ruby core.rb
+abcdefghijklmnopqrstuvwxyz
+ruby core.rb
+emacs
+cd work
+cd autopilot.ruby
+ruby core.rb
+irb
+ruby core.rb
+ll
+cat hoge.txt
+rm hoge.txt
+ruby core.rb
+ll
+vi hoge.txt
+emacs hoge.txt
+ll
+emacs *.rb
+synergys --config /etc/synergy.conf
+ll
+ruby infocart.rb
+ruby infocart.rb > hoge.html
+firefox hoge.
+firefox hoge.html
+ruby infocart.rb > hoge.html
+firefox hoge.html
+ruby infocart.rb > hoge.html
+firefox hoge.html
+ruby infocart.rb 
+firefox hoge.html
+ruby infocart.rb 
+firefox hoge.html
+cat hoge.
+cat hoge.html
+ruby infocart.rb 
+firefox hoge.html
+firefox ../mikity/admin.html
+ruby infocart.rb 
+firefox hoge.html
+ruby infocart.rb 
+firefox hoge.html
+ruby infocart.rb 
+firefox hoge.html
+ruby infocart.rb 
+firefox hoge.html
+ruby infocart.rb 
+firefox hoge.html
+ruby infocart.rb 
+firefox hoge.html
+ruby infocart.rb 
+ll
+svn status
+cat hoge.txt
+ll
+rm hoge.txt
+ll
+svn status
+mv infocart.dat infocart.log
+svn status
+svn add infocart.rb
+svn ci -m "add infocart.rb"
+svn status
+cat clean.sh
+rm clean.sh
+ll
+rm *.html
+ll
+ruby client.rb
+ruby client.rb --info
+ll
+firefox debug_181712.html
+ruby infocart.rb
+ruby client.rb --info
+cd work
+cd autopilot.ruby
+firefox debug_182511.html
+ll
+firefox debug_182709.html
+ruby client.rb --info
+ruby mail_report_to_me.rb
+svn status
+svn ci -m "add mail report for infocart"
+ssh x3105
+ssh vmware
+svn status
+svn ci *.rb -m "add mail report infocart"
+svn up
+ll
+svn status
+ssh vmware
+sudo shutdown -r now
+cd work/autopilot.ruby
+rm *.html
+ll
+cat mail_report_to_me.sh
+ll
+ruby mail_report_to_me.rb
+ruby mail_report_to_me.rb > hoge.html
+firefox hoge.html
+ruby mail_report_to_me.rb > hoge.html
+python
+emacs mail_report_to_me.
+emacs mail_report_to_me.rb
+ruby mail_report_to_me.rb > hoge.html
+firefox hoge.html
+ruby mail_report_to_me.rb > hoge.html
+firefox hoge.html
+ruby mail_report_to_me.rb 
+ssh vmware
+firefox ../mikity/admin.html
+ruby core.rb
+ruby infocart.rb
+ruby infocart.rb 
+ruby client.rb
+ruby client.rb --info_tomoko
+cd work/autopilot.python
+emacs *.py
+exit
+cd work/autopilot.python
+emacs *.py
+emacs
+cd
+ll
+mv dmacro.el local/.emacs.d
+cd local/.emacs.d
+cd 
+cd work/autopilot.python
+emacs *.py
+ll
+svn up
+cd 
+cd work
+cd dotfiles
+svn status
+svn add emacs/.emacs.macbook.el
+svn ci */* -m 'add macbook.el'
+svn ci * -m 'add macbook.el'
+svn status
+port search mechanize
+sudo port install py-mechanize
+python
+exit
+rehash
+python
+cd ../autopilot.python
+emacs autoinfocart.py
+python autoinfocart.py
+port search yaml
+python autoinfocart.py
+cat rakuten_main.yaml
+rm rakuten_main.yaml
+python autoinfocart.py
+cat rakuten_main.yaml
+python autoinfocart.py
+python
+python autoinfocart.py
+ll
+cp ../autopilot.ruby*.yaml .
+cp ../autopilot.ruby/*.yaml .
+cp ../autopilot.ruby/yaml/*.yaml .
+ll
+python autoinfocart.py
+nkf
+python autoinfocart.py
+svn status
+python autoinfocart.py
+python
+ipython
+port search ipython
+sudo port install py-ipython
+rehash
+ipython
+python autoinfocart.py
+python autopilot.py
+ps aux | grep python
+cd work/autopilot.python
+svn status
+rm autoinfocart.py
+ll
+svn status
+emacs autopilot.py
+ll
+emacs autoinfocart.py
+emacs checkpilot.sh
+ll
+svn statu
+svn status
+svn add autoinfocart.py
+svn add *.yaml
+svn status
+svn ci * -m "add autoinfocart.py"
+svn ci *.yaml -m "add autoinfocart.py"
+svn ci *.py -m "add autoinfocart.py"
+svn status
+svn ci *.sh -m "add autoinfocart.py"
+svn status
+exit
+ssh x3105
+emacs
+python autopilot.py
+python autopilot.py -i
+python autopilot.py --info
+python autopilot.py -i
+python autopilot.py -a
+python autopilot.py --info
+python autopilot.py --auto
+python autopilot.py 
+python autopilot.py --info
+ps aux | grep python
+cd work/autopilot.python
+vi checkpilot.sh
+emacs checkpilot.sh
+./checkpilot.sh
+exit
+ll
+cp checkpilot.sh checkinfo.sh
+emacs checkinfo.sh
+ll
+svn status
+svn add checkinfo.sh
+svn status
+svn propedit svn:ignore ./
+setenv EDITOR vi
+export EDITOR=vi
+svn propedit svn:ignore ./
+svn status
+svn ci -m "add ignore ChangeLog"
+svn status
+svn ci check* -m "file split."
+svn status
+svn ci autopilot.py -m "add getopt"
+svn status
+svn ci -m "add ignore ChangeLog"
+svn ci ./ -m "add ignore ChangeLog"
+svn up
+svn ci ./ -m "add ignore ChangeLog"
+svn propedit svn:ignore ./
+ssh x3105
+cd
+cd work/autopilot.python
+ll
+emacs autopilot.py
+emacs checkpilot.sh
+svn status
+svn ci checkpilot.sh -m "fixed script option"
+ssh x3105
+scp 192.168.0.100:~/bin/autopilot.python/*.html ~/temp
+scp 192.168.0.100:/home/tadashi/bin/autopilot.python/*.html ~/temp
+ssh 192.168.0.100
+scp 192.168.0.100:~/bin ~/temp
+scp 192.168.0.100:~/bin/*.html ~/temp
+scp 192.168.0.100:~/bin/* ~/temp
+scp 192.168.0.100:~/bin/ ~/temp
+scp 192.168.0.100:~/bin/20070513020006.html ~/temp
+scp 192.168.0.100:~/bin/autopilot.python/20070513020006.html ~/temp
+scp 192.168.0.100:~/bin/autopilot.python/*.html ~/temp
+scp 192.168.0.100:~/bin/autopilot.python/* ~/temp
+scp 192.168.0.100:~/bin/autopilot.python/ ~/temp
+scp -r 192.168.0.100:~/bin/autopilot.python/*.html ~/temp
+scp -r 192.168.0.100:~/bin/autopilot.python/ ~/temp
+cd 
+cd temp
+cd autopilot.python
+open 20070513020006.html
+open 20070513030004.html
+ssh 192.168.0.100
+exit
+emacs
+ll
+svn delete autoinfocart.py
+svn ci -m "delete autoinfocart.py"
+svn status
+ll
+emacs core.py
+mkdir yaml
+mv *.yaml yaml
+ll
+python autopilot.py --raku
+python autopilot.py --info
+ll
+svn delete *.yaml
+cp yaml/*.yaml .
+ll
+svn delete *.yaml
+svn ci -m "move yaml file"
+svn status
+svn add yaml/*
+svn add yaml
+cd yaml
+chmod -x rakuten_shiten.yaml
+ll
+cd ..
+svn ci -m "move yaml file"
+ssh x3105
+ssh 192.168.0.100
+ll
+synergys --config /etc/synergy.conf
+ssh sc430
+ll
+cd ..
+cd old2
+cd ..
+cd old2
+svn status
+cd ..
+rm -rf old2
+ll
+mkdir affiliate.fc2
+ll
+cd mikity
+cp mikity.js mikity_ex.html ../affiliate.fc2
+cd ../affiliate.fc2
+emacs mikity.js
+cp ../mikity/debug.js .
+ll
+cd ..
+cd autopilot.ruby
+ruby name_generator.rb
+ll
+cd
+ssh sc430
+ll
+emacs ServiceLogin
+firefox test.html
+BonEcho
+vi .zshrc.mine
+open -a bonecho test.html
+ll
+mv test.html nrg27943.html
+ll
+rm ServiceLogin
+ll
+cd work
+mkdir html
+ll
+svn import html svn+ssh://x3105/home/svn/repos/dotfiles/html -m 'initial import'
+svn import html svn+ssh://x3105/home/svn/repos/configure/html -m 'initial import'
+cd html
+mkdir gmail
+svn import gmail svn+ssh://x3105/home/svn/repos/configure/html/gmail -m 'initial import'
+cd gmail
+svn up
+svn status
+svn co svn+ssh://x3105/home/svn/repos/configure/html/gmail .
+svn up
+svn status
+mv ../../../nrg27943.html .
+ll
+svn add nrg27943.html 
+svn ci -m "no comments"
+svn status
+svn up
+ll
+cp nrg27943.html bzn03142.html
+cp nrg27943.html kenkitii.html
+cp nrg27943.html kenkiti.html
+cp nrg27943.html ringono0001.html
+cp nrg27943.html tarou0001.html
+cp nrg27943.html tanaka0001.html
+cp nrg27943.html tanaka0002.html
+cp nrg27943.html tanaka0003.html
+cp nrg27943.html tanaka0004.html
+ll
+emacs *.html
+ll
+svn add *.html
+svn ci -m "add autologin gmail account scripts."
+ll
+cd
+cd work
+cd autopilot.ruby
+emacs autopilot.rb
+cp core.rb autopilot.rb ../affiliate.fc2
+cd ../affiliate.fc2
+ll
+ruby test.rb
+ls
+ruby test.rb
+ll
+emacs debug.html
+ruby test.rb
+emacs debug.html
+ruby test.rb
+ssh vmware
+ssh x3105
+cd work
+cd autopilot.ruby
+emacs autopilot.rb 
+ll
+cd ..
+cd affiliate.fc2
+ruby test.rb
+emacs rss.html
+ruby test.rb
+irb
+ll
+ruby test.rb
+ipython
+ll
+cat rss.html | wc -l
+ipython
+ll
+emacs test.rb
+ruby test.rb
+cd work/autopilot.ruby
+ruby name_generator.rb
+exit
+ll
+ruby test.rb
+ssh 192.168.0.100
+ssh x3105
+ll
+emacs test.rb
+ssh 192.168.0.100
+cd ..
+cd autopilot.python
+emacs autopilot.py
+python
+ssh 192.168.0.100
+ll
+cd ..
+cd affiliate.fc2
+emacs test.rb
+ruby test.rb
+ll
+cat debug.html
+ruby test.rb
+cat debug.html
+ruby test.rb
+ssh x3105
+ll
+ipython
+synergys --config /etc/synergy.conf
+irb
+ssh sc430
+cd work
+cd affiliate.fc2
+ruby test.rb
+open -a BonEcho
+open -a BonEcho debug.html
+ruby test.rb
+ssh x3105
+cd work
+firefox mikity/admin.html
+cd ..
+scp megurulove.com.rb 192.168.0.21:~/meguru
+cat .ssh/config
+scp megurulove.com.rb sc430:~/meguru
+ll
+cd work
+emacs spam.txt 
+ipython
+synergys --config /etc/synergy.conf
+ll
+cd affiliate.fc2/i
+cd affiliate.fc2/
+ruby fc2client.rb
+ruby test.rb
+ll
+cd ..
+cd autopilot.ruby
+emacs infocart.
+emacs infocart.rb
+emacs ChangeLog
+ll
+cd ..
+cd affiliate.fc2
+emacs autopilot.rb
+rm autopilot.rb
+rm core.rb
+ll
+rm debug.html
+rm rss.html
+ll
+emacs *.rb
+ll
+cd ..
+ssh x3105
+ll
+cd work
+mv affiliate.fc2 autopilot.fc2.ruby
+ll
+cd ..
+cd work
+ll
+svn import autopilot.fc2.ruby svn+ssh://x3105/home/svn/repos/private/affiliate/autopilot.fc2.ruby -m 'initial import'
+cd autopilot.fc2.ruby
+svn up
+svn status
+svn co svn+ssh://x3105/home/svn/repos/private/affiliate/autopilot.fc2.ruby .
+ll
+mkdir temp
+mv ChangeLog fc2client.rb temp
+ll
+svn co svn+ssh://x3105/home/svn/repos/private/affiliate/autopilot.fc2.ruby .
+svn status
+rm -rf temp
+ll
+emacs fc2client.rb
+ll
+ln -s ../autopilot.ruby/infocart.rb .
+ll
+ruby infocart.rb
+ruby fc2client.rb
+ll
+ruby fc2client.rb
+ll
+cd ..
+cd autopilot.ruby
+cd ..
+cd autopilot.fc2.ruby
+ln -s ../autopilot.ruby/name_generator.rb .
+emacs name_generator.rb
+ruby name_generator.rb
+ll
+cd work
+cd autopilot.fc2.ruby
+ruby name_generator.rb
+cd
+cd temp
+ll
+emacs test.pl
+ll
+perl hage.pl
+cd ../work/autopilot.fc2.ruby
+ruby name_generator.rb
+synergys --config /etc/synergy.conf
+ruby name_generator.rb
+emacs fc2client.rb
+ruby fc2client.rb
+ll
+ruby fc2client.rb
+ll
+cat mail.yaml
+ruby fc2client.rb
+ruby config.rb
+ruby config.rb > test.html
+firefox test.html
+ruby config.rb > test.html
+firefox test.html
+ruby config.rb > test.html
+firefox test.html
+ruby config.rb > test.html
+firefox test.html
+ruby config.rb > test.html
+firefox test.html
+ruby config.rb > test.html
+firefox test.html
+ruby config.rb > test.html
+ruby config.rb 
+ruby config.rb > mail.html
+firefox mail.html
+ruby config.rb > mail.html
+bonecho
+BonEcho
+which firefox
+open a- BonEcho
+open -a BonEcho
+open Bonecho
+open 
+open -b bonecho
+open -a bonecho
+open -b bonecho mail.html
+emacs ~/.zsh.mine
+emacs ~/.zshrc.mine
+firefox mail.html
+source ~/.zshrc
+firefox mail.html
+ruby config.rb > mail.html
+firefox mail.html
+ruby config.rb > mail.html
+ruby config.rb 
+ll
+rm *.html
+ll
+mkdir yaml
+rm *.yaml
+ll
+ruby config.rb
+ll
+mkdir html
+rm *.html
+ll
+svn status
+svn add conifg.rb
+svn add config.rb
+svn propedit svn:ignore .
+EDITOR = vi
+export EDITOR=vi
+svn propedit svn:ignore .
+svn status
+svn propedit svn:ignore .
+svn status
+svn propedit svn:ignore .
+svn status
+ls yaml
+svn add yaml
+svn status
+svn ci -m "add config.rb and yaml file."
+svn up
+svn status
+svn ci ./ -m "add config.rb and yaml file."
+svn status
+ssh x3105
+ll
+cd work
+cd autopilot.fc2.ruby
+ruby config.rb
+emacs config.rb
+ruby config.rb
+ssh x3105
+cd ..
+mkdir wk
+cd wk
+ll
+svn co svn+ssh://x3105/home/svn/repos/private/
+svn co svn+ssh://x3105/home/svn/repos/private/ .
+ll
+cd affiliate
+cd ..
+cd affiliate
+cd ..
+cd private
+ll
+cd ..
+rm private
+rmdir private
+rm -rf private
+ll
+cd affiliate.rakuten
+cd mikity
+cd ..
+mkdir ruby
+cd affiliate
+mv autopilot.fc2.ruby ../ruby/autopilot.fc2
+ll
+cd ..
+cd affiliate.rakuten
+mv autopilot.ruby ../ruby/autopilot
+ll
+mv mikity ../ruby/mikity
+mv report.ruby ../ruby/report
+ll
+cd ..
+cd mecab
+cd ..
+cd misc
+..
+ll
+cd ruby
+cd autopilot
+cd ..
+cd affiliate
+cd ..
+mkdir affi
+mv ruby affi/ruby
+cd affi
+cd ..
+mv affi ruby
+ll
+cd ruby
+mv ruby affiliate
+cd affiliate
+mv autopilot rakuten
+mv autopilot.fc2 fc2
+ll
+cd rakuten
+cd ..
+cd fc2
+cd ..
+cd mikity
+cd ..
+cd rakuten
+chmod -x mail_report_to_me.rb
+ll
+cd ..
+cd report
+chmod -x rakuten_affiliate.rb
+cd ..
+cd fc2
+cd ..
+cd mikity
+chmod -x *.rb
+ll
+emacs create*
+rm *.yaml
+ll
+cat readme.txt
+ll
+cd ..
+mv mikity rakuten/mikity
+ll
+cd rakuten
+cd ..
+cd report
+emacs rakuten_affiliate.rb
+cd ..
+rm -rf report
+ll
+cd ..
+svn import affiliate svn+ssh://x3105/home/svn/repos/ruby/affiliate -m 'initial import'
+ll
+cd ..
+rmdir -rf wk
+cd work
+svn status
+cd autopilot.fc2.ruby
+svn status
+svn ci config.rb
+svn ci config.rb -m "no comments"
+svn status
+cd ..
+cd autopilot.python
+svn status
+cd ..
+cd autopilot.ruby
+svn status
+svn ci *.rb -m "no comments"
+svn status
+cd ..
+cd dotfiles 
+svn status
+svn ci emacs/.emacs.macbook.el -m "no comments"
+cd ..
+cd html
+cd gmail
+cd ..
+cd mikity
+svn status
+svn add name_generator.rb
+svn add initial_setting.rb
+svn add rakuten_*
+svn status
+svn ci -m "no comments."
+svn status
+cd ..
+cd report.ruby
+svn status
+svn ci -m "no comments"
+cd ..
+svn status
+cd ..
+cd wk
+ssh x3105
+ll
+cd ..
+rm -rf wk
+mkdir wktemp
+cd wktemp
+svn co svn+ssh://x3105/home/svn/repos/private/ .
+ll
+mv affiliate affiliate.temp
+mkdir affiliate
+mkdir affiliate/ruby
+cd affiliate
+cd ruby 
+mv ../../affiliate.temp/autopilot.fc2.ruby ./fc2
+ll
+mv fc2 ..
+cd ..
+rmdir ruby
+cd fc2
+rm -rf .svn
+cd ..
+mv ../affiliate.rakuten/autopilot.ruby rakuten
+ll
+cd ..
+cd misc
+ll
+cd ..
+rmdir misc
+rm -rm misc
+rm -rf misc
+ll
+cd mecab
+cd ..
+cd affiliate.rakuten/u
+cd affiliate.rakuten/
+cd ..
+mv affiliate.rakuten/mikity affiliate/rakuten/mikity
+ll
+cd affiliate.rakuten
+cd ..
+cd affiliate.temp
+cd ..
+cd mecab
+cd ..
+cd affiliate
+cd rakuten
+chmod -x *.rb
+ll
+cd mikity
+chmod -x *.rb
+ll
+emacs *.rb
+ll
+cd ..
+svn import affiliate svn+ssh://x3105/home/svn/repos/ruby/affiliate -m 'initial import'
+svn -version
+svn help
+svn --version
+ll
+cat ../.ssh/config
+sudo shutdown -r now
+cd work
+cd ..
+mkdir repos
+svnadmin create --file-type fsfs ~/repos
+ll
+svnadmin -help
+svnadmin help
+svnadmin help create
+svnadmin --fs-type fsfs ~/repos/
+svnadmin --fs-type fsfs create ~/repos/
+cd repos
+cd ..
+cd wktemp
+svn import affiliate //Users/tadashi/repos/affiliate -m 'initial import'
+svn import affiliate /Users/tadashi/repos/affiliate -m 'initial import'
+svn import affiliate file://Users/tadashi/repos/affiliate -m 'initial import'
+cd wktemp
+svn import affiliate file:///Users/tadashi/repos/affiliate -m 'initial import'
+locate hosts
+locate hosts | grep opt
+locate hosts | grep etc
+cd /private/etc
+cat hosts
+vi hosts
+sudo vi hosts
+ping x3105
+rehash
+ping x3105
+sudo vi hosts
+ping localhost
+ping x3105
+cd
+cd -
+sudo vi hosts
+cd
+whereis svn
+locate svn
+which svn
+ll
+rm -rf wktemp
+cd work
+cd autopilot.python
+svn status
+cd ..
+cd autopilot.ruby/
+svn status
+cd ..
+svn status
+mv megurulove.com.rb ../
+mv spam.txt ../
+svn status
+ll
+cd ..
+mkdir bak
+mv bak backup
+mv repos trash
+ls trash
+mv work backup/work
+ll
+mkdir work
+ll
+cd work
+ll
+mkdir ruby
+cd ruby
+svn co svn+ssh://x3105/home/svn/repos/ruby .
+ll
+cd affiliate
+cd ..
+cd work
+svn status
+cd ..
+cd temp
+cd ..
+ssh x3105
+ll
+mkdir wktemp
+cd wktemp
+svn co svn+ssh://x3105/home/svn/repos/private .
+ll
+cd affiliate
+cd ..
+mkdir python
+cd affiliate
+mv autopilot.python ../python/autopilot
+..
+cd affiliate.rakuten
+cd ..
+cd python
+cd autopilot
+cd ..
+mv autopilot affiliate_test
+ll
+mv affiliate_test test_affiliate
+ll
+cd ..
+cd affiliate
+rm -rf autopilot.fc2.ruby
+ll
+rm -rf .svn
+ll
+cd ..
+cd python
+cd ..
+rmdir affiliate
+ll
+cd affiliate.rakuten
+ls autopilot.old.python
+ls autopilot.old2.python
+ls autopilot.python
+ll
+mv autopilot.old.python rakuten_v001
+mv autopilot.old2.python rakuten_v002
+mv autopilot.python rakuten_trunk
+ll
+rm -rf autopilot.ruby
+ll
+rm -rf mikity
+ll
+rm -rf report.ruby
+ll
+mv rakuten_* ../python/
+ll
+cd ..
+mv mecab python
+cd python
+mkdir affiliate
+mv rakuten_* affiliate
+ll
+mv test_affiliate affiliate/test
+ll
+cd affiliate
+ll
+mkdir rakuten
+mv rakuten_* rakuten
+ll
+cd rakuten
+mkdir trunk
+ll
+mv rakuten_trunk trunk
+ll
+cd trunk
+cd rakuten_trunk
+mv * ../
+ll
+cd ..
+ll
+rm -rf rakuten_trunk
+chmod -x nifmail.py
+ll
+..
+mkdir tags
+mv rakuten_v00* tags
+ll
+cd tags
+ll
+mv rakuten_v001 release-0.01
+ll
+mv rakuten_v002 release-0.02
+ll
+cd ..
+cd test
+..
+cd ..
+ll
+cd ..
+mkdir perl
+cd affiliate.rakuten
+mv autopilot.perl ../perl/rakuten
+cd ..
+cd perl
+cd rakuten
+chmod -x autopilot.pl
+ll
+cd ..
+mkdir affiliate
+mvdir rakuten affiliate/rakuten
+mv rakuten affiliate/rakuten
+ll
+ls affiliate
+ls affiliate/rakuten
+svn import affiliate svn+ssh://x3105/home/svn/repos/perl/affiliate -m 'initial import'
+ll
+cd affiliate/rakuten
+emacs autopilot.pl
+cd
+ls -al
+emacs
+cd work
+svn co svn+ssh://x3105/home/svn/repos/configure/dotfiles dotfiles
+ll
+cd dotfiles
+ruby symlink.rb
+emacs
+cd ..
+cd ruby
+cd ..
+cd wktemp
+cd perl
+cd affiliate/rakuten
+emacs autopilot.pl
+ll
+mkdir yaml 
+cp rakuten_* yaml
+ll
+svn staus
+svn status
+svn propedit svn:ignore 
+svn propedit svn:ignore .
+vi ~/.zshrc.mine
+source ~/.zshrc.mine
+svn propedit svn:ignore .
+svn status
+svn ci -m "remove yaml file."
+ll
+cd ..
+..
+rm -rf perl
+svn co svn+ssh://x3105/home/svn/repos/perl perl
+cd perl
+cd affiliate
+cd rakuten
+emacs autopilot.pl
+ll
+mkdir yaml
+cp rakuten_* yaml
+svn status
+svn propedit svn:ignore .
+svn status
+svn delete rakuten_*
+svn ci -m "remove yaml files."
+ll
+svn status
+cd ..
+..
+cd affiliate.rakuten
+ll
+cd..
+..
+rm -rf affiliate.rakuten
+cd python
+cd mecab
+chmod -x *.py
+ll
+cd ..
+cd affiliate
+cd rakuten
+cd trunk
+cd ..
+..
+cd perl
+cd affiliate/rakuten
+emacs autopilot.pl
+which svn
+ll
+cd ..
+..
+cd python
+cd affiliate
+cd rakuten
+cd trunk
+cd ..
+svn co svn+ssh://x3105/home/svn/repos/ruby ruby
+ll
+cd ruby
+cd affiliate/
+cd fc2
+cd yaml
+cd ..
+emacs config.rb
+emacs yaml/fc2.yaml
+emacs yaml/mail.yaml
+emacs config.rb
+ll
+..
+cd python
+cd affiliate
+cd rakuten
+cd trunk
+cd ../../../
+cd tadashi
+cd wktemp
+cd python
+svn import affiliate svn+ssh://x3105/home/svn/repos/python/affiliate -m 'initial import'
+ll
+svn import mecab svn+ssh://x3105/home/svn/repos/python/mecab -m 'initial import'
+cd mecab
+cd ..
+ll
+cd ..
+cd perl
+cd ..
+diff
+diff --help
+mkdir wktemp2
+cd wktemp2
+svn co svn+ssh://x3105/home/svn/repos/ruby ruby
+ll
+diff -r ruby ../wktemp/ruby
+diff -r ruby ../wktemp/ruby | grep -v .svn
+diff -r ruby ../wktemp/ruby | grep -v .000
+svn diff -r ruby ../wktemp/ruby
+diff -r ruby ../wktemp/ruby > temp.txt
+emacs temp.txt
+..
+rm -rf wktemp2
+cd wktemp
+cd ..
+rm -rf wktemp
+cd work
+rm -rf ruby
+svn co svn+ssh://x3105/home/svn/repos/ruby ruby
+svn co svn+ssh://x3105/home/svn/repos/python python
+svn co svn+ssh://x3105/home/svn/repos/perl perl
+ll
+cd ruby
+cd affiliate/rakuten/
+cd ..
+cd python
+cd affiliate
+cd rakuten
+cd trunk
+emacs *.py
+ll
+ssh x3105
+ifconfig
+ssh x3105
+cd
+rm affiliate.rakuten work/affiliate.rakuten
+mv affiliate.rakuten work/affiliate.rakuten
+cd work
+cd affiliate.rakuten
+chmod -x *.py
+ll
+chmod -x rakuten_shiten.yaml
+ll
+firefox 20070325110004.html
+mv *.html ../
+ll
+cat svnupdate.log
+rm svnupdate.log
+ll
+rm -rf .svn
+ll
+..
+mv affiliate.rakuten python/affiliate/rakuten/tags/release-0.03
+ll
+cd python
+cd affiliate
+cd rakuten
+cd tags
+svn status
+svn add release-0.03
+svn ci -m "Tagging the 0.03 release of the 'rakuten' project."
+svn diff svn+ssh://home/svn/repos/python/affiliate/rakuten/trunk svn+ssh://home/svn/repos/python/affiliate/rakuten/tags/release-0.03
+svn diff svn+ssh://x3105/home/svn/repos/python/affiliate/rakuten/trunk svn+ssh://x3105/home/svn/repos/python/affiliate/rakuten/tags/release-0.03
+svn diff svn+ssh://x3105/home/svn/repos/python/affiliate/rakuten/trunk svn+ssh://x3105/home/svn/repos/python/affiliate/rakuten/tags/release-0.03 > hoge.txt
+emacs hoge.txt
+/usr/local/env
+/usr/bin/env
+/usr/bin/env python
+env
+which python
+ll
+svn copy svn+ssh://x3105/svn/repos/python/affiliate/rakuten/tags/release-0.03 svn+ssh://x3105/svn/repos/python/affiliate/rakuten/branches/rakuten-0.03-branch -m "Creating a private branch of tags/release-0.03"
+svn copy svn+ssh://x3105/home/svn/repos/python/affiliate/rakuten/tags/release-0.03 svn+ssh://x3105/home/svn/repos/python/affiliate/rakuten/branches/rakuten-0.03-branch -m "Creating a private branch of tags/release-0.03"
+svn mkdir svn+ssh://x3105/home/svn/repos/python/affiliate/rakuten/branches
+svn copy svn+ssh://x3105/home/svn/repos/python/affiliate/rakuten/tags/release-0.03 svn+ssh://x3105/home/svn/repos/python/affiliate/rakuten/branches/rakuten-0.03-branch -m "Creating a private branch of tags/release-0.03"
+cd ..
+svn co svn+ssh://x3105/home/svn/repos/python/affiliate/rakuten/branches branches
+ll
+cd branches
+cd rakuten-0.03-branch
+cd
+cd work
+mkdir temp
+mv *.html temp
+ll
+cd
+cd work
+ruby naganenrss.rb
+ruby naganenrss.rb > hoge.html
+firefox hoge.html
+ruby naganenrss.rb > hoge.html
+firefox hoge.html
+ruby naganenrss.rb 
+ruby naganenrss.rb > hoge.html
+firefox hoge.html
+ruby naganenrss.rb > hoge.html
+ruby naganenrss.rb 
+ruby naganenrss.rb > hoge.html
+emacs hoge.html
+ruby naganenrss.rb 
+ruby naganenrss.rb > hoge.html
+emacs hoge.html
+ruby naganenrss.rb 
+emacs hoge.html
+ruby naganenrss.rb 
+ruby naganenrss.rb > hoge.html
+emacs hoge.html
+ruby naganenrss.rb 
+ruby naganenrss.rb > hoge.html
+emacs hoge.html
+ruby naganenrss.rb > hoge.html
+emacs hoge.html
+ruby naganenrss.rb 
+ruby naganenrss.rb > hoge.html
+emacs hoge.html
+firefox hoge.html
+ruby naganenrss.rb 
+ruby naganenrss.rb > hoge.html
+firefox hoge.html
+ruby naganenrss.rb > hoge.html
+emacs hoge.html
+ruby naganenrss.rb > hoge.txt
+emacs hoge.txt
+ruby naganenrss.rb 
+rm hoge.*
+ruby naganenrss.rb > hoge.html
+firefox hoge.html
+ruby naganenrss.rb > hoge.html
+emacs hoge.html
+ruby naganenrss.rb > hoge.html
+emacs hoge.html
+ruby naganenrss.rb > hoge.html
+emacs hoge.html
+ruby naganenrss.rb > hoge.html
+emacs hoge.html
+ruby naganenrss.rb 
+emacs hoge.txt
+ruby naganenrss.rb 
+ruby naganenrss.rb > test.xml
+firefox test.xml
+rm test.xml
+ruby naganenrss.rb > rss
+firefox rss
+ruby naganenrss.rb > rss
+emacs rss
+ruby naganenrss.rb 
+ll
+emacs hatena.rss
+ruby naganenrss.rb 
+ll
+ssh sc430
+which ruby
+ll
+ruby webserver.rb
+irb
+ll
+ruby webserver.rb
+ssh x3105
+cd work
+scp index.html x3105:~/
+ssh x3105
+ll
+ruby webserver.rb
+mv index.html oldindex.html
+ruby webserver.rb
+ll
+scp naganenrss.rb x3105:~/rss.cgi
+ssh x3105
+ruby webserver.rb
+ssh x3105
+synergys --config /etc/synergy.conf
+ruby webserver.rb
+ssh x3105
+yes | head -n 4
+yes
+ssh x3105
+cd work
+mv naganenrss.rb diary_for_years_rss.rb
+ll
+mkdir hatena
+mv *.rb hatena
+ll
+cd hatena
+touch test.rb
+emacs test.rb
+ri system
+exit
+cd work/hatena
+emacs test.rb
+ruby test.rb
+emacs webserver.rb
+ruby test.rb
+ri File
+ruby test.rb
+ruby webserver.rb
+ll
+ruby webserver.rb
+which ruby
+ll
+ruby webserver.rb
+ll
+chmod +x diary_for_years_rss.rb
+ll
+ruby webserver.rb
+chmod -x diary_for_years_rss.rb
+ll
+mv diary_for_years_rss.rb rss.rb
+ll
+ruby webserver.rb
+ssh x3105
+synergys --config /etc/synergy.conf
+ll
+cd work
+cd ruby
+cd affiliate
+cd rakuten
+cd mikity
+..
+cd yaml
+cd affiliate
+cd rakuten
+cd mikt
+cd mikity
+ruby create_adminpage_from_yaml.rb
+ll
+ruby create_adminpage_from_yaml.rb > admin.html
+ll
+firefox admin.html
+ll
+ssh x3105
+..
+cd python
+cd affiliate
+cd rakuten/branches/
+cd rakuten-0.03-branch
+mkdir yaml
+ll
+cp rakuten_* yaml
+ll
+python autopilot.py
+python autopilot.py hoge
+python autopilot.py
+python autopilot.py hoge
+python autopilot.py rakuten_shiten.yaml
+emacs
+ssh x3105
+python autopilot.py
+emacs autopilot.py
+ll
+svn status
+svn add yaml
+ll
+cp ../../../../../ruby/affiliate/rakuten/yaml/rakuten_shiten_tomoko.yaml .
+cp ../../../../../ruby/affiliate/rakuten/yaml/rakuten_oosaka_tomoko.yaml .
+ll
+mv rakuten_oosaka_tomoko.yaml yaml
+mv rakuten_shiten_tomoko.yaml yaml
+ls yaml
+ll
+svn delete rakuten_*
+svn status
+svn add yaml
+svn add yaml/rakuten_oosaka_tomoko.yaml
+svn add yaml/rakuten_shiten_tomoko.yaml
+svn ci -m "move yamlfile directory."
+svn status
+ssh x3105
+python autopilot.py
+python autopilot.py rakuten_honten.yaml
+ls yaml
+python autopilot.py rakuten_honten.yaml
+ll
+cp ../../../../../ruby/affiliate/rakuten/yaml/rakuten_main.yaml yaml/
+cat yaml/rakuten_main.yaml
+svn status
+svn propedit svn:ignore .
+svn ci -m "update yaml."
+svn up
+svn ci -m "update yaml."
+ll
+svn status
+ssh x3105
+ll
+cp ../../trunk/checkinfo.sh .
+ll
+emacs *.sh
+python autopilot.py rakuten_shiten_tomoko.yaml rakuten_oosaka_tomoko.yaml
+python autopilot.py rakuten_shiten_tomoko.yaml
+python autopilot.py rakuten_shiten_tomoko.yam
+python autopilot.py rakuten_shiten_tomoko.yaml
+emacs yaml/*.yaml
+cp ../../trunk/yaml/*.yaml yaml
+emacs yaml/*.yaml
+python autopilot.py rakuten_shiten_tomoko.yaml
+python autopilot.py rakuten_oosaka_tomoko.yaml
+ll
+emacs checkinfo.sh
+emacs checkpilot.sh
+cal
+ll
+sh test.sh
+sh test.sh hoge
+sh test.sh ls
+ps axww
+ssh x3105
+sh test.sh ls
+ll
+./checkpilot.sh hongen.yaml
+./checkpilot.sh rakuten_honten.yaml
+./checkpilot.sh rakuten_shiten.yaml
+exit
+ll
+cd work/python/affiliate/rakuten/branches/rakuten-0.03-branch
+./checkpilot.sh rakuten_honten.yaml
+python autopilot.py rakuten_honten.yaml
+python autopilot.py rakuten_honten.yam
+emacs yaml/rakuten_*
+python autopilot.py -honten
+python autopilot.py -tomoko
+python autopilot.py -shiten
+python autopilot.py -tomoko
+emacs checkpilot.sh
+./checkpilot.sh --honten
+./checkpilot.sh --shiten
+./checkpilot.sh --tomoko
+ll
+rm checkinfo.sh
+ll
+rm test.sh
+ll
+emacs checkpilot.sh
+ssh x3105
+ll
+svn status
+svn delete output.log
+svn delete --force output.log
+svn ci -m "change sh script and autopilot.py startup option."
+ssh x3105
+ll
+emacs readme.txt
+ll
+cd 
+cd work
+cd ruby
+cd affiliate
+cd fc2
+..
+cd rakuten
+ll
+ssh x3105
+ll
+emacs *.rb
+ll
+ruby client.rb
+ruby client.rb --info_tomoko
+ssh x3105
+cd work/ruby
+cd affiliate
+cd rakuten
+cd mikity
+emacs create_adminpage_from_yaml.rb
+ruby create_adminpage_from_yaml.rb > admin.html
+ssh x3105
+ll
+cd ..
+cd fc2
+emacs *.rb
+uname
+uname -a
+ps axww
+ps axww | grep python
+ssh x3105
+crontab -e
+ll
+cd yaml
+cd ..
+irb
+ll
+ruby create_admin_page.rb
+mkdir html
+ruby create_admin_page.rb
+ll
+ls html
+ruby create_admin_page.rb
+ll
+ruby fc2client.rb
+ruby -v
+ll
+ln -s ../rakuten/infocart.rb .
+ll
+ruby fc2client.rb
+ll
+cd ..
+ssh x3105
+cd work/python/affiliate/rakuten
+cd branches
+cd rakuten-0.03-branch
+emacs autopilot.py 
+ll
+python autopilot.py --hanoten
+python autopilot.py --honten
+python autopilot.py --tomoko
+ssh x3105
+ll
+emacs autopilot.py
+cd ..
+cd trunk
+emacs autopilot.py
+ipython
+emacs hoge.py
+touch hoge.py
+emacs hoge.py
+python hoge.py
+cd work
+cd python/affiliate/rakuten
+cd trunk
+cat checkinfo.sh
+ll
+python autopilot.py hoge
+ssh x3105
+cd work/python/affiliate/rakuten/trunk
+svn status
+python autopilot.py
+python autopilot.py --honten
+python autopilot.py --infocart
+ll
+svn propedit svn:ignore .
+svn status
+svn ci -m "fixed bug."
+svn up
+svn ci -m "fixed bug."
+cd work/python/affiliate/rakuten/trunk
+mv checkpilot.sh checkpilotold.sh
+ll
+cp ../branches/rakuten-0.03-branch/checkpilot.sh .
+ll
+emacs checkpilot
+emacs checkpilot.sh
+svn status
+rm checkpilotold.sh
+svn ci -m "fixed shell script."
+ll
+svn delete checkinfo.sh
+svn ci -m "delete checkinfo.sh"
+ll
+ssh x3105
+ll
+svn status
+svn diff
+emacs autopilot.py
+ll
+emacs checkpilot.sh
+svn diff
+emacs checkpilot.sh
+svn status
+svn ci -m "fixed shell script."
+ssh x3105
+port search howm
+synergys --config /etc/synergy.conf
+ssh sc430
+synergys --config /etc/synergy.conf
+exit
+ipython
+pydoc -w hello
+ll
+cd work
+cd ruby
+cd affiliate/rakuten
+emacs *.rb
+ll
+ssh x3105
+ll
+ssh x3105
+cd work
+cd ruby
+..
+cd python
+cd affiliate
+cd rakuten
+cd tags
+cd release-0.0
+cd release-0.01
+../release-0.02
+../release-0.03
+../release-0.02
+emacs replygenerator.py
+ll
+cd
+cd work
+cd ruby/affiliate/rakuten
+ruby name_generator.rb
+irb
+ruby name_generator.rb
+cd
+cd work
+svn co svn+ssh://x3105/home/svn/repos/configure/html html
+ll
+cd ruby
+ll
+cd affiliate
+cd rakuten
+cd mikity
+open admin.html
+ll
+..
+ruby client.rb
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+ruby core.rb
+firefox debug.html
+ruby core.rb
+ssh sc430
+ll
+ruby core.rb
+open debug.html
+ruby core.rb
+open debug.html
+ruby core.rb
+open debug.html
+ruby core.rb
+ruby client.rb --comments
+port search hugs
+sudo port install hugs98
+ghc
+rehash
+ghsc
+ghc
+hugs
+port search ghc
+sudo port uninstall hugs
+sudo port uninstall hugs98
+sudo port install ghc
+ghc
+ghci
+rehash
+ghci
+cd
+cd temp
+port search haskell-mode
+sudo port install haskell-mode.el
+emacs
+ps aux | grep emacs
+ps -aux | grep emacs
+ps -aux | grep haskell
+ps -aux
+ps -aux | grep Emacs
+kill 14199
+ps -aux | grep Emacs
+ipython
+which urllib
+locate urllib
+locate urllib2
+locate urllib2 | grep -v 2.3
+emacs /opt/local/Library/Frameworks/Python.framework/Versions/2.4/lib/python2.4/urllib.py
+synergys --config /etc/synergy.conf
+ssh sc430
+ifconfig
+ssh sc430
+synergys --config /etc/synergy.conf
+ll
+ps -aux | grep sharity
+sudo killall sharityd
+ps -aux | grep sharity
+sudo kill 233
+ps -aux | grep sharity
+exit
+synergys --config /etc/synergy.conf
+exit
+killall synergys
+synergys --config /etc/synergy.conf
+ssh sc430
+ssh x3105
+emacs
+ps -aux | grep sharity
+ps -aux | grep sh
+ps -aux | grep sh | grep Application
+ps -aux | grep shari
+sudo kill 235
+ll
+mv Desktop/howm-test070528 temp
+cd temp
+cd howm-test070528
+ls ../.emacs.d
+cd ../../.emacs.d
+cd -
+./configure --with-howmdir=$HOME/.emacs.d --prefix=$HOME
+sudo make
+sudo make install
+cd
+vi .emacs.macbook.el
+emacs
+cd local
+ll
+cd ..
+cd temp
+cd howm-test070528
+./configure --with-howmdir=$HOME/.emacs.d --prefix=$HOME/local
+sudo make 
+sudo make install
+emacs
+cd
+cd howm
+cd ..
+rm -rf howm
+cd temp
+cd howm-test070528
+cd ..
+rm -rf howm-test070528
+mv ../Desktop/howm-test070528 .
+ll
+cd howm-test070528
+./configure --with-howmdir=$HOME/.emacs.d --prefix=$HOME/local
+sudo make 
+sudo make install 
+emacs
+./configure --help
+emacs
+cd
+ghci
+banner unko
+banner "unko"
+man banner
+banner -w 10 "unko"
+banner -w 20 "unko"
+man banner
+ipython
+cd temp
+cat input.txt
+mv ../Desktop/href-0.3.3.tar.gz .
+tar zxvf href-0.3.3.tar.gz
+cd href-0.3.3
+emacs README.ja
+make
+ls /usr/local/bin
+sudo make bindir=/usr/local/bin install
+rehash
+href
+ls /usr/local/bin
+ttyrec
+vi ~/.zshrc.mine
+source ~/.zshrc.mine
+rehash
+ttyplay
+typespeed
+href
+href fold
+vi ~/.zshrc.mine
+source ~/.zshrc.mine
+href
+ls /usr/local/share
+locate href
+sudo mkhref ref/*
+rehash
+href
+href fold
+href Prelude.fold1
+href Prelude.foldl
+href foldl
+nkf
+port search nkf
+sudo port install nkf
+cd
+cd bin
+cd local/bin
+ll
+vi ~/.zshrc.mine
+exit
+source ~/.zshrc.mine
+./autosynergy
+touch test
+vi test
+chmod +x test
+./test
+cd
+test
+./temp
+test
+cd ../bin
+cd ../local/bin
+mv test shellnotest
+cd
+shellnotest
+cd local/bin
+vi href
+chmod href
+chmod +x href
+rehash
+href
+href foldl
+~/local/bin/href foldl
+vi ~/.zshrc.mine
+rehash
+source ~/.zshrc.mine
+href foldl
+href break
+cd
+cd temp
+ghci hage.hs
+href break
+href isSpace
+href int
+href Int
+href tointe
+href str
+href Str
+href tointe
+href tail
+href head
+href strtoint
+href integer
+href int
+href intToDigit
+href Digit
+href digit
+href iter
+ipython
+href tail
+href nub
+href splitAt
+href takeWhile
+ipython
+href head
+href break
+href map
+href mapM
+href mapM_
+href sum
+href drop
+href sum
+href drop
+href readfile
+href getContents
+href max
+href maximum
+href read
+href show
+ipython
+synergys --config /etc/synergy.conf
+sudo shutdown -r now
+href foldl
+href foldl1
+synergys --config /etc/synergy.conf
+ipython
+href judge
+ipython
+ssh sc430
+href sort
+ghci
+href splitat
+href takeWhile
+href take
+href //
+ipython
+ghci
+ipython
+irb
+ri
+ri etc
+ri Etc
+ri etc
+ipython
+irb
+cd temp
+ruby hoge.rb
+cd
+cd work
+cd ruby
+cd affiliate
+cd fc2
+emacs fc2client.rb 
+cd
+cd temp
+ruby hoge.rb
+ri inject
+ri Enumrate::inject
+ri inject
+ri Enumerable::inject
+ri inject
+ri Enumerable#inject
+exit
+mv ../Desktop/refe-0.8.0-withdoc.tar.gz .
+tar zxvf refe-0.8.0-withdoc.tar.gz
+cd refe-0.8.0
+emacs README.
+emacs README.ja
+ruby setup.rb config
+ruby setup.rb setup
+sudo ruby setup.rb install
+vi ~/.zshrc.mine
+rehash
+source ~/.zshrc
+refe
+ll
+cd ..
+cd href-0.3.3
+mkhref
+cd ../refe-0.8.0
+port search refe
+ll
+vi setup.rb
+vi InstalledFiles
+mkrefe
+mkrefe_extrefm
+cd ..
+mv ../Desktop/man-rd-ja.tar.gz .
+gzip -dc man-rd-ja.tar.gz| tar xvf -
+cd man-rd-ja
+sudo mkrefe_rubyrefm -d /usr/local/share/refe *.rd
+ls /usr/local/share/refe/
+ls /usr/local/share/refe/class_document
+ls /usr/local/share/refe/class_document/-queue 
+cat /usr/local/share/refe/class_document/-queue 
+refe
+refe IO puts
+sudo mkrefe_rubyrefm -d /usr/local/share/refe *.rd
+sudo mkdir /usr/local/share/refe/inheritance_graph
+sudo mkrefe_rubyrefm -d /usr/local/share/refe *.rd
+sudo rmdir /usr/local/share/refe/inheritance_graph
+sudo touch /usr/local/share/refe/inheritance_graph
+sudo mkrefe_rubyrefm -d /usr/local/share/refe *.rd
+rehash
+refe
+refe IO puts
+cd
+cd bin
+cd local/bin
+cp href refe
+ll
+vi refe
+rehash
+refe IO puts
+which refe
+ll
+rm refe
+refe
+which refe
+cp href refe
+vi refe
+rehash
+refe
+refe IO puts
+emacs
+port search mode-compile
+gem
+gem install refe
+sudo gem install refe
+gem list --local
+gem install refe
+gem -h
+gem search --remote refe
+ssh sc430
+cd
+emacs .emacs
+cd local
+cd .emacs.d
+wget http://ns103.net/~arai/ruby/refe.el
+ll
+cd
+emacs .emacs.macbook.el
+emacs
+which refe
+locate searcher.rb
+cd temp
+cd refe-0.8.0
+vi InstalledFiles
+ls /opt/local/lib/ruby/site_ruby/1.8/refe
+sudo vi /opt/local/lib/ruby/site_ruby/1.8/refe/searcher.rb
+cd
+cd local/bin
+rm refe
+ll
+refe
+refe IO puts
+emacs
+cd
+cd temp
+cd href
+cd href-0.3.3
+emacs README.ja
+cat Makefile
+\:q
+ll
+vi href.sh
+ll
+rm href.sh
+vi href.hs
+vi HrefDatabase.hs
+vi href.hs
+grep *.hs
+find . --name *hs | grep euc
+find . *.hs | grep euc
+find . *.hs
+find . -name *.hs
+find . -name "*.hs" -print
+find . -name "*.hs" -print | grep h
+grep *.hs euc
+grep 
+grep "euc" *.hs
+grep euc *.hs
+grep "a" *.hs
+grep "eu" *.hs
+grep "e" *.hs
+grep "E" *.hs
+grep "EU" *.hs
+cd
+cd local/.emacs.d
+wget http://adlib.rsch.tuis.ac.jp/~akira/lect/softa/mode-compile.el
+emacs
+refe instance_eval
+refe instance_eval | more
+cd
+cd temp
+ruby hoge.rb
+href Data.List
+href Data.List.\\
+: 1181805554:0;href Data.List
+href Data.List \\
+: 1181805754:0;ghci
+ipython
+href inits
+href tails
+href transpose
+href zip
+href href zip
+href //
+href Data.List
+href \\
+: 1181815562:0;href map
+href tails
+ghci
+href inits
+href tails
+href null
+href transpose
+ipython
+href transpose
+href zip
+href unzip
+href zip3
+href zipwith
+href transpose
+href just
+href Just
+href fst
+href Prelude.fst
+href Data.Tuple.fst
+href p
+href Prelude.pi
+href pi
+href snd
+href Prelude snd
+href Prelude fst
+href Data fst
+href Data snd
+refe inject
+exit
+href isort
+href sort
+href ins
+href insert
+ssh x3105
+synergys --config /etc/synergy.conf
+href zipwith
+ghci
+emacs
+href head
+href fst
+href Prelude fst
+ifconfig
+vlc
+exit
+ls
+ssh 192.168.0.100
+exit
+ifconfig
+screen
+exit
+keychain
+su -
+gem list
+gem list --local
+gem search --remote rails
+su -
+sudo su -
+sudo gem install rails --include-dependencies
+cat ./.ssh/config
+cat /etc/synergy.conf
+defaults write "Apple Global Domain" com.apple.mouse.scaling 6
+cd work
+cd ruby
+cd affiliate
+cd fc2
+cd ..
+cd html
+cd gmail
+cd ..
+cd ruby
+cd affiliate
+cd rakuten
+cd mikity/i
+cd mikity/
+..
+cd ..
+..
+cd python
+cd ruby
+ssh 192.168.0.100
+cd ..
+cd ruby
+cd affiliate/rakuten
+emacs mail_report_to_me.rb
+ipython
+synergys --config /etc/synergy.conf
+ssh sc430
+synergys --config /etc/synergy.conf
+ll
+cd work
+cd ruby
+cd affiliate
+cd rakuten
+..
+cd temp
+..
+cd html
+..
+cd local
+cd html
+open manage_rakuten_account.html
+cd
+cd Library
+cd Caches
+cd TemporaryItems
+cat iMacros.log
+ll
+la
+mkdir Macros
+mkdir Datasource
+mkdir Downloads
+synergys --config /etc/synergy.conf
+ipconfig
+ifconfig
+ssh x3105
+synergys --config /etc/synergy.conf
+df
+ll
+cat hoge.py
+python hoge.py
+rm hoge.py
+ll
+cd temp
+rm href-0.3.3.tar.gz
+rm *.tar.gz
+ll
+cat 200702-input.txt
+cat hage.
+cat hage.py
+ll
+mkdir information-olympic
+mv 20070* information-olympic
+ll
+mv hage.py information-olympic
+ll
+cat hoge.py
+ll
+mv hoge.py information-olympic
+cat hoge.txt
+mv hoge.txt information-olympic
+ll
+cat input.txt
+mv input.txt information-olympic
+ll
+cat tempruby.txt
+rm tempruby.txt
+cat test.py
+ll
+rm test.py
+cat Hoge.pm
+ll
+cat foo.html
+rm foo.html
+cat hage.hs
+ll
+cat hoge.rb
+ll
+cat hage.pl
+rm -rf howm-test070528
+rm -rf href-0.3.3
+rm -rf pyvnc2swf-0.9.3
+rm -rf refe-0.8.0
+rm -rf typespeed-0.6.0
+rm -rf vnc2swf-0.5.0
+ll
+cd man-rd-ja
+cd ..
+rm -rf man-rd-ja
+cd plagger
+..
+cd src
+..
+rm -rf src
+cd autopilot.python
+..
+mv spam.txt work
+mv megurulove.com.rb work
+ll
+cd work
+cd temp
+firefox 20070325105801.html
+..
+rm -rf temp
+cd python
+cd affiliate
+cd test
+synergys --config /etc/synergy.conf
+shut down -r now
+shutdown -r now
+sudo shutdown -r now
+synergys --config /etc/synergy.conf
+ifconfig
+exit
+synergys --config /etc/synergy.conf
+ssh x3105
+synergys --config /etc/synergy.conf
+hostname
+sudo cp /etc/synergy.conf /etc/synergyx32.conf
+sudo vi /etc/synergyx32.conf
+synergys --config /etc/synergyx32.conf
+hostname
+ifconfig
+ps -aux | grep synergy
+killall synergys
+ps -aux | grep synergy
+sudo vi /etc/synergyx32.conf
+synergys --config /etc/synergyx32.conf
+ifconfig
+killall synergys
+sudo vi /etc/synergyx32.conf
+synergys --config /etc/synergyx32.conf
+killall synergys
+synergys --config /etc/synergy.conf
+synergys --config /etc/synergyx32.conf
+cat /etc/synergyx32.conf
+synergys --config /etc/synergyx32.conf
+killall synergys
+synergys --config /etc/synergyx32.conf
+ps -aux | grep synergy
+ssh x3105
+synergys --config /etc/synergy.conf
+killall synergys
+synergys --config /etc/synergy.conf
+ssh x3105
+sudo shutdown -r now
+synergys --config /etc/synergy.conf
+shutdown -r now
+sudo shutdown -r now
+synergys --config /etc/synergyx32.conf
+sudo killall sharityd
+sudo killall synergys
+synergys --config /etc/synergy.conf
+ll
+cd local
+cd ..
+cd work
+cd python
+cd affiliate
+cd rakuten
+cd trunk
+emacs tool_create_html.py
+ll
+..
+.
+..
+cd ruby
+cd affiliate
+cd rakuten
+cd yaml
+..
+cd dotfiles
+..
+hatena
+..
+html
+..
+lcal
+local
+cd local
+html
+open manage_rakuten_account.html
+cd private
+..
+cd bin
+..
+downloaded_
+memo
+cd html
+open manage_rakuten_account.html
+..
+text
+..
+synergys --config /etc/synergy.conf
+ssh sc430
+cat .ssh/config
+sudo vi /etc/synergy
+sudo vi /etc/synergy.conf
+ssh sc430
+synergys --config /etc/synergy.conf
+cat /etc/synergy.conf
+ifconfig
+ll
+cd work
+cd python
+ll
+cd ..
+emacs
+ls
+ll
+cd work
+cd hatena
+..
+cd python
+..
+cd ruby
+cd affiliate
+cd fc2
+ifconfig
+ping www.yahoo.com
+synergys --config /etc/synergy.conf
+cd /Volumes/BathyScaphe\ Sample\ Scripts\ Oct\ 2006
+cd „Ç™„É£º„É£É®„É£™„É£≠„É£º„É£É©ÔºÉ®ÂÉ®•Á™É≥ÁÉ¥®ÔºÉ©.app
+cd Contents
+ll
+cd Resources
+cd Scripts
+chmod 777 main.scpt
+sudo chmod 777 main.scpt
+ll
+chmod 777 main.scpt
+chmod main.scpt
+chmod +w main.scpt
+ll
+sudo vi main.scpt
+ll
+sudo chmod -f 777 main.scpt
+ll
+exit
+synergys --config /etc/synergy.conf
+ssh x3105
+cat .ssh/config
+ssh 192.168.0.20
+ssh x3105
+ifconfig
+ping www.yahoo.com
+synergys --config /etc/synergy.conf
+ssh x3105
+synergys --config /etc/synergy.conf
+ipython
+irb
+synergys --config /etc/synergy.conf
+ll
+cd work
+cd python
+cd affiliate
+cd rakuten
+cd trunk
+emacs autopilot.py
+cd ..
+cd ruby
+cd affiliate
+cd rakuten
+emacs *.rb
+synergys --config /etc/synergy.conf
+killall synergys
+synergys --config /etc/synergy.conf
+killall synergys
+synergys --config /etc/synergy.conf
+sudo shutdown -r now
+synergys --config /etc/synergy.conf
+sudo shutdown -r now
+synergys --config /etc/synergy.conf
+cd work
+cd ruby
+cd affiliate
+cd rakuten
+rm check_accounts.rb
+ll
+ruby check_accounts_test.rb
+ll
+cd yaml
+..
+ruby check_accounts_test.rb
+ls yaml
+ruby check_accounts_test.rb
+ll
+cd ..
+ll
+..
+ls
+ll
+cd work
+cd python
+cd affiliate
+cd rakuten
+cd trunk
+cd ../../../..
+cd html
+cd per
+cd perl
+cd ../perl
+cd affiliate
+cd rakuten
+cd ../../../
+ll
+cd ruby
+cd affiliate
+cd rakuten
+cd mikity
+open admin.html 
+..
+rm \#check_accounts.rb\#
+ll
+mv check_accounts_test.rb mikity
+cd mikity
+emacs *.rb
+ll
+..
+ll
+synergys --config /etc/synergy.conf
+ll
+cd work
+sudo shutdown -r now
+synergys --config /etc/synergy.conf
+cd work/
+cd ruby
+cd affiliate
+cd rakuten
+cd mikity
+emacs *.rb
+cd ..
+emacs *.rb
+ll
+mv mikity/check_accounts_test.rb
+mv mikity/check_accounts_test.rb ..
+ll
+cd mikity
+..
+mv check_accounts_test.rb rakuten
+cd rakuten
+emacs check_accounts_test.rb 
+ll
+ruby core.rb
+ll
+ruby core.rb
+ll
+open debug.html
+ruby core.rb
+open debug.html
+ruby core.rb
+open debug.html
+ruby core.rb
+ssh x3105
+cd work
+cd ruby
+cd affiliate
+cd rakuten
+ruby client.rb
+l
+cd work
+cd ruby
+cd affiliate
+cd rakuten
+ll
+svn delete config.rb
+svn ci -m "fixed."
+svn delete config.rb
+svn ci -m "delete config.rb."
+svn up
+ll
+svn status
+svn propedit svn:ignore .
+svn propset svn:ignore "*.html" /
+svn propset svn:ignore "*.html" .
+svn ci -m "set ignore html file."
+svn status
+cd mikity
+rm \#name_generator.rb\#
+ll
+svn propset svn:ignore "*.html" .
+..
+svn ci -m "set ignore html file."
+svn status
+emacs check_accounts_test.rb 
+rm check_accounts_test.rb
+ll
+emacs client.rb
+ruby client.rb
+ll
+open debug.html
+ruby client.rb
+irb
+ruby client.rb
+cd
+cd D
+cd Desktop
+emacs watch_v=4OLFfLbBgec.html
+ll
+emacs watch_v=zVZjfmjtIlc.html
+ll
+emacs 2ugz7t\".htm
+..
+cd work
+cd ruby/affiliate
+cd rakuten
+rm debug_*
+ll
+cd yaml
+..
+ll
+ruby client.rb
+synergys --config /etc/synergy.conf
+cd local
+./keygen_macosx 
+ll
+cd wallpaper
+..
+cd work
+cd python
+cd affiliate
+cd raktuen
+cd rakuten
+cd trunk
+../../../
+..
+cd ruby
+cd affiliate
+cd rakuten
+cd mikity
+open admin.html
+easy_install 
+sudo port -d sync
+sudo port installed
+python
+cd
+cd work
+python 2chtest.py
+python
+python 2chtest.py
+ll
+emacs config.yaml
+python 2chtest.py
+emacs config.yaml
+python 2chtest.py
+emacs config.yaml
+python 2chtest.py
+emacs config.yaml
+python 2chtest.py
+emacs config.yaml
+python 2chtest.py
+emacs config.yaml
+python 2chtest.py
+emacs config.yaml
+python 2chtest.py
+python
+python 2chtest.py
+emacs config.yaml
+python 2chtest.py
+python
+python 2chtest.py
+ping www.yahoo.com
+python 2chtest.py
+python thread_bbs_checker.py
+cd ..
+cd Desktop/p2
+emacs *.php
+emacs *
+grep -n livedoor *.php
+grep -n "jbbs" *.php
+emacs read.php
+cd
+cd work
+python thread_bbs_checker.py
+open config.yaml
+emacs config.yaml
+python thread_bbs_checker.py
+emacs config.yaml
+python thread_bbs_checker.py
+emacs config.yaml
+python thread_bbs_checker.py
+emacs config.yaml
+python thread_bbs_checker.py
+emacs config.yaml
+python thread_bbs_checker.py
+emacs config.yaml
+python
+python thread_bbs_checker.py
+emacs config.yaml
+python thread_bbs_checker.py
+emacs config.yaml
+python thread_bbs_checker.py
+emacs config.yaml
+python thread_bbs_checker.py
+emacs config.yaml
+python thread_bbs_checker.py
+emacs config.yaml
+python thread_bbs_checker.py
+ll
+mkdir google_code
+cd google_code
+svn co https://kenkiti.googlecode.com/svn/trunk
+svn co https://kenkiti:ringo1125@kenkiti.googlecode.com/svn/trunk
+ll
+svn co https://kenkiti:h4z5h2f2@kenkiti.googlecode.com/svn/trunk
+ll
+cd trunk
+cd python
+cp ../../../thread_bbs_checker.py .
+ll
+svn ci thread_bbs_checker.py -m "test"
+svn status
+svn add thread_bbs_checker.py
+svn ci thread_bbs_checker.py -m "test"
+ll
+svn update
+emacs thread_bbs_checker.py
+ll
+python thread_bbs_checker.py
+ll
+emacs config.yaml
+python thread_bbs_checker.py
+python
+python thread_bbs_checker.py
+open hoge.txt
+emacs hoge.txt
+python thread_bbs_checker.py
+emacs hoge.txt
+ll
+rm hoge.txt
+python thread_bbs_checker.py
+python
+python thread_bbs_checker.py
+ll
+emacs hoge.txt
+python thread_bbs_checker.py
+cd Desktop
+cd Monarch
+grep -n "If-Modified" *.py
+grep -n "If-Modified"
+grep If-Modified *.py
+grep Modified *.py
+grep "Modified" *.py
+grep "import" *.py
+ll
+cd locale
+..
+cd kittywalk-0.3
+cd bbs
+grep Modified *.py
+emacs board.py topic.py
+ll
+..
+ipython
+ll
+cd ui
+..
+cd bbs
+emacs http.py
+grep Range *.py
+..
+grep Range *.py
+exit
+ipython
+python thread_bbs_checker.py
+emacs hoge.txt
+python thread_bbs_checker.py
+ipython
+python
+ipython
+python test.py
+ll
+emacs thread_bbs_checker.py
+python thread_bbs_checker.py
+ll
+python thread_bbs_checker.py
+ll
+emacs hoge.txt
+python thread_bbs_checker.py
+ll
+python thread_bbs_checker.py
+cd Desktop
+cd Monarch
+grep Modified *.py
+cd ..
+cd kittywalk-0.3
+grep Modified
+grep Modified *.py
+grep modified *.py
+cd bbs
+grep modified *.py
+emacs topic.py
+ipython
+exit
+ipython
+python thread_bbs_checker.py
+ll
+emacs config.yaml
+python thread_bbs_checker.py
+ll
+svn status
+svn ci thread_bbs_checker.py -m "ver0.01"
+ll
+emacs config.yaml
+ll
+cp config.yaml config.yaml.sample
+ll
+svn add config.yaml.sample
+svn ci -m "add sample yaml file."
+python thread_bbs_checker.py
+cd Desktop
+cd kittywalk-0.3
+cd bbs
+emacs *.py
+grep Time *.py
+..
+grep Time
+grep Time *.py
+cd bbs
+grep time *.py
+..
+grep time *.py
+..
+cd Monarch
+grep time *.py
+..
+cd jane
+grep since *.*
+emacs Main.pas
+grep LVSC_DATE *
+grep Dat2DateTime *
+grep StrToInt
+grep StrToInt *
+grep TimeZoneBias *
+exit
+cd Desktop
+cd jane
+grep TimeZone *
+emacs Main.pas
+python
+ipython
+python thread_bbs_checker.py
+ipython
+python thread_bbs_checker.py
+exit
+ipython
+python thread_bbs_checker.py
+ipython
+python thread_bbs_checker.py
+ipython
+python thread_bbs_checker.py
+python
+ipython
+python thread_bbs_checker.py
+ipython
+python thread_bbs_checker.py
+ipython
+python thread_bbs_checker.py
+ipython
+python thread_bbs_checker.py
+ll
+svn status
+emacs thread_bbs_checker.py
+svn ci -m "add function get_power_thread."
+emacs thread_bbs_checker.py
+python thread_bbs_checker.py
+ipython
+python thread_bbs_checker.py
+ll
+svn add ChangeLog
+svn ci -m "add ChangeLog file."
+cp ~/Desktop/python/Growl.py .
+ll
+cd
+cd Desktop
+cd python
+ll
+sudo python setup.py install
+ll
+cd /opt/local/bin
+ls g*
+locate gNotify
+rehash
+gNotify
+cd
+cd Desktop
+python gnotify.py
+python gnotify.py -m "hoge"
+python gnotify.py
+python
+cd Desktop
+python gtime
+emacs /opt/local/lib/python2.4/site-packages/Growl.py
+sudo emacs /opt/local/lib/python2.4/site-packages/Growl.py
+fg
+python gtime
+sudo vi /opt/local/lib/python2.4/site-packages/Growl.py
+sudo vim /opt/local/lib/python2.4/site-packages/Growl.py
+fg
+python gtime
+sudo vim /opt/local/lib/python2.4/site-packages/Growl.py
+emacs gtime
+python gtime
+python gtime hoge hogee
+python gtime date
+python gnotify.py
+python gtime date
+python gnotify.py
+cd python
+..
+cd python
+cd build
+..
+cd python
+sudo python setup.py install
+..
+python gnotify.py
+python gtime date
+emacs gtime
+python
+python gtime date
+python test.py
+python gtime date
+python test.py
+python gtime date
+python test.py
+cd
+cd work
+cd google_code
+cd trunk
+cd python
+rm Growl.py
+ll
+emacs thread_bbs_checker.py
+python thread_bbs_checker.py
+ipython
+ll
+ipython
+python thread_bbs_checker.py
+exit
+ipython
+python thread_bbs_checker.py
+ipython
+ll
+python thread_bbs_checker.py
+ipython
+cd /opt/local/Library/Frameworks/Python.framework/Versions/Current/
+cd lib/python2.4/site-packages
+..
+ls
+emacs copy.py
+emacs cgi.py
+emacs urllib.py
+emacs urllib2.py
+emacs urllib.py
+python thread_bbs_checker.py
+svn ci -m "support to notify message via growl."
+svn status
+python thread_bbs_checker.py
+ipython
+python thread_bbs_checker.py
+sudo port list
+sudo port --list
+sudo port search wxPython
+python --version
+python
+sudo port install py-wxpython26
+sudo port install python/py-wxpython26
+sudo port install py-wxpython26
+sudo port install wxpython
+sudo port search wxPython
+sudo port install py-wxpython
+python thread_bbs_checker.py
+svn ci -m "support to notify message via growl."
+python thread_bbs_checker.py
+svn ci -m "no comments."
+python thread_bbs_checker.py
+ipython
+cd
+ipython
+cd Desktop
+cd Monarch
+grep User-Agent *.py
+cd
+cd work
+cd google_code
+cd trunk/python
+rm kenkitii.png
+mkdir Palloo
+ll
+python thread_bbs_checker.py
+ll
+cp thread_bbs_checker.py Palloo
+cp config.yaml Palloo
+cp Polygon_bear Palloo
+cd Palloo
+chmod -x Polygon_bear
+ll
+mv thread_bbs_checker.py Pallo.py
+ll
+mv Pallo.py Palloo.py
+ll
+python Palloo.py
+cd Palloo
+..
+cd
+cd work
+emacs thread_bbs_checker.py
+rm thread_bbs_checker.py
+cd google_code
+cd python
+cd Palloo
+chmod -x Polygon_bear
+ll
+python Palloo.py
+cd
+cd work/google_code/python
+cd Palloo
+..
+svn status
+svn ci -m "no comments."
+ll
+emacs config.yaml
+svn status
+python Palloo.py
+cd
+cd temp
+mkdir google_code
+cd google_code
+svn co https://kenkiti:h4z5h2f2@kenkiti.googlecode.com/svn/trunk
+ll
+cd trunk/python
+mkdir Palloo
+svn add Palloo
+svn ci -m "Create directory."
+ll
+cd
+cd temp
+rm -rf google_code
+ll
+..
+cd work
+mkdir Palloo
+cd Palloo
+svn co https://kenkiti:h4z5h2f2@kenkiti.googlecode.com/svn/trunk/python/Palloo
+cp ../google_code/python/Palloo/* .
+ll
+rm Palloo.py
+rm Polygon_bear
+rm config.yaml
+ll
+cd Palloo
+ls -a
+cd ..
+rm -rf Palloo
+svn co https://kenkiti:h4z5h2f2@kenkiti.googlecode.com/svn/trunk/python/Palloo
+ll
+cd Palloo
+la
+cp ../google_code/python/Palloo/* .
+ll
+svn status
+svn add Polygon_bear
+svn add Palloo.py 
+cp config.yaml config.yaml.sample
+emacs config.yaml.sample
+ll
+svn status
+svn add config.yaml.sample
+svn ci -m "initial import."
+svn status
+svn ci -m "initial import."
+ll
+svn delete Polygon_bear
+emacs Palloo.py
+ipython
+ll
+..
+cd Palloo
+..
+cd python
+cd Palloo
+..
+cd Palloo
+python Palloo.py
+exit
+sudo port installed
+sudo port installed | grep python
+sudo port search python
+sudo port search py-yaml
+python Palloo.py
+emacs Palloo.py
+python Palloo.py
+cd work
+cd Palloo
+svn status
+svn add Domokun_Alert.icns
+svn ci -m "initial import."
+svn status
+svn add ChangeLog
+svn ci -m "initial import."
+cd work
+cd google_code/python/
+svn status
+svn ci -m "no comments."
+python Palloo.py
+cd Applications
+cd inaba
+cd Saread
+cd Saread.app
+cd Contents
+cd MacOS
+./Saread
+..
+exit
+cd Applications
+cd Adobe\ AIR\ Uninstaller.app
+cd Contents
+cd MacOS
+python Palloo.py
+ll
+cd work
+cd Palloo
+python Palloo.py
+emacs config.yaml
+python Palloo.py
+synergys --config /etc/synergy.conf
+..
+python python_stock.py
+python python_stock.py > test.html
+open test.html
+python python_stock.py > test.html
+open test.html
+python python_stock.py > test.html
+refe split
+refe String#split
+ruby ruby.rb
+refe utf8
+refe tostr
+refe to
+refe to_
+refe to_u
+ri
+irb
+rm ruby.rb
+python python_stock.py 
+ipython
+python python_stock.py 
+python python_stock.py > test.html
+open test.html
+python python_stock.py > test.html
+open test.html
+python python_stock.py > test.html
+open test.html
+python python_stock.py > test.html
+open test.html
+python python_stock.py > test.html
+open test.html
+python python_stock.py > test.html
+open test.html
+python python_stock.py > test.html
+open test.html
+python python_stock.py 
+python python_stock.py > test.html
+open test.html
+ll
+cd ruby
+cd affiliate
+cd rakuten
+.. 
+mkdir raku_api_modoki
+cd raku
+cd rakuten
+cp core.rb ../raku_api_modoki
+cp client.rb ../raku_api_modoki
+emacs autopilot.rb
+cd ..
+mkdir ruby
+svn co https://kenkiti:h4z5h2f2@kenkiti.googlecode.com/svn/trunk/ruby
+ll
+svn co https://kenkiti:h4z5h2f2@kenkiti.googlecode.com/svn/trunk
+ll
+mv ruby ./trunk
+cd trunk
+svn add ruby
+svn ci -m "mkdir ruby."
+..
+mv raku_api_modoki ./trunk/ruby
+ll
+ls -al
+cd trunk
+ls -al
+cd ruby
+ls -al
+cd raku_api_modoki
+emacs *.rb
+..
+cd rakuten
+cp test_pilot.rb ../raku_api_modoki
+cd ..
+mkdir raku_api_modoki
+..
+cd affiliate
+rm raku_api_modoki
+cd rakuten
+cp test_pilot.rb ../raku_api_modoki/
+cp test_pilot.rb ../raku_api_modoki/test_pilot.rb
+..
+cd rakuten
+cp test_pilot.rb ../trunk/raku_api_modoki/test_pilot.rb
+cp test_pilot.rb ../trunk/raku_api_modoki/
+cp test_pilot.rb ../trunk/ruby/raku_api_modoki/
+cd ../trunk/ruby/raku_api_modoki
+emacs test_pilot.rb
+ll
+ruby test_pilot.rb
+ll
+ruby test_pilot.rb --name=test_foo
+ruby test_pilot.rb --name=test_login
+ruby test_pilot.rb --name=test_login_plaza
+ll
+open login_plaza.html
+ruby test_pilot.rb --name=test_login_plaza
+irb
+ruby test_pilot.rb --name=test_login_plaza
+open login_plaza.html
+ruby test_pilot.rb --name=test_login_plaza
+open login_plaza.html
+ruby test_pilot.rb --name=test_login_plaza
+ruby test_pilot.rb --name=test_login
+ruby test_pilot.rb --name=test_logout_plaza
+ruby test_pilot.rb --name=test_post_entry
+ruby test_pilot.rb --name=test_login
+irb
+ruby test_pilot.rb --name=test_remove_entry
+ruby test_pilot.rb --name=test_post_entry
+ruby test_pilot.rb --name=test_remove_entry
+ruby test_pilot.rb --name=test_search
+ll
+rm *.thml
+rm *.html
+ll
+mv test_pilot.rb test_core.rb
+mv client.rb ..//
+..
+svn status
+svn add raku_api_modoki/*
+svn add raku_api_modoki
+svn ci -m "initial import."
+ll
+cd raku_api_modoki
+svn ci -m "no comments."
+..
+rm client.rb
+..
+rm -rf trunk
+ll
+..
+mv Palloo google_code/Palloo
+cd google_code
+cd python
+..
+cd python
+..
+rm -rf python
+ll
+..
+mkdir get_stock
+mv stock.txt get_stock
+mv python_stock.py get_stock
+ll
+mv index.txt get_stock
+ll
+emacs 2chtest.py
+rm 2chtest.py
+emacs config.yaml
+rm config.yaml
+ll
+emacs test.html
+rm test.html
+cd get_stock
+mv python_stock.py get_stock_data.py
+ll
+emacs get_stock_data.py
+python get_stock_data.py
+python get_stock_data.py > stock.html
+open stock.html
+python get_stock_data.py > stock.html
+open stock.html
+python get_stock_data.py > stock.html
+open stock.html
+python get_stock_data.py > stock.html
+open stock.html
+python get_stock_data.py > stock.html
+open stock.html
+ssh 192.168.0.100
+ssh x3105
+ll
+python get_stock_data.py
+python get_stock_data.py > stock.html
+ssh x3105
+..
+python mixipress.py
+sudo vi /etc/synergy.conf
+sudo killall synergys
+synergys --config /etc/synergy.conf
+sudo vi /etc/synergy.conf
+synergys --config /etc/synergy.conf
+ifconfig
+sudo killall synergys
+synergys --config /etc/synergy.conf
+sudo killall synergys
+ls /etc/synergy
+ls /etc/
+sudo vi /etc/synergyx32.conf
+mv /etc/synergyx32.conf /etc/synergy-shiten.conf
+sudo mv /etc/synergyx32.conf /etc/synergy-shiten.conf
+synergys --config /etc/synergy-shiten.conf
+ifconfig
+rm hatena.txt
+synergys --config /etc/synergy-shiten.conf
+sudo killall synergys
+synergys --config /etc/synergy.conf
+cd work/get_stock
+python get_stock_data.py
+ll
+python get_stock_data.py > stock.html
+open stock.html
+synergys --config /etc/synergy.conf
+ls & ls
+ls && ls
+python get_stock_data.py > stock.html && open stock.html
+HappyLHA
+cd ..
+cd Applications
+sudo ls
+HappyLHA
+HappyLHA.app
+cd Contents
+cd MacOS
+./HappyLHA
+sudo port search lha
+sudo port install lha
+rehash
+lha
+synergys --config /etc/synergy.conf
+cd
+cd stock
+python output_html.py
+emacs stock.py
+python output_html.py
+python
+python output_html.py
+curl
+curl --help
+ll
+python output_html.py
+python
+python output_html.py
+ll
+rm T071016.lzh
+python output_html.py
+lha
+ll
+lha -x T071016.lzh
+ll
+rm t071016.csv
+lha e T071016.lzh
+ll
+rm t071016.csv
+lha e T071016.lzh
+man mv 
+mv t071016.csv dat
+ll dat
+ll
+tm T071016.lzh
+rm T071016.lzh
+ll
+python output_html.py
+emacs dat/t071016.csv
+python output_html.py
+ll
+python output_html.py
+ll
+ls dat
+ll
+open stocks200.html
+python output_html.py && open stocks200.html
+python rakuten_rss3.py
+ll
+cat test.csv
+python rakuten_rss3.py
+ll
+mv rakuten_rss3.py rakuten_rss_writer.py
+ll
+open stocks500.html
+python
+python test_volume.py
+python 
+python test_volume.py
+python
+ifconfig
+..
+cd stock-xp
+open stock-xp
+cd /
+cd CIFS
+ls
+ll
+..
+cd Volumes
+cd usr
+ll
+open bookdump.htm
+rm bookdump.htm
+ll
+cd stock
+emacs rakuten.bat
+cd
+cd stock
+python test_volume.py
+ll
+open 20071017-4503T.csv
+python test_volume.py
+open 20071017-4503T.csv
+python test_volume.py
+python 
+python test_volume.py
+python
+ipython
+python test_volume.py
+python
+python test_volume.py
+python
+python test_volume.py
+python
+python test_volume.py
+ll
+mv test_volume.py stddev.py
+ll
+emacs rakuten_rss_reader.py
+emacs stddev.py
+cd /
+cd Volumes
+ll
+cd usr
+ll
+..
+cd usr-1
+..
+umount usr
+sudo umount usr
+sudo umount usr-1
+ll
+cd usr
+ll
+rmdir usr
+..
+rmdir usr
+ll
+cd usr-1
+cd -
+cd ~
+cd stock
+cp * /Volumes/usr-1
+cp * /Volumes/usr-1/stock
+ll
+python listbox.py
+pythonw listbox.py
+cp * /Volumes/usr-1/stock
+pythonw listbox.py
+rehash
+pythonw listbox.py
+python listbox.py
+sudo port list
+sudo port installed
+sudo port outdated
+sudo port -d selfupdate
+/Volumes/TclTkAqua-8.4.10/TclTkAqua\ Uninstall.command; exit
+rehash
+sudo port installed
+cd stock
+cp * /Volumes/usr-1/stock
+sudo port installed
+rehash
+sudo port installed
+rehash
+sudo port installed
+rehash
+sudo port installed
+sudo port -d selfupdate
+rehash
+sudo port -d selfupdate
+sudo port selfupdate
+sudo port -d selfupdate
+cd /opt/local/share/macports/Tcl/pextlib1.0
+emacs pkgIndex.tcl
+sudo vi pkgIndex.tcl
+sudo port -d selfupdate
+open .
+sudo port -d selfupdate
+cd ~
+sudo port installed
+cd -
+open .
+sudo port installed
+sudo port
+sudo port installed
+python
+cd ~
+cd stock
+python listbox.py
+ipython
+sudo port search tkinter
+cd -
+cd -1
+open .
+sudo port search tkinter
+sudo port install python/py-tkinter
+sudo port install py-tkinter
+rehash
+cd ~
+cd stock
+python
+python listbox.py
+path
+$path
+cd
+vi .zshrc
+ls /opt/local/bin
+ls /opt/local/bin | grep python
+macpython
+which python
+cd /Library/Frameworks/Python.framework/Versions/Current
+./Python
+Python
+cd
+/usr/local/bin/python
+cd stock
+/usr/local/bin/python listbox.py
+emacs listbox.py
+echo $PATH
+vi ../.zshrc.mine
+python listbox.py
+source ../.zshrc
+python listbox.py
+python guiconsole.py
+emacs guiconsole.py
+python guiconsole.py
+..
+cd work
+cd ruby/affiliate/rakuten/yaml
+cat rakuten_oosaka_tomoko.yaml
+ll
+vi rakuten_main.yaml
+cd
+rm wxPython2.8-osx-ansi-2.8.4.2-universal-py2.4.dmg
+ll
+open DSC_0026_2.jpg
+rm DSC_0026_2.jpg
+ll
+rm kenkitii.png
+ll
+cd work
+..
+cd stock
+python guiconsole.py
+sudo port upgrade installed
+cd ..
+cd Public
+..
+cd Movies
+..
+mv stock work/stock
+cd work
+cd stock
+..
+emacs fix_port.sh
+emacs
+cd -
+chmod +x fix_port.sh
+ll
+./fix_port.sh
+mkdir bin
+cd bin
+open .
+./fix_port.sh
+..
+./fix_port.sh
+ll
+mv fix_port.sh fix_macport.sh
+ll
+./fix_macport.sh
+sudo port upgrade installed
+./fix_macport.sh
+open fix_macport.sh
+ls /opt/local/share/macports/Tcl/pextlib1.0
+cp /Users/tadashi/work/bin/Pextlib.dylib /opt/local/share/macports/Tcl/pextlib1.0
+sudo cp /Users/tadashi/work/bin/Pextlib.dylib /opt/local/share/macports/Tcl/pextlib1.0
+sudo port upgrade installed
+cd bin
+open .
+cd -6
+open .
+cd -
+open .
+sudo port installed
+sudo port upgrade installed
+sudo port installed
+sudo port selfupdate
+sudo port upgrade installed
+sudo port upgrade zsh-devel
+sudo port deactivate zsh-devel
+sudo port upgrade zsh-devel
+sudo port outdated
+sudo port upgrade python
+sudo port upgrade python24
+sudo port -d sync
+sudo port upgrade outdated
+sudo port -d update
+sudo port -d selfupdate
+cd -2
+vi pkgIndex.tcl
+sudo vi pkgIndex.tcl
+sudo port -d selfupdate
+sudo port selfupdate
+cd ~
+cd work
+./fix_macport.sh
+sudo port selfupdate
+cd -33
+sudo vi pkgIndex.tcl
+rehash
+cd ~
+sudo port selfupdate
+cd work
+./fix_macport.sh
+rehash
+sudo port selfupdate
+sudo port -d selfupdate
+sudo port installed
+cp /Users/tadashi/work/bin/Pextlib.dylib /opt/local/share/macports/Tcl/pextlib1.0
+sudo cp /Users/tadashi/work/bin/Pextlib.dylib /opt/local/share/macports/Tcl/pextlib1.0
+sudo port installed
+cd -31
+sudo vi pkgIndex.tcl
+rehash
+sudo port installed
+sudo vi pkgIndex.tcl
+rehash
+sudo port installed
+sudo port -d selfupgrade
+sudo port -d selfupdate
+sudo port -d sync
+sudo port upgrade zsh-devel
+sudo port upgrade python24
+sudo port clean
+sudo port outdated
+cd ~
+cd work
+ll
+emacs megurulove.com.rb
+mkdir img
+ruby megurulove.com.rb
+ll
+cd img
+open .
+ll
+..
+cd google_code
+cd trunk
+..
+cd trunk
+ll
+svn status
+..
+svn co https://kenkiti:h4z5h2f2@kenkiti.googlecode.com/svn/trunk
+ll
+cd trunk
+cd ruby
+mkdir megurulove_downloader
+ll
+..
+mv megurulove.rb google_code/trunk/ruby/megurulove_downloader
+mv megurulove.com.rb google_code/trunk/ruby/megurulove_downloader
+ll
+cd google_code
+cd trunk
+python
+cd python
+mkdir tbc
+cp ChangeLog config.yaml.sample thread_bbs_checker.py tbc
+ll
+cd tbc
+..
+rm ChangeLog
+rm config.yaml.sample
+rm thread_bbs_checker.py
+svn add tbc
+svn ci -m "move directory."
+svn co
+svn update
+ll
+svn delete ChangeLog
+svn delete config.yaml.sample
+svn delete thread_bbs_checker.py
+svn ci -m "no comments."
+ll
+..
+cd ruby
+cd megurulove_downloader
+mkdir img
+..
+svn add megurulove_downloader
+svn ci -m "add megurulove_downloader"
+ll
+..
+cd local/Wiki
+cd Private
+..
+cd html
+cd Private
+open WelcomePage.html
+cd -34
+sudo vi pkgIndex.tcl
+cd 
+sudo port -d selfupdate
+ll
+sudo port upgrade zsh-devel
+ll
+sudo port upgrade zsh-devel
+cd work
+cd stock
+python guiconsole.py
+emacs stddev.py
+emacs guiconsole.py
+ll
+python stddev.py
+python guiconsole.py
+ls /Volumes/usr
+ls /Volumes/usr-1
+cp * /Volumes/usr-1/stock
+python guiconsole.py
+cp * /Volumes/usr-1/stock
+python stddev.py
+cp * /Volumes/usr-1/stock
+cd work/stock
+cp * /Volumes/usr-1/stock
+ls
+ll
+ls dat
+mkdir dat2
+mv *.csv dat2
+ll
+emacs dowango.txt
+emacs listbox.py
+mkdir temp
+mv listbox.py temp
+ll
+mv pdictest* temp
+ll
+emacs rakuten_rss*
+ls
+l
+ll
+rm rakuten_rss2.py
+ll
+emacs rakuten_rss_writer.py
+rm rakuten_rss.py
+ll
+mv stocks* temp
+ll
+python rakuten_rss_writer.py
+ll
+cat test.csv
+ll
+rm test.csv
+ll
+python rakuten_rss_writer.py
+ll
+cat msrss.txt
+ll
+chmod -x rakuten_rss_reader.py
+ll
+cp * /Volumes/usr-1/stock
+..
+cd work
+cd google_code
+cd Palloo
+emacs config.yaml
+python Palloo.py
+emacs ~/.zshrc.mine
+which python
+whereis python
+/usr/bin/python
+/usr/bin/python Palloo.py
+source ~/.zshrc
+rehash
+whereis python
+which python
+source ~/.zshrc
+rehash
+which python
+source .zshrc
+which python
+cd work
+cd google_code
+cd Palloo
+python24 Palloo.py
+exit
+which python24
+emacs .zshrc.mine
+source .zshrc
+which python24
+cd work/google_code/Palloo
+python24 Palloo.py
+cd work/stock
+cp * /Volumes/usr-1/stock
+python24
+ipython
+cp * /Volumes/usr-1/stock
+ll
+cp * /Volumes/usr-1/stock
+ls /Volumes/
+ssh 61.124.128.239
+ssh 61.124.128.239@inoue
+ssh inoue@61.124.128.239
+mkdir work
+ssh inoue@61.124.128.239
+work
+cd html
+cd gmail
+vi kenkiti.html
+ll
+gem
+gem list --local
+synergys --config /etc/synergy.conf
+cd work
+cd stock
+python output_html.py
+ll
+open stocks500.html
+cd /Volumes/usr/stock
+cd syuusi
+ll
+open print_html.py
+python print_html.py
+ll
+..
+emacs output_html.py 
+ll
+cd ..
+cd stock
+cd syuusi
+mv * ../
+ll
+..
+rm syuusi
+rmdir syuusi
+ll
+emacs print_html.py
+python print_html.py
+ll
+mkdir dat
+python print_html.py
+python output_html.py
+open stocks200.html
+python print_html.py
+open today.html
+python output_html.py
+open stocks200.html
+python print_html.py
+ll
+open today.html
+python print_html.py
+open today.html
+python print_html.py
+open today.html
+..
+exit
+ll
+cd temp
+svn co http://code.djangoproject.com/svn/django/trunk django
+cd django
+emacs __init__.py
+cd bin
+emacs __init__.py
+ll
+..
+exit
+cd /Volumes/usr
+cd stock
+mkdir lib
+ll
+..
+cd core
+cat __init__.py
+rm lib
+rmdir lib
+mkdir core
+cat msrss.txt
+ll
+mv guiconsole.py* msrss.* stddev.py* stock.py* core
+ll
+mv -r dat core
+mv -R dat core
+mv -r dat core/dat
+mv dat core/dat
+ll
+cd core
+touch __init__.py
+ll
+..
+emacs output_html.py
+cat 20071009.csv
+ll
+rm 20071009.csv 20071010.csv
+ll
+cat dowango.txt
+ll
+cd core
+open msrss.
+open msrss.py
+..
+emacs output_html.py
+cd core
+..
+mv output_html.py* core
+ll
+emacs print_html.py
+ll
+mv print_html.py print_contract_html.py
+ll
+python print_contract_html.py
+ll
+rm output_html.py
+cd core
+emacs output_html.py
+..
+emacs print_contract_html.py
+python print_contract_html.py
+ll
+emacs core/stock.py
+ll core
+python print_contract_html.py
+ipython
+python print_contract_html.py
+ll
+mv core/dat .
+ll
+python print_contract_html.py
+ll core
+python print_contract_html.py
+emacs core/stock.py
+python print_contract_html.py
+ipython
+python print_contract_html.py
+python print_contract_html.py hoge.csv
+python print_contract_html.py 200710.csv
+python print_contract_html.py 
+python print_contract_html.py hoge.py
+python print_contract_html.py 200710.csv
+ll
+emacs rakuten_rss_writer.py
+mv rakuten_rss_writer.py screening_for_msrss.py
+ll
+emacs rakuten_rss_reader.py
+ll
+python rakuten_rss_reader.py
+ll
+mv rakuten_rss_reader.py msrss_viewer_for_win.py
+ll
+rm contract.html stocks200.html stocks500.html today.html 
+ll
+mkdir html
+mv 200710.csv print_contract_html.py
+ll
+mv 200710.csv print_contract_html.py html
+ll
+cd html
+cat print_contract_html.py
+ll
+..
+cd html
+mv print_contract_html.py 200710.csv
+ll
+mv 200710.csv ..
+ll
+..
+cd core
+mv output_html.py html.py
+ll
+rm output_html.pyc
+ll
+emacs html.py
+python
+ipython
+..
+python print_contract_html.py
+ll
+open contract.html
+emacs core/html.py
+open contract.html
+python print_contract_html.py
+open contract.html
+python print_contract_html.py
+open contract.html
+open contract.html && open contract.html
+python print_contract_html.py && open contract.html
+python print_contract_html.py
+python print_contract_html.py hoge.py
+ll
+python screening_for_msrss.py
+emacs screening_for_msrss.py
+python screening_for_msrss.py
+ll
+emacs msrss.txt
+rm msrss.txt
+ll
+mv print_contract_html.py html
+mv 200710.csv html
+ll
+cd html
+python print_contract_html.py 200710.csv
+touch __init__.py
+python print_contract_html.py 200710.csv
+mv * ..
+ll
+..
+rm __init__.py
+ll
+rmdir html
+ll
+emacs screening_for_msrss.py
+cd core
+..
+cd
+cd work
+cd stock
+cd dat2
+..
+cd temp
+mkdir stock
+ll
+mkdir temp
+mv stock temp
+cd temp
+ssh x3105
+svn co svn+ssh://x3105/home/svn/repos/private
+ll
+cd private
+mkdir stock
+svn add stock
+svn ci -m "add stock directory."
+ll
+svn co svn+ssh://x3105/home/svn/repos/private/stock
+svn add *
+ll
+..
+cd stock
+svn add *
+svn del *.pyc
+cd dat
+..
+cd core
+svn del *.pyc
+svn remove *.pyc
+..
+svn propset svn:ignore "*.pyc" .
+svn ci -m "initial import."
+svn status
+svn ci -m "initial import"
+cd core
+rm *.pyc
+ll
+..
+svn status
+svn ci -m "initial import"
+svn ci -m "initial import."
+svn help
+svn resolved
+svn help
+svn update
+svn status
+svn remove
+svn remove core/__init__.pyc
+svn status
+svn remove core/*.pyc
+svn remove core/guiconsole.pyc
+svn remove core/msrss.pyc
+svn remove core/stock.pyc
+svn remove core/html.pyc
+svn status
+svn remove core/stddev.pyc
+svn status
+svn ci -m "initial import."
+..
+cp stock ~/temp/temp
+cp -r stock ~/temp/temp
+cd
+cd temp
+cd stock
+svn status
+chmod -x *
+ll
+chmod 666 *
+ll
+..
+stock
+chmod core +x
+chmod +x core
+ll
+chmod -w core
+ll
+chmod +w core
+chmod 765 core
+ll
+chmod 765 dat
+ll
+cd core
+chmod -x *
+ll
+..
+stock
+cd temp
+cd stock
+cd core
+..
+chmod 655 *.py
+ll
+chmod 644 *.py
+ll
+cd core
+chmod 644 *.py
+ll
+chmod 644 *.txt
+ll
+..
+cd temp
+cd stock
+cd dat
+rm t071024.csv
+ll
+..
+svn status
+svn remove dat/t071024.csv
+svn status
+svn ci -m "initial import."
+ll
+cd stock
+mv * ..
+ll
+..
+rmdir stock
+rm -rf stock
+ll
+python screening_for_msrss.py
+ll
+svn status
+svn update
+svn status
+mv dowango.txt ..
+ll
+cd core
+..
+rm *
+ll
+rm -rf *
+ll
+svn co svn+ssh://x3105/home/svn/repos/private/stock .
+ll
+..
+rm -rf stock
+ll
+ln -s /Users/tadashi/temp/temp/stock .
+ll
+cd stock
+ll
+svn status
+svn update
+ll
+..
+rm stock
+ll
+mkdir stock
+ll
+..
+cd temp
+..
+rm temp
+rm -rf temp
+..
+cd work
+mv stock stock_old
+svn co svn+ssh://x3105/home/svn/repos/private/stock stock
+ll
+cd stock
+cp -r * /Volumes/usr/stock
+svn status
+python print_contract_html.py
+emacs core/stock.py
+ll
+cd core
+python stock.py
+mkdir dat
+python stock.py
+ipython
+ll
+rm -rf dat
+python stock.py
+rm -rf dat
+python stock.py
+ll
+..
+emacs print_contract_html.py
+emacs screening_for_msrss.py
+python screening_for_msrss.py
+ll
+cat msrss.txt
+python screening_for_msrss.py
+cat msrss.txt
+rm msrss.txt
+ll
+python screening_for_msrss.py
+ll
+python screening_for_msrss.py
+ll
+cd core
+python stock.py
+ll
+emacs html.py
+ll
+python html.py
+emacs stocks200.html
+python html.py
+emacs stocks200.html
+python html.py
+emacs stocks200.html
+python html.py
+emacs stocks200.html
+python html.py
+emacs stocks200.html
+python html.py
+emacs stocks200.html
+open stocks200.html
+python html.py
+open stocks200.html
+python html.py
+open stocks200.html
+python html.py
+..
+rm screening_for_msrss.py
+ll
+emacs msrss_viewer_for_win.py
+cd core
+emacs msrss.py
+ipython
+exit
+ipython
+cd
+cd work
+cd stock
+ipython
+ll
+cd core
+python threadtest.py
+ipython
+cd work
+cd stock
+cd core
+python threadtest.py
+cd work/stock/core
+python threadtest.py
+ll
+..
+ll
+cd dat
+..
+python print_contract_html.py
+ll
+python print_contract_html.py 200710.csv
+ll
+open contract.html
+cp -r * /Volumes/usr/stock
+ll
+cp -r * /Volumes/usr/stock
+ipython
+cp -r * /Volumes/usr/stock
+ll
+cd core
+emacs stock.py
+python
+python stocks
+python stocks.py
+python stock.py
+python
+ipython
+python
+man lha
+lha --silent
+lha --help
+ll
+rm -r dat
+python stock.py
+emacs stock.py
+rm -r dat
+python stock.py
+rm -r dat
+python stock.py
+python 
+python stock.py
+python stock25.py
+python
+curl -o http://hoge.co.jp/
+curl -o "http://hoge.co.jp/"
+curl -o "http://www.yahoo.co.jp/"
+curl -O "http://www.yahoo.co.jp/"
+curl -O http://www.yahoo.co.jp/
+curl -O http://www.yahoo.co.jp/index.html
+curl -O http://www.yahoodf.co.jp/index.html
+python stock25.py
+ls dat
+python stock25.py
+ll
+rm T070629.lzh
+ll
+python stock25.py
+ll
+curl -O http://www.yhappp.co.jp/index.html
+ll
+rm index.html
+curl -O http://www.yhappp.co.jp/index.html
+ll
+python stock25.py
+ll
+emacs T070924.lzh
+python stock25.py
+ll
+rm *.lzh
+ll
+cd dat
+python
+..
+python stock25.py
+python
+python stock25.py
+python
+python stock25.py
+which sum
+which sum.py
+which python
+ls /opt/local/lib
+ls /opt/local/Library/Frameworks/Python.framework/Libraries/python2.4/
+ipython
+python stock25.py
+python stock25.py 1234
+python
+python stock25.py 1234
+python
+python stock25.py 1234
+python stock25.py 3175
+python stock25.py 3715
+python stock25.py 3175
+python stock25.py 31751
+python stock25.py hoge
+python stock25.py hoge hoge
+python stock25.py 3715
+python stock25.py 8515
+python
+ll
+rm -r dat
+ll
+mv stock25.py find_similar_stock.py
+emacs find_similar_stock.py
+python find_similar_stock.py
+python find_similar_stock.py 3174
+ll
+python find_similar_stock.py 3174
+python find_similar_stock.py -d
+rm -r dat
+python find_similar_stock.py -d
+ll
+python find_similar_stock.py 3174
+python find_similar_stock.py 3715
+ll
+cp find_similar_stock.py ~/work/google_code/trunk/python/
+cd ~/work/google_code/trunk/python/
+mkdir stock_tools
+ll
+mv find_similar_stock.py stock_tools
+ll
+svn status
+svn add stock_tools
+svn ci -m "initial import."
+cd stock_tools
+svn status
+ll
+python find_similar_stock.py
+cd -
+cd -1
+python find_similar_stock.py 8515
+python find_similar_stock.py 8572
+cd -8
+svn status
+svn ci -m "no comments"
+svn status
+svn ci -m "no comments"
+..
+cd Palloo
+cd
+cd work
+cd google_code
+cd Palloo
+python Palloo.py
+python24 Palloo.py
+ll
+emacs config.yaml
+python24 Palloo.py
+cd -
+cd -1
+cp -r * /Volumes/usr/stock
+print
+python print_contract_html.py
+python print_contract_html.py 200710.csv
+emacs print_contract_html.py
+python print_contract_html.py 200710.csv
+open contract.html
+ll
+cd core
+mv find_similar_stock.py ..
+mv dat ..
+mv -r dat ..
+mv -rf dat ..
+mv -rf dat/ ..
+mv -rf dat/ ../dat
+mkdir ../dat
+mv dat/* ../dat
+ll
+rmdir dat
+cd ..
+python find_similar_stock.py 3715
+ll
+cd core
+..
+emacs msrss_viewer_for_win.py
+cp -r * /Volumes/usr/stock
+cp -r * /Volumes/usr/stock/core
+cd core
+cp -r * /Volumes/usr/stock/core
+ll
+..
+cd core
+cp -r * /Volumes/usr/stock/core
+ll
+cat msrss.txt
+cp -r * /Volumes/usr/stock/core
+ipython
+cp -r * /Volumes/usr/stock/core
+ipython
+cp -r * /Volumes/usr/stock/core
+ll
+..
+emacs msrss_viewer_for_win.py
+emacs find_similar_stock.py
+python find_similar_stock.py -d
+cd dat
+rm *
+ll
+..
+python find_similar_stock.py -d
+ipython
+python find_similar_stock.py 3715
+python find_similar_stock.py 3175
+ipython
+python find_similar_stock.py 3175
+python find_similar_stock.py 3715
+ipython
+python find_similar_stock.py -s
+cd work/google_code/Palloo
+python24 Palloo.py
+python find_similar_stock.py -s
+python find_similar_stock.py 3715
+ll
+cp find_similar_stock.py ~/work/google_code/trunk/python/stock_tools/find_similar_stock.py
+cd -9
+svn status
+emacs find_similar_stock.py
+svn ci -m "fixed bug."
+pydoc
+pydoc sys
+pydoc sys.exit
+exit
+cd -3
+..
+cd dat
+cp t071025.csv ../core
+cd ../core
+python msrss.py
+ll
+..
+cd stock_old
+cd dat
+..
+cd dat2
+cp 20071017-4503T.csv ../../stock/core
+cd -4
+rm t071025.csv
+python msrss.py
+python
+python msrss.py
+python msrss.py > test.txt
+ll
+python msrss.py > test.txt
+open test.txt
+python
+python msrss.py
+python
+cd work/stock/core
+python msrss.py
+ipython
+python msrss.py
+cd work/google_code/Palloo
+python24 Palloo.py
+python
+ll
+cp -r * /Volumes/usr/stock/core
+sudo kill ssh-keychain
+sudo kill 20938
+cp -r * /Volumes/usr/stock/core
+exit
+cd bin
+ls work/google_code/Palloo
+echo "work/google_code/Pallo"
+echo "cd work/google_code/Pallo" > palloo.sh
+vi palloo.sh
+chmod +x palloo.sh
+./palloo.sh
+mv palloo.sh palloo
+ll
+vi palloo
+which python24
+./palloo
+vi palloo
+./palloo
+..
+python print_contract_html.py
+python print_contract_html.py 200710.csv && open contract.html
+synergys --config /etc/synergy.conf
+killall synergys
+synergys --config /etc/synergy.conf
+cd work
+cd stock
+emacs readme.txt 
+svn status
+svn add readme.txt
+svn ci -m "add readme.txt"
+cd .svn
+cat dir-prop-base
+cat entries
+..
+cd google_code
+cd trunk
+cd python
+cd stock_tools
+cp ~/work/stock/readme.txt .
+ll
+svn status
+svn add readme.txt
+svn ci -m "add readme.txt"
+emacs readme.txt
+svn status
+svn ci -m "no comments"
+cd work/stock
+..
+./palloo
+ll
+cd -3
+..
+emacs checkout_stock_to_html.py
+ll
+python checkout_stock.py
+python checkout_stock.py > checkout_stock2.txt
+emacs checkout_stock2.txt
+python search.py Â≥∂Ê¥•
+python search.py ÊÉÄ™
+python search.py ËÉß™ÂÉ´Éµ
+python search.py Â∑•Ê•≠
+python search.py „É£É®„É£®„Çø
+python search.py „É£É∞„É£≥„É£Ä„Ç§
+python search.py Â§ßÊÉ∑•ÊÉº¨
+python search.py ÊÉ∑•ÊÉº¨
+python search.py ÊÉ∑•ÊÉº¨ÂÉ≠∞ÂÉ®∑
+python search.py ÂÉ≠∞ÂÉ®∑
+python search.py -d a
+python search.py -d ÂÉ≠∞ÂÉ®∑
+python search.py -s ÂÉ≠∞ÂÉ®∑
+python search.py -c 7912
+cd core
+python
+python search.py -s Â§ßÊÉ∑•
+..
+python search.py -s Â§ßÊÉ∑•
+python search.py -c 7912
+python search.py -s Êù±‰∫¨ÈÉªªÂÉ™Éª
+python search.py -s Êù±‰∫¨
+python search.py -s Êù±ÈÉªª
+python search.py -s Êù±„Ç¨
+python search.py -s „Ç®„Çπ„Ç≥
+python search.py -s ÊÉ∑É•ÂÆ¢
+python search.py -s ÊÉ∑É•
+python search.py -s ÈÉ©É§ÈÅÉ≥
+python search.py -s ÈÉ©É§
+python search.py -s ÊÉ∑É•ÈÉ©É§
+python search.py -s Êù±ÊÉ∑•
+python search.py -c 9020
+python search.py -s JR
+python search.py -s Ë•øÊÉ∑•ÊÉº¨
+python search.py -s Êù±Êµ∑
+python search.py -s ÈÉ£µËÉ®π
+python search.py -s Â∑ùÂ¥ÉÆ
+python search.py -s ANA
+python search.py -s Á©∫Ëº∏
+python search.py -c 9202
+python search.py -s ÊÉ∑•ÊÉº¨ËÉ®™Á©∫
+python search.py -s ÊÉ∑•ÊÉº¨ËÉ®™
+python search.py -s ËÉ®™Á©∫
+python search.py -c 9205
+python search.py -s ‰∏É©ËÉØ±ÂÄÉ©Â∫´
+python search.py -s ÂÄÉ©Â∫´
+python search.py -c 9301
+python search.py -s Ê±ΩËÉ®π
+python search.py -s Êù±‰∫¨Ê±Ω
+python search.py -s ËªΩË≤®
+python search.py -c 9374
+python search.py -s „É£É≥„É£º„É£É≥„É£º
+python search.py -s „É£É≥„É£É≠„É£É£„É£É®
+python search.py -s „É£É≠„É£É£„É£É®
+python search.py -s „Ç¢„É£É©„É£ü„É£©„É£´
+python search.py -s „É£Éµ„Ç°„É£≥„É£Ä„É£≥„Ç¥
+python search.py -s „É£Éµ„Ç°„É£≥
+python search.py -s „É£Ä„É£≥„Ç¥
+python search.py -c 3797
+python search.py -s „É£É≠„ÇØ„Çπ„É£É®
+python search.py -c 2665
+python search.py -s „Ç¢„É£É£„É£É∑„É£´
+python search.py -s ÈÉ™ÄË°É¨
+python search.py -s ÊÉ∑•ÈÉ™Ä
+python search.py -s UFJ
+python search.py -s „É£Éµ„Ç£„É£É™„É£≥„Ç∑„É££„É£´
+python search.py -s „É£Éµ„Ç£„É£É™
+python search.py -s ‰∏É©
+python search.py -s ‰∏É©ËÉØ±
+python search.py -s ÈùÉπÂ≤°
+python search.py -s ÈÉßÉÆÊùÉ±
+python search.py -s Ë®ºÂÉ®∏
+python search.py -s „Ç§„É£º
+python search.py -s E
+python search.py -s Ôº•
+python search.py -s Ôº•„É£É®„É£¨„É£º„É£É©
+python search.py -s „Ç¢„É£™„Ç≥
+python search.py -c 1280
+python search.py -s ÁÉ¥üÂÉ±Ω
+python search.py -s ÊÉ∑•ÁÉ¥ü
+python search.py -s „É£É´„É£É£„Çª„Ç§
+python search.py -s ÂÉ∞É¨ÂÉ≤É¨
+python search.py -s Ë®ºÂÉ®∏
+python search.py -c 8511
+python search.py -s „É£É´„É£É£„Ç∑„É£≥
+python search.py -s ‰∏É©‰∫Éµ
+python search.py -s ‰∏É©ËÉØ±ÂÉº∞
+python search.py -s ‰∏É©ËÉØ±
+python search.py -c 8802
+python search.py -s „Ç¢„Çª„É£É£„É£É®
+ll
+emacs print_contract_html.py
+python checkout_stock.py
+ll
+python checkout_stock.py
+ll
+open checkout.html
+./palloo
+synergys --config /etc/synergy.conf
+ps -aux | grep synergys
+killall synergys
+synergys --config /etc/synergy.conf
+./palloo
+cd work/google_code/Palloo
+emacs Palloo.py
+cd 
+emacs Palloo.py
+./palloo
+cd work/google_code/Palloo
+emacs config.yaml
+emacs Palloo.py
+python24 Palloo.py
+emacs Palloo.py
+python24 Palloo.py
+cd
+emacs stock.htm
+rm stock
+rm stock.htm
+emacs realtime_stock
+ll
+emacs realtime_stock.htm
+ll
+rm realtime_stock.htm
+emacs realtime-stock
+emacs realtime-stock.htm
+open realtime-stock.htm
+ssh 61.210.202.71
+ssh inoue@61.210.202.71
+python24 Palloo.py
+open realtime-stock.htm
+emacs Palloo.py
+python24 Palloo.py
+./palloo 
+emacs work/google_code/Palloo
+./palloo 
+touch local/memo/stock.txt
+emacs
+cd local/memo
+mv diary.txt diary.diary
+mv stock.txt stock.diary
+emacs
+mv diary.diary diary.txt
+mv stock.diary stock.txt
+emacs
+ll
+synergys --config /etc/synergy.conf
+emacs work/google_code/Palloo
+./palloo 
+xhost
+ssh -X 61.210.202.71
+ssh -X inoue@61.210.202.71
+emacs work/google_code/Palloo/config.yaml
+./palloo
+cd
+cd stock_files
+..
+rm realtime*
+rmdir realtime*
+rm -r realtime*
+ll
+rm ms.csv
+rm 85*
+ll
+rm -r stock_files
+cd work
+cd stock
+open .
+python print_contract_html.py
+python print_contract_html.py 200710.csv && open contract.html
+ll
+emacs checkout_stock.py
+ll
+python search.py
+emacs search.py
+python search.py
+python search.py -v
+python search.py --version
+python search.py --help
+python search.py 
+python search.py hoge
+python search.py -c 1234
+python search.py -c 
+python search.py
+python search.py -c 3715
+ll
+emacs find_similar_stock.py
+svn status
+svn propset svn:ignore "*.csv" .
+svn ci -m "set ignore for csv file."
+svn status
+svn ci -m "set ignore for csv file."
+svn update
+ll
+svn status
+svn propset svn:ignore "*.csv" .
+svn ci -m "set ignore for csv file."
+ll
+svn status
+svn propset svn:ignore "dat/*.csv" .
+svn ci -m "set ignore for csv file."
+svn update
+svn status
+ll
+svn status find_similar_stock.py
+emacs msrss_viewer_for_win.py
+emacs find_similar_stock.py
+svn status | grep -v ?
+svn status | grep -v \?
+svn status | grep -v "\?"
+svn status
+svn status | grep -v csv
+cd .svn
+vi entries
+..
+svn status print_contract_html.py
+emacs readme.txt
+emacs checkout_stock.txt
+mkdir etc
+mv checkout* etc
+ll
+svn status
+svn status | grep -v csv
+ll
+emacs core/stock.py
+python core/stock.py
+python search.py -c 3715
+python search.py -c 1005
+svn status
+svn status | grep -v csv
+svn ci -m "fixed stock.py"
+svn propedit svn:ignore .
+svn ci -m "set ignore for csv file."
+svn update
+svn ci -m "set ignore for csv file."
+svn propedit svn:ignore .
+svn status
+ll
+svn propedit svn:ignore .
+svn ci -m "set ignore for csv file."
+svn status
+cd dat
+svn propedit svn:ignore .
+svn ci -m "set ignore for csv file."
+..
+svn status
+cd core
+svn propedit svn:ignore .
+svn ci -m "set ignore for csv file."
+ll
+svn propedit svn:ignore .
+..
+cd core
+svn ci -m "set ignore for csv file."
+..
+svn status
+cd core
+svn propedit svn:ignore .
+svn ci -m "set ignore for csv file."
+..
+svn status
+svn propedit svn:ignore .
+svn status
+svn ci -m "set ignore for csv file."
+svn update
+svn ci -m "set ignore for csv file."
+ll
+svn status
+python search.py -c 1005
+python search.py -l 1005
+ll
+mkdir bak
+mv find_similar_stock.py bak
+svn propedit svn:ignore .
+svn ci -m "set ignore for csv file."
+ll
+python search.py 
+python search.py -r 20071010
+python search.py -r20071010
+python search.py -r 20071010 1
+ll
+..
+cd ruby
+cd affiliate
+cd rakuten
+cd yaml
+emacs rakuten_shiten_tomoko.yaml
+emacs rakuten_main.yaml
+./palloo
+cd
+cd work
+cd stock
+open contract.html
+emacs print_contract_html.py
+ll
+mv 200710.csv month.csv
+ll
+mv month.csv contract_month.csv
+mv today.csv contract_today.csv
+python print_contract_html.py hoge & open contract.html
+python print_contract_html.py hoge 
+python
+python print_contract_html.py hoge 
+python print_contract_html.py 
+open contract
+open contract.html
+python print_contract_html.py 
+ll
+python search.py
+python search.py -s ÊÉ∑•ÁµÉ¨Âπ≥ÂùÉß
+emacs search.py
+python search.py -s ÊÉ∑•ÁµÉ¨Âπ≥ÂùÉß
+python search.py -s ÊÉ∑•ÁµÉ¨
+python print_contract_html.py 
+open .
+python print_contract_html.py 
+python search.py -c 8567
+python print_contract_html.py 
+open zaraba.html
+python print_contract_html.py 
+open zaraba.html
+python print_contract_html.py 
+open zaraba.html
+ps -aux | grep synergy
+synergys --config /etc/synergy.conf
+python
+./palloo
+emacs /etc/synergy.conf
+sudo killall synergys
+synergys --config /etc/synergy.conf
+sudo killall synergys
+emacs /etc/synergy.conf
+sudo killall synergys
+synergys --config /etc/synergy.conf
+emacs /etc/synergy.conf
+killall synergys
+synergys --config /etc/synergy.conf
+emacs /etc/synergy.conf
+killall synergys
+synergys --config /etc/synergy.conf
+killall synergys
+synergys --config /etc/synergy.conf
+./palloo
+killall synergys
+synergys --config /etc/synergy.conf
+killall synergys
+synergys --config /etc/synergy.conf
+cd work
+cd google_code
+cd Palloo
+svn status
+svn ci -m "fixed bug."
+emacs work/google_code/Palloo/config.yaml
+emacs ~/work/google_code/Palloo/config.yaml
+./palloo
+synergys --config /etc/synergy-shiten.conf
+killall synergys
+synergys --config /etc/synergy.conf
+killall synergys
+synergys --config /etc/synergy.conf
+./palloo
+killall synergys
+synergys --config /etc/synergy.conf
+ll
+emacs Palloo.py 
+..
+touch config.yaml
+emacs config.yaml
+cd Palloo
+emacs config.yaml
+cd ..
+python thread_fillter.py
+python24 thread_fillter.py
+python thread_fillter.py
+python24 thread_fillter.py
+python
+python24 thread_fillter.py
+python
+python24 thread_fillter.py
+emacs config.yaml
+python24 thread_fillter.py
+ll
+cd trunk
+cd python
+mkdir 2ch
+ll
+cd 2ch
+mv ../../../thread_fillter.py .
+mv ../../../config.yaml .
+ll
+..
+svn status
+svn add 2ch 
+svn ci -m "initial import"
+cd 2ch
+mkdir core
+ll
+svn status
+emacs thread_fillter.py
+python24 thread_fillter.py
+ll
+cd core
+..
+cd
+cd work
+cd stock
+emacs screening_for_msrss.py
+cd core
+emacs stock.py
+cd -
+cd -11
+cd core
+..
+python24 thread_fillter.py
+cd work/stock
+emacs search.py
+ll
+python24 thread_fillter.py
+ll
+cd core
+touch __init__.py
+..
+python24 thread_fillter.py
+cd -
+..
+cd -16
+emacs search.py
+python24 thread_fillter.py
+exit
+cd -9
+python24 thread_fillter.py
+ll
+python thread_fillter.py
+python24 thread_fillter.py
+ll
+mv thread_fillter.py thread_search.py
+ll
+emacs thread_search.py
+ll
+python24 thread_search.py
+python
+python24 thread_search.py
+killall synergys
+synergys --config /etc/synergy.conf
+cd
+cd work
+cd google_code/Palloo
+emacs config
+emacs config.yaml
+./palloo
+killall synergys
+synergys --config /etc/synergy.conf
+emacs ~/work/google_code/Palloo/config.yaml
+./palloo
+emacs ~/work/google_code/Palloo/Palloo.py
+./palloo
+ll
+svn status
+svn ci -m "fixed bug."
+synergys --config /etc/synergy.conf
+./palloo
+emacs ~/work/google_code/Palloo/config.yaml
+./palloo
+cd work/stock
+python sonneki.py
+python sonneki.py 2007/10/01 2007/11/30
+python sonneki.py 2007/10/01 2007/11/300
+python sonneki.py 2007/10/01 2007/11/40
+python sonneki.py 2007/10/01 2007/11/30
+python sonneki.py 2007/09/01 2007/11/30
+python sonneki.py 2007/10/01 2007/11/05
+ll
+python sonneki.py 2007/10/01 2007/11/05
+python sonneki.py 2007/10/01 2007/11/05s
+ll
+python search.py
+python search.py -r 2007/10/01
+ll
+emacs search.py
+python search.py -r 2007/10/010
+python search.py -r 2007/10/01
+synergys --config /etc/synergy.conf
+./palloo
+emacs ~/work/google_code/Palloo/config.yaml
+./palloo
+cd work
+cd stock
+cd etc
+..
+python search.py
+cd core
+..
+cd stock
+cd bak
+..
+cd dat
+..
+cat sonneki.
+cat sonneki.py
+ll
+cd ..
+cd google_code
+cd Palloo
+..
+cd trunk
+cd python
+cd stock_tools
+..
+cd 2ch
+emacs thread_search.py
+ll
+emacs config.yaml
+python thread_search.py
+python24 thread_search.py
+killall synergys
+synergys --config /etc/synergy.conf
+python24 thread_search.py
+emacs ~/work/google_code/Palloo/config.yaml
+./palloo
+killall synergys
+synergys --config /etc/synergy.conf
+emacs /etc/synergy.conf
+synergys --config /etc/synergy.conf
+cd
+cd work
+cd stock
+emacs sonneki.
+emacs sonneki.py
+which env
+chmod +x sonneki.py
+ll
+./sonneki.py
+./sonneki.py 2007/12/01 2007/12/10
+./sonneki.py 2007/11/25 2007/12/10
+./sonneki.py 2007/09/30 2007/11/05
+./sonneki.py 2007/11/06 2007/11/30
+./sonneki.py 2007/12/01 2007/12/10
+./sonneki.py 2007/11/30 2007/12/10
+./sonneki.py 2007/11/06 2007/11/30
+./sonneki.py 2007/09/30 2007/12/10
+./sonneki.py 2007/11/05 2007/11/30
+./sonneki.py 2007/11/29 2007/12/10
+sudo port -d selfupdate
+sudo port -d sync
+sudo port installed
+port outdated
+sudo port upgrade installed
+killall synergys
+synergys --config /etc/synergy.conf
+sudo port upgrade installed
+sudo port -d selfupdate
+sudo port -d sync
+sudo port upgrade installed
+sudo port deactive zsh-devel
+sudo port deactivate zsh-devel
+sudo port upgrade installed
+sudo port -d selfupdate
+sudo port upgrade zsh-devel
+./palloo
+killall synergys
+synergys --config /etc/synergy.conf
+emacs ~/work/google_code/Palloo/config.yaml
+./palloo
+ll
+./palloo
+ll
+cd ..
+cd google_code
+cd trunk
+cd python
+cd stock_tools
+..
+cd 2ch
+python thread_search.py
+python24 thread_search.py
+cd -
+cd -24
+ln -s ~/work/google_code/trunk/python/2ch .
+ll
+cd 2ch
+..
+python24 search.py NGI
+python24 search.py -s NGI
+python24 search.py -s ÔºÆ
+python24 search.py -s ÔºÆÔºßÔº©
+python24 search.py -s „É£©„Ç¶„É£≥„É£É©„É£Ø„É£≥
+python24 search.py -s „ÇØ„É£©„É£™„Ç™„É£≥
+killall synergys
+synergys --config /etc/synergy.conf
+sudo port -d selfupdate
+sudo port -d sync
+sudo port upgrade zsh-devel
+sudo port upgrade -f zsh-devel
+sudo port upgrade installed
+sudo port installed
+sudo port upgrade libiconv
+sudo port -f upgrade libiconv
+sudo port install gperf
+sudo port -f upgrade libiconv
+port version
+sudo port -R upgrade libiconv
+sudo port -f upgrade libiconv
+su -
+sudo su
+sudo port activate libiconv@1.11_4
+sudo port -f upgrade libiconv
+sudo port uninstall libiconv@1.11_6+darwin_8
+sudo port uninstall -f libiconv@1.11_6+darwin_8
+sudo port installed
+sudo port activate libiconv@1.11_4
+sudo port -f upgrade libiconv
+mkdir temp
+cd temp
+cvs
+cvs -d:pserver:anonymous@cvs.libiconv.sf.net:/cvsroot/libiconv login
+cvs -z6 -d:pserver:anonymous@cvs.libiconv.sf.net:/cvsroot/libiconv co libiconv
+cvs -d:pserver:anonymous@cvs.libiconv.sf.net:/cvsroot/libiconv login
+port outdated
+sudo port upgrade outdated
+sudo port upgrade gettext
+wget -c hhtp
+wget -c http://project.ktug.or.kr/dvipdfmx/snapshot/current/dvipdfmx-20071113.tar.gz
+wget -c http://ftp.gnu.org/gnu/libiconv/libiconv-1.12.tar.gz
+zcat libiconv-1.12.tar.gz | tar xvf -
+tar zxvf libiconv-1.12.tar.gz
+ll
+cd libiconv-1.12
+./configure --enable-static --enable-extra-encodings
+make && make check
+sudo make install
+sudo port outdated
+sudo port upgrade gettext
+which libiconv
+locate libiconv
+locate libiconv | grep usr
+locate libiconv | grep opt
+locate libiconv | grep opt | grep 1.11_6
+sudo port deactivate libiconv@1.11_6
+sudo port deactivate libiconv@1.11_4
+sudo port deactivate libiconv@1.11_4+darwin_8
+port installed
+sudo port -f uninstall libiconv@1.11_4+darwin_8
+port installed
+rehash
+sudo port upgrade gettext
+sudo port install libiconv
+sudo port -d selfupdate
+sudo port install libiconv
+port installed
+locate libiconv
+path
+$PATH
+echo $PATH
+$PATH = /usr/lib/:$PATH
+$PATH=/usr/lib/:$PATH
+echo $PATH
+vi ~/.zshrc
+vi ~/.cshrc
+vi ~/.zshrc.mine
+source ~/.zshrc.mine
+echo $PATH
+sudo port outdated
+sudo port upgrade gettext
+vi ~/.zshrc.mine
+chpass -s /bin/bash
+exit
+exit
+ll
+sudo port intall subversion
+sudo port install synergy
+synergys --config /etc/synergy.conf
+ls /etc
+cd /etc
+ls | grep synergy
+cd
+locate synergy.conf
+vim synergy.conf
+synergys --config synergy.conf
+killall synergys
+synergys --config ./synergy.conf
+killall synergys
+vim synergy.conf
+synergys --config synergy.conf
+killall synergys
+vim synergy.conf
+synergys --config synergy.conf
+killall synergys
+synergys
+synergys --help
+synergys --config -d synergy.conf
+synergys -d --config synergy.conf
+synergys -d --config ~/synergy.conf
+synergys --help
+synergys -d DEBUG --config ~/synergy.conf
+ps aux | grep synergy
+killall synergys
+synergys --help
+uname
+uname -a
+killall synergys
+synergys -d DEBUG --config ~/synergy.conf
+synergys -d INFO --config ~/synergy.conf
+synergys -d DEBUG2 --config ~/synergy.conf
+ls
+synergys --config synergy.conf
+killall synergys
+synergys --daemon --config synergy.conf
+killall synergys
+sudo synergys --daemon --config synergy.conf
+killall synergys
+sudo killall synergys
+locate
+echo $LOCATE_PATH
+ls /var/db
+find / -name "synergy.conf" O -print
+find / -name "synergy.conf" -print
+find / -name "synergy.conf" -print | grep -v Permission
+find / -name "synergy.conf" | grep -v Permission
+sudo find / -name "synergy.conf" -print
+synergys --config synergy.conf
+killall synergys
+vim synergy.conf
+synergys --config synergy.conf
+killall synergys
+synergys -d DEBUG --config synergy.conf
+vim synergy.conf
+synergys -d DEBUG --config synergy.conf
+synergys -d DEBUG --daemon --config synergy.conf
+killall synergys
+synergys -f --config synergy.conf
+vim synergy.conf
+synergys -f --config synergy.conf
+chpass -s /bin/bash
+exit
+synergys -f --config synergy.conf
+synergys -v
+synergys --version
+which synergys
+sudo cp ~/Desktop/synergy-1.3.0/synergys /opt/local/bin/synergys
+synergys -f --config synergy.conf
+vim synergy.conf
+synergys --config synergy.conf
+open port_installed.txt
+sudo port install py-ipython
+sudo port installed
+sudo port install py-yaml
+sudo port install pymechanize
+sudo port install py-mechanize
+sudo port install lha
+ifconfig
+killall synergys
+synergys --config synergy.conf
+vim synergy.conf
+killall synergys
+synergys --config synergy.conf
+killall synergys
+synergys --config synergy.conf
+killall synergys
+vim synergy.conf
+synergys --config synergy.conf
+ps -aux | grep synergy
+ifconfig
+killall synergys
+synergys -f --config synergy.conf
+synergys --config synergy.conf
+ping 192.168.0.1
+ping www.yahoo.com
+rehash
+ping www.yahoo.com
+ping www.yahoo.co.jp
+cd .MacOSX
+vim environment.plist
+synergys --config synergy.conf
+synergys -f --config synergy.conf
+uname -a
+vim environment.plist
+vim synergy.conf
+synergys -f --config synergy.conf
+synergys --config synergy.conf
+ps -aux | grep synergy
+ps -ax | grep synergy
+synergys -f --config synergy.conf
+synergys --config synergy.conf
+killall synergys
+synergys -f --config synergy.conf
+sudo port -d selfupdate
+sudo port -d sync
+sudo port outdated
+sudo port upgrade outdated
+ipython
+ll
+./palloo
+python
+sudo port install python
+sudo port search python
+sudo port install python25
+sudo port install py-yaml
+port installed
+python
+sudo port deactivate python25
+which python
+vim .zshrc.mine
+source .zshrc
+which python
+exit
+which python
+.
+./palloo
+vim palloo
+which python
+vim palloo
+./palloo
+port installed
+ll
+python
+which python
+ls /usr/bin/python
+ls -al /usr/bin/python
+ls -al /usr/bin/python-config
+ls -al /usr/bin/python
+ls /opt/local/bin/python2.4
+ls -al /opt/local/bin/python2.4
+/opt/local/bin/python2.4
+vim palloo
+./palloo 
+vim palloo
+./palloo 
+vim palloo
+./palloo 
+emacs ~/work/google_code/Palloo/Palloo.py
+./palloo 
+python
+ipython
+./palloo 
+emacs ~/work/google_code/Palloo/config.yaml
+./palloo 
+port search py
+port search py | grep gtk
+python
+ipython
+which python
+vim .zshrc.mine
+source .zshrc
+python24
+ll
+port search py | grep gtk
+sudo port install py-gtk2
+port search py | grep notify
+port search notify
+sudo port uninstall py-gtk2
+port installed
+sudo port uninstall fontconfig
+sudo port uninstall glib2
+sudo port uninstall atk
+sudo port uninstall glib2
+sudo port uninstall zlib
+sudo port uninstall freetype
+sudo port uninstall libpng
+sudo port uninstall zlib
+sudo port uninstall render
+sudo port uninstall xrender
+port installed 
+sudo port uninstall gettext@0.17_1
+sudo port uninstall python25
+port installed 
+python
+python24
+ipython
+port search wxp
+exit
+emacs test.py
+python
+python test.py
+ll
+mv checkfeedmail.pyw checkfeedmail.py
+emacs checkfeedmail.py
+python checkout_stock.py
+python checkfeedmail.py
+python
+python checkfeedmail.py
+ll
+python BalloonTipDemo.py
+emacs BalloonTipDemo.py
+python BalloonTipDemo.py
+python test.py
+python
+python test.py
+ll
+emacs BalloonTipDemo.py
+python BalloonTipDemo.py
+python test.py
+exit
+cd Desktop
+cd ToasterBox
+python ToasterBoxDemo.py
+cd ../..
+python BalloonTipDemo.py
+python
+emacs test.py
+python test.py
+python BalloonTipDemo.py
+python test.py
+python BalloonTipDemo.py
+python test.py
+python 
+python test.py
+python BalloonTipDemo.py
+synergys -f --config synergy.conf
+python BalloonTipDemo.py
+cd Desktop
+python taskbaricon.py
+emacs taskbaricon.py
+..
+python tasktest.py
+cd wxpython
+python tasktest.py
+ll
+python networkicon.py
+ll
+python tasktest.py
+ping tadashi.kicks-ass.net
+nslookup tadashi.kicks-ass.net
+tracert tadashi.kicks-ass.net
+port search tracert
+traceroute
+traceroute tadashi.kicks-ass.net
+ll
+img2py SmileCreature
+python img2py SmileCreature
+img2py --help
+python img2pytest.py
+python img2pytest.py iPod\ Icon\ 192.png ipod.py
+emacs ipod.py
+perl
+perl -v
+perldoc
+perldoc -v
+perldoc print
+perldoc new
+perldoc LWP
+synergys -f --config synergy.conf
+synergys --config synergy.conf
+killall synergys
+synergys --config synergy.conf
+killall synergys
+synergys --config synergy.conf
+killall synergys
+synergys -f --config synergy.conf
+qlmanage -r
+qlmanage -m
+qlmanage -m | grep flc
+qlmanage -m | grep flv
+qlmanage -m | grep NO
+qlmanage -m
+qlmanage -m > test.txt
+ll
+rm test.txt
+qlmanage -m
+traceroute www.yahoo.com
+synergys -f --config synergy.conf
+killall synergys
+synergys -f --config synergy.conf
+cat .zshenv
+cp .zshenv ~/.zshenv
+cp .screenrc ~/.screenrc
+cp .tcshrc ~/.tcshrc
+ll
+ls -al | more
+ls .emacs.d
+cp .emacs* ~/
+ls -al ~/
+exit
+sudo port install subversion
+sudo port install sqlite3
+sudo port remove sqlite3
+sudo port delete sqlite3
+sudo port uninstall sqlite3
+port search sqlite3
+sudo port selfupdate
+sudo port install sqlite3
+port installed
+port search zsh
+sudo port deactivate active
+chpass -s /bin/bash
+exit
+ll
+ls -al
+ll
+cd temp
+mkdir rails
+cd rails
+rails software
+ll
+cd software
+port search synergy
+sudo port install synergy
+cd
+synergys -f --config synergy.conf
+vi synergy.conf
+synergys -f --config synergy.conf
+ll
+cd Library
+qlmanage -r
+qlmanage -m
+mysql
+port search webmin
+port search MySQL
+sudo port install mysql5+server
+sudo port install mysql5 +server
+python 
+qlmanage -r
+qlmanage -m
+qlmanage -r
+sudo -u mysql mysql_install_db5
+mysqladmin5 -u root password 'ringo1125'
+ls /opt/local/etc/mysql5/
+ls /opt/local/share/mysql5/mysql
+cp /opt/local/share/mysql5/mysql/my-small.cnf /opt/local/etc/mysql5/my.cnf
+sudo cp /opt/local/share/mysql5/mysql/my-small.cnf /opt/local/etc/mysql5/my.cnf
+sudo vi /opt/local/etc/mysql5/my.cnf
+sudo launchctl load -w /Library/LaunchDaemons/org.macports.mysql5.plist
+mysql5 -u root -p
+mysqladmin5 -u root passoword 'ringo1125'
+mysqladmin5 -u root password 'ringo1125'
+mysql5 -u root -p
+ll
+cd temp
+cd rails
+rm -r software
+ll
+rails alpha
+mysql5 
+mysql5 -u root
+mysql5 -u root -p
+ll
+cd alpha
+script/plugin install http://svn.techno-weenie.net/projects/plugins/acts_as_authenticated
+script/generate authenticated user account
+rake db:migrate
+script/server
+ll
+cd
+cd Library
+cd QuickLook
+cd
+vi
+vi test.txt
+vi synergy.conf 
+cd temp
+cd rails
+cd alpha
+..
+mkdir w3m
+cvs
+ll
+cd w3m
+cvs -d :pserver:anonymous@cvs.namazu.org:/storage/cvsroot login
+touch ~/.cvspass
+cvs -d :pserver:anonymous@cvs.namazu.org:/storage/cvsroot login
+cvs -d :pserver:anonymous@cvs.namazu.org:/storage/cvsroot co emacs-w3m
+port search w3m
+sudo port install w3m
+ssh 
+cd .ssh
+ssh -t dsa
+ssh-keygen -t dsa
+ll
+cd .ssh
+ftp
+ssh rocky.sakura.ne.jp
+ssh rocky.sakura.ne.jp -u rocky
+ssh rocky.sakura.ne.jp -l rocky
+ssh rocky.sakura.ne.jp -l rocky -p mpasak3svv
+ssh 
+ssh rocky.sakura.ne.jp -l rocky -p
+ssh rocky.sakura.ne.jp -l rocky
+ll
+ftp
+cd .ssh
+ftp rocky.sakura.ne.jp
+ssh rocky.sakura.ne.jp -l rocky
+ssh sakura.ne.jp
+ssh rocky.sakura.ne.jp
+ssh rocky.sakura.ne.jp -l rocky -p mpasak3svv
+ssh rocky.sakura.ne.jp -l rocky
+vi config
+ssh sakura
+cd
+cd temp
+cd rails
+vi test.txt
+vi ftp_sakura.sh
+chmod +x ftp_sakura.sh
+ll
+./ftp_sakura.sh
+vi ftp_sakura.sh
+./ftp_sakura.sh
+ssh sakura
+vi ftp_sakura.sh
+ll
+vi ftp_sakura.sh
+ssh sakura
+ll
+cd work
+mkdir sakura
+cd sakura
+history | grep svn co
+history | grep "svn co"
+history | grep 'svn co'
+history | grep svn
+ls ~
+ls -a ~
+cat ~/.zsh_history|grep "svn co"
+cat ~/.zsh_history|grep "svn co http"
+svn co http://rocky.sakura.ne.jp/repos
+svn co http://rocky.sakura.ne.jp/trac/repos
+ll
+svn co http://rocky.sakura.ne.jp/trac/misc
+ssh sakura
+svn co svn+ssh://sakura/home/rocky/var/svn/repo/ .
+ll
+cd misc
+cd python
+cd ..
+cd ruby
+chmod -x *
+ll
+cd ../python
+chmod -x *
+ll
+ls -al
+rm -rf .svn
+ll
+..
+cd ruby
+ls -a
+rm -rf .svn
+ll
+cd ..
+ls -al
+rm -rf .svn
+ll
+cd ..
+ls -al
+rm -rf .svn
+ll -a
+ls -a
+cd ..
+ssh sakura
+ll
+ssh sakura
+gem
+gem installed
+gem list --local
+sqlite3 
+gem update --system
+sudo gem update --system
+gem environment
+rails -v
+gem install rails
+gem install rails --database=mysql
+gem install rails -database=mysql
+sudo gem install rails --include-dependencies
+rehash
+rails -v
+ll
+cd ..
+cd temp
+cd rails
+cd alpha
+script/server
+cd ..
+rails test --database=mysql
+cd test
+script/server
+ll
+mysql5 -u root -p
+mysqlshow5 -u root -p
+mysql5 -u root -p
+: 1200127890:0;cd temp
+: 1200127893:0;cd rails
+: 1200127895:0;cd test
+: 1200127915:0;script/server
+: 1200128273:0;ll
+: 1200128320:0;cd ..
+: 1200128328:0;rails todo --database=mysql
+: 1200128333:0;cd todo
+: 1200128361:0;ruby script/generate scaffold Todo title:string body:text done:boolean due:datatime
+: 1200128372:0;rake db:migrate
+: 1200128396:0;vi config/database.yml
+: 1200128411:0;rake db:migrate
+: 1200128420:0;mysql5 -u root -p
+: 1200128445:0;rake db:migrate
+: 1200128464:0;cd ..
+: 1200128471:0;ruby script/generate scaffold Todo title:string body:text done:boolean due:datetime
+: 1200128487:0;cd todo
+: 1200128490:0;ruby script/generate scaffold Todo title:string body:text done:boolean due:datetime
+: 1200128503:0;rake db:migrate
+: 1200128527:0;rake db:migrate --trace
+: 1200128540:0;ll
+: 1200128552:0;cd app
+: 1200128554:0;cd models
+: 1200128560:0;vi todo.rb
+: 1200128579:0;cd ..
+: 1200128580:0;cd controllers
+: 1200128584:0;vi application.rb
+: 1200128590:0;vi todos_controller.rb
+: 1200128608:0;cd ..
+: 1200128690:0;find ./ -print -exec grep "datatime";
+: 1200128702:0;find ./ -print -exec grep "datatime" \{\} \;
+: 1200128775:0;find . | xargs grep datatime
+: 1200128796:0;grep -r * datatime
+: 1200128806:0;grep -r datatime
+: 1200128843:0;find . -type f | xargs grep datatime
+: 1200128860:0;vi db/migrate/001_create_todos.rb
+: 1200128878:0;rake db:migrate
+: 1200128913:0;ruby script/server
+: 1200128941:0;ll
+: 1200128949:0;ruby script/server
+: 1200135210:0;ll
+: 1200135213:0;..
+: 1200135219:0;cd work
+: 1200135229:0;sakura
+: 1200135232:0;cd misc
+: 1200135237:0;cd python
+: 1200135261:0;..
+: 1200135262:0;cd ruby
+: 1200135278:0;open -a emacs easy_mecaba.rb
+: 1200135283:0;open -a emacs
+: 1200135295:0;open -a emacs easy_mecab.rb
+: 1200146632:0;ll
+: 1200146636:0;cd
+: 1200146639:0;cd temp
+: 1200146941:0;cd rails
+: 1200146962:0;svn co http://10best.googlecode.com/svn/trunk/ 10best
+: 1200147000:0;ll
+: 1200147002:0;cd 10best
+: 1200147007:0;script/server
+: 1200147029:0;ll
+: 1200147041:0;vi config/database_sample.yml
+: 1200147072:0;mysql5 -u root -p
+: 1200147100:0;mv config/database_sample.yml config/database.yml
+: 1200147109:0;vi config/environment.rb
+: 1200147119:0;script/server
+: 1200147132:0;ll
+: 1200147151:0;mkdir log
+: 1200147153:0;ll
+: 1200147156:0;script/server
+: 1200147189:0;sudo gem install gettext
+: 1200147222:0;script/server
+: 1200147252:0;ll
+: 1200147268:0;mysql5 -u root -p
+: 1200147414:0;rake db:migrate
+: 1200147441:0;rake db:migrate --trace
+: 1200147492:0;cd ..
+: 1200147498:0;cd todo
+: 1200147505:0;vi config/database.yml
+: 1200147529:0;cd ../10best
+: 1200147532:0;vi config/database.yml
+: 1200147607:0;rake db:migrate 
+: 1200147692:0;script/server
+: 1200153615:0;vi ~/.zshrc
+: 1200153627:0;vi ~/.zshrc.mine
+: 1200153638:0;cd ..
+: 1200153644:0;ll
+: 1200153659:0;rails test2 --database=mysql
+: 1200153665:0;cd test2
+: 1200153678:0;vi config/database.yml
+: 1200153693:0;script/server
+: 1200153718:0;vi config/database.yml
+: 1200153737:0;script/server
+: 1200153752:0;mysql5 -u root -p
+: 1200153797:0;script/server
+: 1200153826:0;ll
+: 1200153837:0;script/generate model article
+: 1200153866:0;script/console
+: 1200154145:0;cd db
+: 1200154157:0;emacs items.sql
+: 1200154165:0;touch items.sql
+: 1200154169:0;emacs items.sql
+: 1200154851:0;ll
+: 1200154861:0;mv items.sql articles.sql
+: 1200154939:0;mysql5 -u root -p test_development < articles.sql
+: 1200154947:0;mysql5 -u root -p
+: 1200155054:0;..
+: 1200155056:0;script/console
+: 1200155194:0;emacs db/articles.sql
+: 1200155221:0;mysql5 -u root -p test_development < db/articles.sql
+: 1200155313:0;script/console
+: 1200155509:0;generate scaffold article vote
+: 1200155531:0;script/generate scaffold article vote
+: 1200158007:0;script/server
+: 1200158059:0;script/generate scaffold article vote
+: 1200325406:0;ssh sakura
+: 1200362041:0;vim
+: 1200362594:0;cd
+: 1200362603:0;vi .vimrc
+: 1200362691:0;vim .vimrc
+: 1200362728:0;vi
+: 1200362735:0;vimtutor
+: 1200384857:0;cd temp/rails
+: 1200384865:0;vimtutor
+: 1200385724:0;ll
+: 1200385728:0;cd test
+: 1200385731:0;cd app
+: 1200385734:0;cd controllers
+: 1200385737:0;vim application.rb
+: 1200385745:0;..
+: 1200385748:0;cd helpers
+: 1200385752:0;vi application_helper.rb
+: 1200387215:0;mysql5 -u root -p test_development < db/articles.sql
+: 1200387220:0;..
+: 1200387226:0;cd test2
+: 1200387230:0;cd db
+: 1200387235:0;cat articles.sql
+: 1200387248:0;..
+: 1200387361:0;mysql5 -u root -p 
+: 1200392322:0;cd ..
+: 1200392341:0;rm -rf 10best
+: 1200392348:0;rm alpha
+: 1200392353:0;rm -rf alpha
+: 1200392358:0;rm -rf test
+: 1200392360:0;rm -rf test2
+: 1200392364:0;rm -rf todo
+: 1200392366:0;ll
+: 1200392370:0;cat test.txt
+: 1200392375:0;rm test.txt
+: 1200392628:0;ll
+: 1200392633:0;rails exchange
+: 1200392725:0;..
+: 1200392729:0;cd rails
+: 1200392736:0;rm -rf exchange
+: 1200392748:0;rails exchange --database=mysql
+: 1200392855:0;mysql5 -u root -p 
+: 1200392893:0;ll
+: 1200392896:0;cd exchange
+: 1200392902:0;script/server
+: 1200393087:0;mysql5 -u root -p 
+: 1200393257:0;script/server
+: 1200394303:0;mysql5 -u root -p 
+: 1200414841:0;which perl
+: 1200414853:0;which env
+: 1200415062:0;cd
+: 1200415074:0;perl test.pl test.pl
+: 1200489967:0;ll
+: 1200489969:0;cd work
+: 1200489997:0;cd python
+: 1200490001:0;cd affiliate
+: 1200490007:0;cd test
+: 1200490018:0;emacs FC2.py
+: 1200490148:0;emacs BlogClients.py
+: 1200492225:0;irb
+: 1200560428:0;ll
+: 1200560436:0;cd ..
+: 1200560442:0;cd rakuten
+: 1200560448:0;cd trunk
+: 1200560657:0;irb 
+: 1200560742:0;cd
+: 1200560746:0;ruby hatena_rss.rb
+: 1200561132:0;ruby hatena_rss.rb > test.txt
+: 1200561137:0;emacs test.
+: 1200561139:0;emacs test.txt
+: 1200561447:0;ruby hatena_rss.rb
+: 1200563026:0;ll
+: 1200563031:0;emacs test.txt
+: 1200563733:0;ruby hatena_rss.rb
+: 1200565018:0;ruby hatena_rss.rb > test.txt
+: 1200565025:0;emacs test.txt
+: 1200565148:0;ruby hatena_rss.rb > test.txt
+: 1200565155:0;emacs test.txt
+: 1200565212:0;ruby hatena_rss.rb > test.txt
+: 1200565217:0;emacs test.txt
+: 1200565707:0;ruby hatena_rss.rb
+: 1200565738:0;ruby hatena_rss.rb > test.txt
+: 1200565752:0;ruby hatena_rss.rb > test.txt; emacs test.txt
+: 1200565802:0;ruby hatena_rss.rb
+: 1200566357:0;irb
+: 1200566477:0;ruby hatena_rss.rb
+: 1200566678:0;irb 
+: 1200566771:0;ruby hatena_rss.rb
+: 1200578915:0;vi .ssh/config
+: 1200578929:0;ssh 192.168.0.100
+: 1200578968:0;cd local
+: 1200578976:0;cd html
+: 1200578980:0;cd Private
+: 1200578987:0;rm core.css~
+: 1200578994:0;open create-emulator.html
+: 1200579318:0;ssh 192.168.0.10
+: 1200579336:0;ifconfig
+: 1200579346:0;ping 192.168.0.10
+: 1200579412:0;ssh 192.168.0.20
+: 1200579425:0;cd
+: 1200579430:0;vi .ssh/config
+: 1200579486:0;ssh x3105
+: 1200579667:0;scp x3105:/home/samba/www/index.html .
+: 1200579680:0;scp x3105:/home/samba/www/rss.cgi .
+: 1200579693:0;mkdir work/sakura
+: 1200579706:0;mv index.html rss.cgi work/sakura
+: 1200579709:0;cd work/sakura
+: 1200579743:0;scp index.html rss.cgi sakura:~/
+: 1200579748:0;ssh sakura
+: 1200579828:0;scp index.html rss.cgi sakura:~/
+: 1200579835:0;ssh sakura
+: 1200580679:0;ll
+: 1200580687:0;vi index.html
+: 1200580693:0;emacs index.html
+: 1200580710:0;ll
+: 1200580715:0;mv index.html naganen.html
+: 1200580722:0;mv rss.cgi naganen.cgi
+: 1200580722:0;ll
+: 1200580737:0;mkdir hatena
+: 1200580745:0;mv naganen.* hatena
+: 1200580746:0;ll
+: 1200580748:0;cd hatena
+: 1200580764:0;cd 
+: 1200580777:0;mv hatena_rss.rb work/sakura/hatena
+: 1200580779:0;ll
+: 1200580785:0;emacs ibm.txt
+: 1200580818:0;ll
+: 1200580822:0;rm ibm.txt
+: 1200580823:0;ll
+: 1200580827:0;cat corega_rooter.txt
+: 1200580834:0;emacs corega_rooter.txt
+: 1200580864:0;rm corega_rooter.txt
+: 1200580865:0;ll
+: 1200580876:0;cat test.pl
+: 1200580958:0;rm test.pl
+: 1200580959:0;ll
+: 1200580964:0;cat mac_install_memo.txt
+: 1200580968:0;rm mac_install_memo.txt
+: 1200580971:0;cat port_installed.txt
+: 1200581020:0;rm port_installed.txt
+: 1200581021:0;ll
+: 1200581024:0;cat synergy.conf
+: 1200581063:0;ll
+: 1200581065:0;rm synergy.conf
+: 1200581069:0;cat test.txt
+: 1200581074:0;rm test.txt
+: 1200581075:0;ll
+: 1200581083:0;ls temp
+: 1200581090:0;mv temp tmp
+: 1200581091:0;ll
+: 1200581102:0;mv kenkitii.png local
+: 1200581103:0;ll
+: 1200581110:0;mv VMware-Fusion-1.0.0-51348.dmg local
+: 1200581112:0;ll
+: 1200581125:0;cd local
+: 1200581136:0;mv ../palloo bin
+: 1200581138:0;ls bin
+: 1200581155:0;ll
+: 1200581160:0;cat hage.py
+: 1200581172:0;cd ..
+: 1200581175:0;cd local
+: 1200581189:0;mkdir vmware-fusion
+: 1200581195:0;mv VMware-Fusion-1.0.0-51348.dmg vmware-fusion
+: 1200581204:0;mv keygen_macosx vmware-fusion
+: 1200581205:0;ll
+: 1200581212:0;cat yahoo_auction.txt
+: 1200581220:0;ll
+: 1200581229:0;emacs yahoo_auction.txt
+: 1200581333:0;ssh sakura
+: 1200581426:0;ll
+: 1200581430:0;cd work
+: 1200581437:0;cd ..
+: 1200581439:0;cd work
+: 1200581441:0;cd sakura
+: 1200581444:0;cd hatena
+: 1200581463:0;mv hatena_rss.rb hatebu_amazon_rss.rb
+: 1200581464:0;ll
+: 1200581477:0;chmod 755 hatebu_amazon_rss.rb
+: 1200581478:0;ll
+: 1200581501:0;emacs *
+: 1200581642:0;ll
+: 1200581663:0;scp hate* sakura:~/www/hatena
+: 1200581668:0;ssh sakura
+: 1200581749:0;ll
+: 1200581759:0;emacs hatebu_amazon_rss.rb naganen.cgi
+: 1200581778:0;ll
+: 1200581787:0;mv hatebu_amazon_rss.rb hatebu_amazon_rss.cgi
+: 1200581788:0;ll
+: 1200581796:0;ssh sakura
+: 1200582863:0;cd
+: 1200582905:0;find / -name "payao" -print
+: 1200582914:0;find ~/ -name "payao" -print
+: 1200583263:0;ssh x3105
+: 1200583307:0;ll
+: 1200583311:0;ls .ssh
+: 1200583325:0;cd .ssh
+: 1200583357:0;scp id_dsa.pub x3105:~/.ssh
+: 1200583363:0;ssh x3105
+: 1200583633:0;ssh sakura
+: 1200584715:0;ll
+: 1200584725:0;rm hatena_rss.rb
+: 1200584728:0;cd work
+: 1200584734:0;cd google_code
+: 1200584738:0;cd trunk
+: 1200584741:0;cd python
+: 1200584745:0;cd ..
+: 1200584749:0;mkdir misc
+: 1200584755:0;cd misc
+: 1200584777:0;cd ~/work/sakura/
+: 1200584781:0;cd misc
+: 1200584785:0;cd python
+: 1200584796:0;cd ..
+: 1200584798:0;cd ruby
+: 1200584801:0;cd ..
+: 1200584816:0;mv hatena misc
+: 1200584818:0;cd misc
+: 1200584850:0;mv * ~/work/google_code/trunk/misc
+: 1200584851:0;ll
+: 1200584852:0;..
+: 1200584861:0;rm -rf sakura
+: 1200584862:0;ll
+: 1200584867:0;cat mixipress.py
+: 1200584871:0;rm mixipress.py
+: 1200584872:0;ll
+: 1200584880:0;cat fix_macport.sh
+: 1200584886:0;rm fix_macport.sh
+: 1200584887:0;ll
+: 1200584891:0;cat spam.txt
+: 1200584898:0;ll
+: 1200584904:0;emacs spam.txt
+: 1200585000:0;ll
+: 1200585003:0;rm spam.txt
+: 1200585006:0;cd perl
+: 1200585009:0;cd affiliate
+: 1200585013:0;cd rakuten
+: 1200585015:0;..
+: 1200585018:0;ll
+: 1200585019:0;cd ..
+: 1200585024:0;cd get_stock
+: 1200585033:0;cat get_stock_data.py
+: 1200585040:0;ll
+: 1200585043:0;..
+: 1200585053:0;cd bin
+: 1200585060:0;cd Archive
+: 1200585061:0;..
+: 1200585068:0;rm -rf bin
+: 1200585069:0;ll
+: 1200585073:0;cd hatena
+: 1200585078:0;cat rss.rb
+: 1200585093:0;ll
+: 1200585096:0;cat test.rb
+: 1200585100:0;cat webserver.rb
+: 1200585118:0;ruby webserver.rb
+: 1200585152:0;ll
+: 1200585159:0;rm rss.rb test.rb
+: 1200585160:0;ll
+: 1200585284:0;mv webserver.rb ~/work/google_code/trunk/misc/ruby/
+: 1200585287:0;ll
+: 1200585288:0;..
+: 1200585295:0;ls hatena
+: 1200585298:0;rm hatena
+: 1200585301:0;rmdir hatena
+: 1200585305:0;cd html
+: 1200585308:0;cd gmail
+: 1200585310:0;..
+: 1200585314:0;cd img
+: 1200585316:0;..
+: 1200585321:0;cd img
+: 1200585324:0;open *
+: 1200585372:0;..
+: 1200585379:0;ls ~/local
+: 1200585383:0;ls ~/local/html
+: 1200585392:0;cd html
+: 1200585400:0;mv gmail ~/local/html
+: 1200585401:0;ll
+: 1200585403:0;..
+: 1200585405:0;rmdir html
+: 1200585409:0;cd html
+: 1200585411:0;ls -al
+: 1200585419:0;..
+: 1200585424:0;rm -rf html
+: 1200585425:0;ll
+: 1200585445:0;mv img ~/local/
+: 1200585446:0;ll
+: 1200585454:0;cd perl
+: 1200585457:0;cd affiliate
+: 1200585459:0;..
+: 1200585462:0;cd stock
+: 1200585467:0;cd ..
+: 1200585473:0;cd google_code
+: 1200585480:0;cd trunk
+: 1200585482:0;cd python
+: 1200585484:0;cd ..
+: 1200585491:0;rm -rf Palloo
+: 1200585493:0;cd trunk
+: 1200585496:0;cd misc
+: 1200585500:0;cd hatena
+: 1200585519:0;mv * ../ruby
+: 1200585520:0;ll
+: 1200585521:0;..
+: 1200585527:0;rm hatena
+: 1200585533:0;rmdir hatena
+: 1200585535:0;cd python
+: 1200585537:0;..
+: 1200585538:0;cd ruby
+: 1200585565:0;mv naganen.cgi hateda_naganen.cgi
+: 1200585574:0;mv naganen.html hateda_naganen.html
+: 1200585575:0;ll
+: 1200585595:0;mv hatebu_amazon_rss.cgi hatebu_amazon.cgi
+: 1200585606:0;mv hatebu_amazon_rss.html hatebu_amazon.html
+: 1200585608:0;ll
+: 1200585610:0;emacs *
+: 1200585891:0;ll
+: 1200585898:0;ruby webserver.rb
+: 1200586010:0;ll
+: 1200586022:0;vi cgi_test.rb
+: 1200586029:0;ruby webserver.rb
+: 1200586046:0;vi cgi_test.rb
+: 1200586069:0;ruby webserver.rb
+: 1200586095:0;ll
+: 1200586102:0;rm cgi_test.rb~
+: 1200586103:0;ll
+: 1200586112:0;emacs easy_mecab*
+: 1200586140:0;..
+: 1200586145:0;svn status
+: 1200586153:0;svn add misc
+: 1200586170:0;svn ci -m "initial import."
+: 1200586198:0;cd ..
+: 1200586205:0;mkdir tmp
+: 1200586207:0;cd tmp
+: 1200586220:0;svn co https://kenkiti:h4z5h2f2@kenkiti.googlecode.com/svn/trunk
+: 1200586279:0;ll
+: 1200586283:0;cd trunk
+: 1200586308:0;mv ../../trunk/misc .
+: 1200586311:0;ll
+: 1200586315:0;svn status
+: 1200586320:0;svn add misc
+: 1200586338:0;cd misc
+: 1200586343:0;la
+: 1200586348:0;rm -rf .svn
+: 1200586349:0;..
+: 1200586353:0;svn status
+: 1200586356:0;svn add misc
+: 1200586364:0;cd misc
+: 1200586365:0;cd python
+: 1200586370:0;rm -rf .svn
+: 1200586372:0;..
+: 1200586374:0;cd ruby
+: 1200586378:0;rm -rf .svn
+: 1200586379:0;..
+: 1200586383:0;svn add misc
+: 1200586396:0;svn update
+: 1200586404:0;cd misc
+: 1200586408:0;svn add python
+: 1200586413:0;svn add ruby
+: 1200586422:0;svn ci -m "initial import."
+: 1200587065:0;svn remove ruby
+: 1200587093:0;svn ci -m "remove files."
+: 1200587101:0;ll
+: 1200587155:0;cd ..
+: 1200587165:0;cd trunk
+: 1200587167:0;..
+: 1200587197:0;cd google_code
+: 1200587199:0;cd trunk
+: 1200587203:0;cd ruby
+: 1200587211:0;cd megurulove_downloader
+: 1200587222:0;cp megurulove.com.rb ../
+: 1200587224:0;ll
+: 1200587225:0;..
+: 1200587243:0;scp sakura:~/www/hatena/ .
+: 1200587249:0;scp sakura:~/www/hatena .
+: 1200587254:0;scp sakura:~/www/hatena/* .
+: 1200587272:0;ssh sakura
+: 1200587302:0;scp sakura:~/www/hatena/hatebu_amazon.cgi .
+: 1200587309:0;scp sakura:~/www/hatena/hatebu_amazon.html .
+: 1200587320:0;scp sakura:~/www/hatena/naganen.html .
+: 1200587325:0;scp sakura:~/www/hatena/naganen.cgi
+: 1200587328:0;scp sakura:~/www/hatena/naganen.cgi .
+: 1200587330:0;ll
+: 1200587346:0;svn remove megurulove_downloader
+: 1200587354:0;svn ci -m "remove files."
+: 1200587361:0;ll
+: 1200587370:0;emacs naganen.*
+: 1200587412:0;ll
+: 1200587424:0;mv naganen.cgi hateda_naganen.cgi
+: 1200587432:0;mv naganen.html hateda_naganen.html
+: 1200587434:0;ll
+: 1200587439:0;svn add *
+: 1200587451:0;svn ci -m "initial import."
+: 1200587477:0;ll
+: 1200587479:0;..
+: 1200587485:0;cd tmp
+: 1200587487:0;cd trunk
+: 1200587488:0;cd misc
+: 1200587490:0;cd python
+: 1200587516:0;cp * ../../../trunk/python
+: 1200587528:0;cd ../../../trunk/python
+: 1200587539:0;mkdir misc
+: 1200587546:0;mv *.py misc
+: 1200587547:0;ll
+: 1200587554:0;mv hellopy.cgi misc
+: 1200587558:0;mv myclock.pyw misc
+: 1200587559:0;ll
+: 1200587562:0;cd misc
+: 1200587564:0;..
+: 1200587568:0;svn add misc
+: 1200587578:0;svn ci -m "initial import."
+: 1200587608:0;ll
+: 1200587616:0;svn status
+: 1200587665:0;..
+: 1200587670:0;svn remove misc
+: 1200587680:0;svn ci -m "remove files."
+: 1200587689:0;ll
+: 1200587691:0;cd misc
+: 1200587700:0;svn remove python
+: 1200587703:0;svn ci -m "remove files."
+: 1200587720:0;svn status
+: 1200587723:0;..
+: 1200587727:0;svn updateee
+: 1200587730:0;svn update
+: 1200587750:0;ll
+: 1200587755:0;svn status
+: 1200587759:0;svn ci -m "remove files."
+: 1200587767:0;ll
+: 1200587798:0;cd ruby
+: 1200587802:0;svn status
+: 1200588057:0;cd ..
+: 1200588058:0;..
+: 1200588063:0;cd perl
+: 1200588067:0;cd stock
+: 1200588070:0;cd ..
+: 1200588072:0;ls stock
+: 1200588089:0;ls dotfile
+: 1200588090:0;ls dotfiles
+: 1200588092:0;ll
+: 1200588101:0;svn status
+: 1200588105:0;cd dotfiles
+: 1200588107:0;svn status
+: 1200588122:0;svn ci -m "no comments."
+: 1200588145:0;ll
+: 1200588148:0;cd emacs 
+: 1200588150:0;la
+: 1200588176:0;diff .emacs ~/.emacs
+: 1200588186:0;diff .emacs.macbook.el ~/.emacs.macbook.el
+: 1200588209:0;cp ~/.emacs.macbook.el .emacs.macbook.el
+: 1200588210:0;ll
+: 1200588212:0;la
+: 1200588215:0;..
+: 1200588223:0;cd zsh
+: 1200588224:0;la
+: 1200588240:0;diff ~/.zshrc .zshrc
+: 1200588256:0;cp ~/.zshrc.mine .zshrc.mine
+: 1200588259:0;..
+: 1200588263:0;cd ssh
+: 1200588280:0;diff ~/.ssh/config config
+: 1200588327:0;tracert shiten.homeip.net
+: 1200588337:0;traceroute shiten.homeip.net
+: 1200588346:0;ping shiten.homeip.net
+: 1200588360:0;diff ~/.ssh/config config
+: 1200588385:0;merge
+: 1200588403:0;merge ~/.ssh/config config
+: 1200588410:0;man merge
+: 1200588463:0;merge -A ~/.ssh/config config
+: 1200588469:0;man merge
+: 1200588484:0;merge -Ap ~/.ssh/config config
+: 1200588492:0;merge -A -p ~/.ssh/config config
+: 1200588501:0;man merge
+: 1200588541:0;merge -L a -L b ~/.ssh/config config
+: 1200588545:0;man merge
+: 1200588562:0;merge -L a -L b ~/.ssh/config ./config
+: 1200588623:0;merge ~/.ssh/config ./config config.new
+: 1200588629:0;merge ~/.ssh/config ./config ./config.new
+: 1200588638:0;merge ./config.new ~/.ssh/config ./config 
+: 1200588668:0;touch config.new
+: 1200588669:0;merge ./config.new ~/.ssh/config ./config 
+: 1200588674:0;cat config.new
+: 1200588701:0;vi config.new
+: 1200588737:0;vi config
+: 1200588777:0;merge -p ~/.ssh/config ./config 
+: 1200588795:0;merge -p config.new ~/.ssh/config ./config
+: 1200588806:0;merge -p config.new ./confg ~/.ssh/config
+: 1200588811:0;ll
+: 1200588820:0;merge -p config.new ./config ~/.ssh/config
+: 1200588898:0;merge -p config ./config.new ~/.ssh/config
+: 1200588914:0;cat config
+: 1200588927:0;touch config.new
+: 1200588931:0;cat config.new
+: 1200588934:0;rm config.new
+: 1200588937:0;touch config.new
+: 1200588941:0;merge -p config ./config.new ~/.ssh/config
+: 1200588953:0;merge config ./config.new ~/.ssh/config
+: 1200588957:0;cat config
+: 1200588960:0;vi config
+: 1200589065:0;ll
+: 1200589070:0;rm config.*
+: 1200589071:0;ll
+: 1200589075:0;rm config~
+: 1200589076:0;ll
+: 1200589078:0;cat config
+: 1200589084:0;..
+: 1200589092:0;ruby symlink.rb
+: 1200589097:0;cd
+: 1200589098:0;la
+: 1200589149:0;cp .zsh_history work/dotfiles/zsh
+: 1201758289:0;emacs
+: 1233067544:0;ll
+: 1233067554:0;screen
+: 1233924039:0;emacs ~/.zshrc.mine
+: 1233924109:0;cd
+: 1233924138:0;gdircolors -p ~/.dircolors
+: 1233924168:0;gdircolors ~/.dircolors
+: 1233924184:0;gdircolors ~/.dircolors | pbcopy
+: 1233924307:0;source .zshrc
+: 1233924309:0;ls
+: 1233924311:0;ll
+: 1233924323:0;gdircolors ~/.dircolors | pbcopy
+: 1233924327:0;LS_COLORS='rs=0:di=00;32:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:';
+: 1233924327:0;export LS_COLORS
+: 1233924330:0;ll
+: 1233924334:0;gls
+: 1233924337:0;gls --color
+: 1233924343:0;gls -l --color
+: 1233924481:0;source .zshrc
+: 1233924483:0;ll
+: 1233924510:0;ls
+: 1233924539:0;source .zshrc
+: 1233924541:0;ls
+: 1233924560:0;source .zshrc
+: 1233924561:0;ls
+: 1233924567:0;ll
+: 1233924798:0;port contents coreutils | perl -nle 'print "alias $1=g$1" if m{/opt/local/bin/g(\w+)}'
+: 1233924804:0;port contents coreutils | perl -nle 'print "alias $1=g$1" if m{/opt/local/bin/g(\w+)}' | pbcopy
+: 1233924867:0;ll
+: 1233924876:0;source .zshrc
+: 1233924878:0;ll
+: 1233924887:0;emacs ~/.zshrc.mine
+: 1233924901:0;source .zshrc
+: 1233924902:0;ll
+: 1233924930:0;source .zshrc
+: 1233924932:0;ll
+: 1233924972:0;cd Dropbox
+: 1233924979:0;here
+: 1233925055:0;cd bookmark
+: 1233925063:0;..
+: 1233925069:0;ll
+: 1233925077:0;rehash
+: 1233925079:0;ll
+: 1233925086:0;cd Sites
+: 1233925125:0;source .zshrc
+: 1233925130:0;cd
+: 1233925132:0;source .zshrc
+: 1233925134:0;cd work
+: 1233925162:0;ll
+: 1233925166:0;cd sakura
+: 1233925738:0;cd
+: 1233925745:0;cd gitwork
+: 1233925749:0;ll
+: 1233925786:0;emacs ring.rb ringo.rb
+: 1233925798:0;ruby ring.rb
+: 1267061649:0;ll
+: 1267061653:0;emacs ~/.emacs
+: 1267062696:0;ll
+: 1267062698:0;ls
+: 1267062708:0;ll
+: 1267062711:0;gls
+: 1267062715:0;cd ..
+: 1267062720:0;ls
+: 1267062730:0;ll
+: 1267062875:0;emacs ~/.emacs
+: 1267065059:0;cd /Applications/Emacs.app/Contents/Resources/site-lisp
+: 1267065064:0;cd rails
+: 1267065072:0;..
+: 1267065085:0;ls
+: 1267065149:0;open -n /Applications/Emacs.app
+: 1267065329:0;emacs site-start.
+: 1267065331:0;emacs site-start.el
+: 1267065436:0;cd
+: 1267065450:0;mv .emacs .emacs.bak
+: 1267065455:0;emacs .emacs.bak
+: 1267065528:0;mv .emacs.bak .emacs
+: 1267065667:0;emacs .emacs
+: 1267066446:0;source .zshrc
+: 1267066954:0;emacs .emacs
+: 1267067193:0;touch .emacs.bmk
+: 1267067432:0;emacs .emacs
+: 1267067853:0;emacs .emacs.bmk
+: 1267067860:0;rm .emacs.bmk
+: 1267068245:0;emacs .emacs
+: 1267069258:0;ssh sc430
+: 1267069267:0;ssh tadashi.kicks-ass.net
+: 1267069386:0;cat .ssh/config
+: 1267069393:0;cat .ssh/config | less
+: 1267069405:0;ssh sc430.remote
+: 1267070580:0;exit
+: 1267184987:0;cd
+: 1267184988:0;la
+: 1267185027:0;cd .ssh
+: 1267185035:0;..
+: 1267185040:0;cd .mplayer
+: 1267185043:0;cat config
+: 1267185372:0;ll
+: 1267185374:0;..
+: 1267185381:0;cd bin
+: 1267185395:0;mv * ../local/bin
+: 1267185397:0;ll
+: 1267185398:0;..
+: 1267185402:0;rmdir bin
+: 1267185404:0;ll
+: 1267185414:0;rehash
+: 1267185419:0;topless
+: 1267185426:0;translate.rb hello
+: 1267185881:0;translate.rb "„Å≤„Å®„ÇÉ™„Åß„Åß„ÅÉ≠„ÇÉ´„ÇÇ„ÇÉ≥"
+: 1267185975:0;ls local/bin
+: 1267185984:0;cd work
+: 1267186002:0;mkdir website
+: 1267186006:0;svn add website
+: 1267186021:0;cd bin
+: 1267186041:0;cd test
+: 1267186060:0;..
+: 1267186062:0;ll
+: 1267186075:0;cp ../dotfiles/symlink.rb .
+: 1267186078:0;emacs symlink.rb
+: 1267186105:0;ruby symlink.rb
+: 1267186212:0;refe Dir.glob
+: 1267186221:0;refe Dir.glob | less
+: 1267186292:0;irb
+: 1267186414:0;#Ë§ÉßÊÉµ∞„ÅÆÁ´ØÊÉº´„Åß„É£™„Ç¢„É£´„Çø„Ç§„É£ÉÄ„Å´„É£É≤„Çπ„É£É®„É£™„ÇÉ≤ÂÉ•±ÊÉºÉ©
+: 1267186414:0;setopt share_history
+: 1267186487:0;ruby symlink.rb
+: 1267186734:0;..
+: 1267186739:0;cd local
+: 1267186741:0;cd bin
+: 1267186762:0;rehash
+: 1267186765:0;cd
+: 1267186766:0;cd work
+: 1267186773:0;ll
+: 1267186780:0;svn add website
+: 1267186787:0;svn ci -m "no comments."
+: 1267186802:0;svn mv sinatra website
+: 1267186807:0;svn ci -m "no comments."
+: 1267186813:0;ll
+: 1267186820:0;svn st
+: 1267186826:0;svn ci -m "no comments."
+: 1267186832:0;svn up
+: 1267186837:0;svn ci -m "no comments."
+: 1267186844:0;ll
+: 1267186863:0;svn mv website ruby
+: 1267186868:0;svn ci -m "no comments."
+: 1267186873:0;svn up
+: 1267186879:0;svn ci -m "no comments."
+: 1267186884:0;ll
+: 1267186887:0;cd ruby
+: 1267187016:0;ll
+: 1267187019:0;..
+: 1267187027:0;mv gmailtest.rb ruby
+: 1267187028:0;ll
+: 1267187036:0;cd sunboku
+: 1267187040:0;..
+: 1267187041:0;ll
+: 1267187048:0;svn mv sunboku ruby/
+: 1267187052:0;svn ci -m "no comments."
+: 1267187057:0;ll
+: 1267187067:0;svn mv twitter ruby/
+: 1267187070:0;svn up
+: 1267187082:0;svn mv twitter ruby/
+: 1267187090:0;cd twitter
+: 1267187092:0;svn st
+: 1267187099:0;svn add *
+: 1267187108:0;svn add bot/*
+: 1267187110:0;svn ci -m "no comments."
+: 1267187114:0;..
+: 1267187119:0;svn mv twitter ruby
+: 1267187141:0;svn mv twitter ruby/
+: 1267187152:0;cd ruby
+: 1267187165:0;svn st
+: 1267187181:0;mv twitter twitter.bak
+: 1267187184:0;..
+: 1267187187:0;cd ruby
+: 1267187192:0;svn mv twitter ruby/
+: 1267187198:0;..
+: 1267187200:0;ll
+: 1267187203:0;svn mv twitter ruby/
+: 1267187313:0;svn ci -m "no comments."
+: 1267187328:0;svn up
+: 1267187355:0;svn ci -m "no comments."
+: 1267187386:0;ll
+: 1267187393:0;cd ruby
+: 1267187396:0;ll
+: 1267187429:0;rm -rf twitter.bak
+: 1267187436:0;svn st
+: 1267187445:0;cat test.html
+: 1267187456:0;ll
+: 1267187473:0;cd lib
+: 1267191218:0;ll
+: 1267191220:0;cd ..
+: 1267191242:0;cd local
+: 1267191244:0;cd lib
+: 1267191246:0;..
+: 1267191249:0;svn st
+: 1267191251:0;..
+: 1267191263:0;rmdir local/lib
+: 1267191266:0;rmdir local/
+: 1267191268:0;ll
+: 1267191275:0;..
+: 1267191279:0;cd googlecode
+: 1267191282:0;cd ruby
+: 1267191291:0;svn st
+: 1267191292:0;..
+: 1267191300:0;cd ruby
+: 1267191302:0;cd cgi
+: 1267191437:0;..
+: 1267191444:0;cd private
+: 1267191451:0;..
+: 1267191460:0;cd xrea
+: 1267191463:0;ll
+: 1267191465:0;cd rockybbs
+: 1267191468:0;..
+: 1267191472:0;cd blog
+: 1267191477:0;..
+: 1267191484:0;svn mv blog ruby/
+: 1267191488:0;svn ci -m "no comments."
+: 1267191502:0;svn mv nicovideo* ruby/
+: 1267191508:0;svn mv nicovideo ruby/
+: 1267191512:0;svn ci -m "no comments."
+: 1267191527:0;ll
+: 1267191531:0;cd sakura
+: 1267191533:0;..
+: 1267191538:0;svn mv sakura ruby/
+: 1267191541:0;svn up
+: 1267191550:0;cd sakura
+: 1267191553:0;svn st
+: 1267191570:0;svn add *
+: 1267191576:0;svn ci -m "no comments."
+: 1267191583:0;svn st
+: 1267191594:0;svn add search/*
+: 1267191601:0;svn ci -m "no comments."
+: 1267191606:0;svn st
+: 1267191624:0;svn add search/lib/*
+: 1267191627:0;svn ci -m "no comments."
+: 1267191634:0;svn st
+: 1267191656:0;svn add search/test/avactress.dump
+: 1267191658:0;svn ci -m "no comments."
+: 1267191668:0;svn add av/*
+: 1267191674:0;svn ci -m "no comments."
+: 1267191684:0;cd av
+: 1267191692:0;rm -rf cache.bak
+: 1267191728:0;rm -rf cache
+: 1267191743:0;svn rm cache
+: 1267191746:0;svn ci -m "no comments."
+: 1267191749:0;..
+: 1267191751:0;svn st
+: 1267191758:0;svn add av/*
+: 1267191766:0;svn ci -m "no comments."
+: 1267191795:0;cd av
+: 1267191805:0;svn rm image
+: 1267191807:0;svn up
+: 1267191810:0;svn rm image
+: 1267191823:0;cd image
+: 1267191829:0;svn rm a
+: 1267191837:0;cd a
+: 1267191842:0;..
+: 1267191848:0;svn propedit svn:ignore .
+: 1267191857:0;svn ci -m "no comments."
+: 1267191861:0;svn st
+: 1267191879:0;svn rm image/a/*
+: 1267191889:0;svn ci -m "no comments."
+: 1267191896:0;svn up
+: 1267191899:0;ll
+: 1267191903:0;svn st
+: 1267191917:0;svn rm image/a/*
+: 1267191922:0;svn rm image/a/* --force
+: 1267191925:0;svn ci -m "no comments."
+: 1267191930:0;ll
+: 1267191934:0;svn st
+: 1267191944:0;svn propedit svn:ignore .
+: 1267191954:0;svn ci -m "no comments."
+: 1267191959:0;svn up
+: 1267191961:0;svn ci -m "no comments."
+: 1267191964:0;svn st
+: 1267192024:0;svn st | ruby -en '$_.replace(/\?\s/, "")'
+: 1267192035:0;svn st | ruby -en '$_'
+: 1267192045:0;ruby -en '$_' < svn st
+: 1267192061:0;svn st | ruby -ne '$_'
+: 1267192065:0;svn st | ruby -ne 'p $_'
+: 1267192105:0;svn st | ruby -pe '$_.replace(/[\?\s]+/, "")'
+: 1267192116:0;svn st | ruby -pe '$_.to_s.replace(/[\?\s]+/, "")'
+: 1267192131:0;irb
+: 1267192175:0;refe replace
+: 1267192184:0;refe String#replace
+: 1267192288:0;svn st | ruby -pe '$_.sub(/[\?\s]+/, "")'
+: 1267192297:0;svn st | ruby -pe '$_.sub(/[\?|\s]+/, "")'
+: 1267192304:0;svn st | ruby -pe '$_.sub(/\?/, "")'
+: 1267192318:0;svn st | ruby -pe '$_.sub(/^\?/, "")'
+: 1267192329:0;svn st | ruby -pe '$_.gsub(/\s/, "")'
+: 1267192350:0;svn st | ruby -pe '$_.gsub(/image/, "")'
+: 1267192377:0;echo "hoge" | ruby -pe '$_'
+: 1267192388:0;echo "hoge" | ruby -pe '$_.sub(/ho/, "fo")'
+: 1267192393:0;echo "hoge" | ruby -pe '$_.gsub(/ho/, "fo")'
+: 1267192402:0;echo "hoge" > ruby -pe '$_.gsub(/ho/, "fo")'
+: 1267192417:0;echo "hoge" | ruby -pe '$_+h'
+: 1267192423:0;echo "hoge" | ruby -pe '$_+"s"'
+: 1267192508:0;svn st | ruby -e 'puts STDIN'
+: 1267192516:0;svn st | ruby -e 'puts STDIN.readlines'
+: 1267192525:0;svn st | ruby -e 'puts STDIN.readlines.to_s'
+: 1267192542:0;svn st | ruby -e 'puts STDIN.readlines.to_s.gsub(/image/, "")'
+: 1267192561:0;svn st | ruby -e 'puts STDIN.readlines.to_s.gsub(/\?\s+/, "")'
+: 1267192587:0;svn st | ruby -e 'puts STDIN.readlines.to_s.gsub(/\?\s+/, "")' | xargs echo
+: 1267192609:0;svn st
+: 1267192618:0;svn st | ruby -e 'puts STDIN.readlines.to_s.gsub(/\?\s+/, "")' | xargs echo
+: 1267192635:0;svn st | ruby -e 'puts STDIN.readlines.to_s.gsub(/\?\s+/, "")' | pbcopy
+: 1267192640:0;svn propedit svn:ignore .
+: 1267192696:0;svn ci -m "no comments."
+: 1267192702:0;svn st
+: 1267192710:0;svn up
+: 1267192715:0;svn st
+: 1267192723:0;cd image
+: 1267192740:0;..
+: 1267192752:0;svn propedit svn:ignore .
+: 1267192764:0;svn ci -m "no comments."
+: 1267192767:0;svn st
+: 1267192790:0;ll
+: 1267192793:0;svn add *.rb
+: 1267192797:0;svn ci -m "no comments."
+: 1267192805:0;svn up
+: 1267192811:0;svn st
+: 1267192819:0;cd ruby
+: 1267192821:0;ll
+: 1267192825:0;cat ruby
+: 1267192830:0;rm ruby
+: 1267192833:0;ruby -v
+: 1267192836:0;ll
+: 1267192840:0;svn st
+: 1267192844:0;svn add sample.db
+: 1267192852:0;cat temp.txt
+: 1267192858:0;ll
+: 1267192862:0;rm temp.txt
+: 1267192866:0;svn ci -m "no comments."
+: 1267192869:0;svn st
+: 1267192932:0;mv image ~/
+: 1267192934:0;ll
+: 1267192936:0;svn st
+: 1267192941:0;svn rm image
+: 1267192944:0;svn ci -m "no comments."
+: 1267192954:0;svn st
+: 1267192963:0;mv ~/image .
+: 1267192965:0;ll
+: 1267192967:0;svn st
+: 1267193003:0;..
+: 1267193005:0;svn st
+: 1267193007:0;..
+: 1267193009:0;svn st
+: 1267193019:0;cat tesss.rb
+: 1267193024:0;rm tesss.rb
+: 1267193025:0;ll
+: 1267193027:0;svn st
+: 1267193041:0;cd dotfiles
+: 1267193044:0;svn add *
+: 1267193047:0;svn ci -m "no comments."
+: 1267193059:0;ll
+: 1267193062:0;..
+: 1267193065:0;svn st
+: 1267193078:0;svn add dotfiles/zsh/.zprofile
+: 1267193082:0;svn ci -m "no comments."
+: 1267193098:0;svn st
+: 1267193102:0;svn ci -m "no comments."
+: 1267193118:0;svn add temp/*
+: 1267193128:0;svn add temp/sinatra-test
+: 1267193132:0;svn add temp/sinatra-test/*
+: 1267193139:0;svn ci -m "no comments."
+: 1267193146:0;svn st
+: 1267193160:0;svn add dotfiles.ubuntu
+: 1267193178:0;cd dotfiles.ubuntu
+: 1267193181:0;la
+: 1267193186:0;..
+: 1267193197:0;mv dotfiles.ubuntu ..
+: 1267193199:0;svn st
+: 1267193210:0;svn rm dotfiles.ubuntu
+: 1267193215:0;svn ci -m "no comments."
+: 1267193255:0;ll
+: 1267193256:0;svn st
+: 1267193268:0;cd ../dotfiles.ubuntu
+: 1267193274:0;rm -rf .svn
+: 1267193277:0;cd emacs
+: 1267193280:0;la
+: 1267193285:0;rm -rf .svn
+: 1267193287:0;..
+: 1267193308:0;find . -type d .svn
+: 1267193315:0;find . -type d ".svn"
+: 1267193321:0;find ./ -type d ".svn"
+: 1267193345:0;find ./ -type d "svn"
+: 1267193350:0;find ./ -type f "svn"
+: 1267193367:0;find . -type f | xargs grep datatime
+: 1267193379:0;find . -type f | grep svn
+: 1267193391:0;find . -type d | grep svn
+: 1267193406:0;find . -type d | grep svn | xargs
+: 1267193412:0;find . -type d | grep svn | xargs rmdir
+: 1267193417:0;find . -type d | grep svn | xargs rm -rf
+: 1267193420:0;ll
+: 1267193429:0;find . -type d
+: 1267193441:0;../work
+: 1267193447:0;mv ../dotfiles.ubuntu .
+: 1267193452:0;svn add dotfiles.ubuntu
+: 1267193455:0;svn ci -m "no comments."
+: 1267193462:0;svn st
+: 1267193474:0;svn add bin/symlink.rb
+: 1267193476:0;svn ci -m "no comments."
+: 1267193486:0;svn st
+: 1267193499:0;cd ruby
+: 1267193958:0;emacs ~/local/bin/tunneling.rb
+: 1267193989:0;ssh -C -L 7144:192.168.0.9:7144 localhost
+: 1267194777:0;ll
+: 1267194783:0;cd website
+: 1267194786:0;cd sinatra
+: 1267194790:0;..
+: 1267194797:0;cd sakura
+: 1267194799:0;..
+: 1267194806:0;svn mv sakura ruby
+: 1267194962:0;svn ci -m "no comments."
+: 1267194968:0;svn up
+: 1267194973:0;svn ci -m "no comments."
+: 1267194980:0;svn up
+: 1267194986:0;svn ci -m "no comments."
+: 1267194990:0;svn up
+: 1267194994:0;svn ci -m "no comments."
+: 1267194999:0;svn up
+: 1267195002:0;svn ci -m "no comments."
+: 1267195017:0;cd ruby
+: 1267195021:0;svn up
+: 1267195027:0;cd sakura
+: 1267195033:0;svn up
+: 1267195043:0;..
+: 1267195045:0;svn up
+: 1267195053:0;svn cleanup
+: 1267195063:0;cd sakura
+: 1267195070:0;svn cleanup
+: 1267195075:0;svn up
+: 1267195081:0;svn cleanup
+: 1267195085:0;cd av
+: 1267195088:0;svn cleanup
+: 1267195110:0;mv image ~/
+: 1267195114:0;svn up
+: 1267195118:0;svn cleanup
+: 1267195123:0;svn up
+: 1267195125:0;..
+: 1267195130:0;svn up
+: 1267195136:0;svn cleanup
+: 1267195141:0;cd sakura
+: 1267195143:0;svn cleanup
+: 1267195147:0;svn up
+: 1267195156:0;svn st
+: 1267195159:0;svn up
+: 1267195167:0;svn cleanup
+: 1267195170:0;svn up
+: 1267195178:0;cat index.html
+: 1267195181:0;ll
+: 1267195187:0;rm in
+: 1267195189:0;rm index.html
+: 1267195191:0;svn up
+: 1267195199:0;svn cleanup
+: 1267195202:0;svn up
+: 1267195207:0;svn rm install_script
+: 1267195222:0;svn revert
+: 1267195228:0;svn revert install_script
+: 1267195232:0;svn up
+: 1267195237:0;svn rm index.html
+: 1267195240:0;svn ci -m "no comments."
+: 1267195243:0;svn cleanup
+: 1267195247:0;svn up
+: 1267195273:0;ll
+: 1267195278:0;svn ci -m "no comments."
+: 1267195285:0;svn cleanup --force
+: 1267195287:0;svn cleanup
+: 1267195291:0;svn up
+: 1267195294:0;svn up --force
+: 1267195303:0;ll
+: 1267195312:0;svn ci -
+: 1267195317:0;svn ci -m "no comments."
+: 1267195327:0;..
+: 1267195330:0;svn cleanup
+: 1267195332:0;..
+: 1267195335:0;svn cleanup
+: 1267195338:0;cd ruby
+: 1267195340:0;svn st
+: 1267195356:0;cd sakura
+: 1267195358:0;svn st
+: 1267195366:0;svn revert install_script
+: 1267195370:0;svn st
+: 1267195387:0;svn up
+: 1267195397:0;mv install_script ~/
+: 1267195400:0;svn ci -m "no comments."
+: 1267195420:0;..
+: 1267195425:0;svn st
+: 1267195437:0;..
+: 1267195453:0;mv ruby ~/
+: 1267195455:0;svn st
+: 1267195461:0;svn up
+: 1267195471:0;svn st
+: 1267195477:0;svn ci -m "no comments."
+: 1267195490:0;cd ruby
+: 1267195502:0;cd av
+: 1267195508:0;cd website
+: 1267195511:0;..
+: 1267195513:0;cd sakura
+: 1267195515:0;cd av
+: 1267195517:0;..
+: 1267195531:0;tree ruby
+: 1267195554:0;ll
+: 1267195561:0;diff ruby ~/ruby
+: 1267195620:0;diff -r ruby ~/ruby
+: 1267195638:0;diff -r ruby ~/ruby | less
+: 1267195692:0;diff -r ruby ~/ruby
+: 1267195697:0;diff ruby ~/ruby
+: 1267195887:0;diff -r -x svn ruby ~/ruby
+: 1267195895:0;diff -r -x.svn ruby ~/ruby
+: 1267195947:0;diff -r -x.svn ruby ~/ruby | grep Only
+: 1267196063:0;mv ~/ruby/erog/avactress.dump ruby/erog/
+: 1267196084:0;mv ~/ruby/gmailtest.rb ruby
+: 1267196099:0;mv ~/ruby/lib/extractcontent.rb ruby/lib
+: 1267196189:0;ll
+: 1267196191:0;svn up
+: 1267196195:0;svn st
+: 1267196198:0;cd ruby
+: 1267196206:0;cd sakura
+: 1267196210:0;cd search
+: 1267196228:0;cd lib
+: 1267196236:0;emacs avactress.rb
+: 1267196458:0;ll
+: 1267196462:0;ruby avactress.rb
+: 1267196528:0;ll
+: 1267196539:0;cd templates
+: 1267196544:0;cat *
+: 1267196551:0;..
+: 1267196556:0;cd templates
+: 1267196571:0;..
+: 1267196574:0;emacs index.rb
+: 1267199202:0;..
+: 1267199205:0;cd web
+: 1267199207:0;cd website
+: 1267199210:0;cd sinatra
+: 1267199221:0;mkdir avsearch
+: 1267199226:0;cd avsearch
+: 1267199258:0;ln -s ~/work/ruby/lib .
+: 1267199259:0;ll
+: 1267199261:0;cd lib
+: 1267199284:0;touch affiliate.rb
+: 1267199288:0;emacs affiliate.rb
+: 1267199376:0;ll
+: 1267199381:0;mkdir test
+: 1267199391:0;rmdir test
+: 1267199395:0;..
+: 1267199415:0;mkdir test
+: 1267199421:0;ll
+: 1267199430:0;cd test
+: 1267199439:0;touch test_affiliate.rb
+: 1267199443:0;..
+: 1267199453:0;emacs test/test_affiliate.rb
+: 1267199489:0;cd local
+: 1267199507:0;emacs ../bin/test/test_translate.rb
+: 1267199565:0;irb
+: 1267199744:0;cd test
+: 1267199747:0;ruby test_affiliate.rb
+: 1267199819:0;irb
+: 1267200099:0;ruby test_affiliate.rb
