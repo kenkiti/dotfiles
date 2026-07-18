@@ -1,0 +1,52 @@
+[
+    // Ctrl+Shift+O: 次のペインへ移動
+    {
+        "command": {
+            "action": "moveFocus",
+            "direction": "nextInOrder"
+        },
+        "keys": "ctrl+shift+o"
+    },
+
+    // Ctrl+Shift+2: 下に分割
+    {
+        "command": {
+            "action": "splitPane",
+            "split": "down"
+        },
+        "keys": "ctrl+shift+2"
+    },
+
+    // Ctrl+Shift+3: 右に分割
+    {
+        "command": {
+            "action": "splitPane",
+            "split": "right"
+        },
+        "keys": "ctrl+shift+3"
+    },
+
+    // Ctrl+Shift+0: 現在のペインを閉じる
+    {
+        "command": "closePane",
+        "keys": "ctrl+shift+0"
+    },
+
+    // デフォルトの Alt + 方向キーを無効化
+    {
+        "command": "unbound",
+        "keys": "alt+up"
+    },
+    {
+        "command": "unbound",
+        "keys": "alt+down"
+    },
+    {
+        "command": "unbound",
+        "keys": "alt+left"
+    },
+    {
+        "command": "unbound",
+        "keys": "alt+right"
+    }
+]
