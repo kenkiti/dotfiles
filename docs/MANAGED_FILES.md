@@ -15,6 +15,7 @@
 | `private_dot_claude/settings.json` | `~/.claude/settings.json` | 静的 | `hooks` を除いた共通設定。下記参照 |
 | `private_dot_claude/executable_statusline-command.sh` | `~/.claude/statusline-command.sh` | 静的 | ステータスライン生成スクリプト |
 | `private_dot_codex/AGENTS.md` | `~/.codex/AGENTS.md` | 静的 | Codex CLI のグローバル指示 |
+| `private_dot_codex/config.toml.tmpl` | `~/.codex/config.toml` | テンプレート | 共有する設定キーのみ。下記参照 |
 
 ## 2. Windows のみ
 
@@ -125,29 +126,59 @@ chezmoi の展開先は静的パスなので、この値をリポジトリに書
 | ファイル | 理由 |
 | --- | --- |
 | `AGENTS.md` | 手書きの静的なグローバル指示。`~/.claude/CLAUDE.md` と同一内容 |
+| `config.toml` | 手書きの設定キーのみ。実行状態のセクションは含めない（下記） |
 
-### `config.toml` を管理しない理由
+### `config.toml` で管理しているもの・していないもの
 
-`~/.codex/config.toml` は手書き設定ファイルではなく、Codex CLI 自身が書き戻す設定ファイルです。
-実物には次が含まれていました。
+`~/.claude/settings.json` と同じ方針です。**1 つのファイルの中で、
+共有したい設定キーだけを管理し、Codex CLI が書き戻す実行状態は持ちません。**
 
-- `[projects.'<絶対パス>'] trust_level` … 信頼済みプロジェクトの一覧（このマシン固有、ローカルのパスが露出する）
-- `[mcp_servers.node_repl]` … インストール先にハッシュを含む絶対パス
-- `notify` … 同じくインストール先の絶対パス
-- `[marketplaces.*]`, `[plugins.*]`, `[tui.*]`, `[desktop.*]` … アプリが更新する実行状態
+管理するキー:
 
-chezmoi でこのファイルを管理すると、`chezmoi apply` のたびに Codex が書いた信頼設定や
-プラグイン登録が消えます。そのため **管理対象から外し、`.chezmoiignore` で明示的に除外**しました。
+```toml
+model, model_reasoning_effort, service_tier
+[features]        js_repl
+[windows]         sandbox        # Windows でのみ展開
+[profiles.vault]  approval_policy, sandbox_mode
+```
 
-手書き相当の設定値だけを [`reference/codex-config.reference.toml`](reference/codex-config.reference.toml)
-に記録してあります。新しい PC ではこれを見ながら手で設定してください。
+含めないセクションと理由:
+
+| セクション | 理由 |
+| --- | --- |
+| `[projects.'<絶対パス>']` | 信頼済みプロジェクトの一覧。このマシン固有のローカルパスが露出する |
+| `[mcp_servers.*]` | インストール先にハッシュを含む絶対パス |
+| `notify` | 同じくインストール先の絶対パス |
+| `[marketplaces.*]`, `[plugins.*]` | アプリが書き戻す登録状態 |
+| `[tui.*]`, `[desktop.*]` | UI の状態とテーマ |
+| `[shell_environment_policy]` | ランタイムが差し込む環境変数 |
+
+> **⚠ 運用上の注意**
+>
+> Codex CLI は `config.toml` に上記セクションを**実行中に追記し続けます**。
+> そのため `chezmoi apply` を実行すると、**信頼済みプロジェクトの登録
+> (`[projects.*]`) やプラグインの有効状態が削除されます。**
+> 信頼は次回そのディレクトリで作業したときに再承認が必要です。
+>
+> `~/.claude/settings.json` の `hooks` と同じトレードオフですが、
+> こちらは発生頻度が高くなります。
+>
+> apply の前に退避しておくと復元できます。
+>
+> ```powershell
+> Copy-Item "$HOME\.codex\config.toml" "$HOME\.codex\config.toml.bak"
+> ```
+>
+> 信頼済みプロジェクトを消したくない場合は、
+> `.chezmoidata.yaml` の `hosts:` にパス一覧を書いてテンプレートから生成する
+> 構成に変更できます。ただしローカルのパス一覧が公開リポジトリに載ります。
 
 ### 管理しない
 
 | パス | 分類 |
 | --- | --- |
 | `auth.json` | 認証情報 |
-| `config.toml` | マシン固有 + 実行状態（上記） |
+| `config.toml` の `[projects.*]` などの実行状態セクション | マシン固有 + 実行状態（上記） |
 | `cap_sid`, `installation_id` | マシン固有 ID |
 | `history.jsonl`, `session_index.jsonl`, `transcription-history.jsonl` | 履歴 |
 | `*.sqlite`, `*.sqlite-shm`, `*.sqlite-wal` | データベース（`logs_2.sqlite` は 160MB） |

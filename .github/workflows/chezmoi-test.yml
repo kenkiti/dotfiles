@@ -222,7 +222,7 @@ jobs:
           set -euo pipefail
           for f in .zshrc .zprofile .gitconfig \
                    .claude/CLAUDE.md .claude/settings.json .claude/statusline-command.sh \
-                   .codex/AGENTS.md; do
+                   .codex/AGENTS.md .codex/config.toml; do
             test -f "$DEST/$f" || { echo "::error::missing $f"; exit 1; }
             echo "ok   $f"
           done
@@ -246,7 +246,7 @@ jobs:
                    .config/powershell/Microsoft.PowerShell_profile.ps1 \
                    "AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json" \
                    .claude/CLAUDE.md .claude/settings.json .claude/statusline-command.sh \
-                   .codex/AGENTS.md; do
+                   .codex/AGENTS.md .codex/config.toml; do
             test -f "$DEST/$f" || { echo "::error::missing $f"; exit 1; }
             echo "ok   $f"
           done
@@ -285,7 +285,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in .claude/.credentials.json .claude/history.jsonl \
-                   .codex/auth.json .codex/config.toml .codex/cap_sid .codex/installation_id; do
+                   .codex/auth.json .codex/cap_sid .codex/installation_id; do
             if [ -e "$DEST/$f" ]; then echo "::error::$f was deployed"; exit 1; fi
             echo "ok   absent: $f"
           done
@@ -312,6 +312,45 @@ jobs:
           if missing:
               sys.exit(f'expected keys missing from settings.json: {missing}')
           print('ok   settings.json has no hooks and keeps the shared keys')
+          PY
+
+      - name: Codex config must not carry machine-specific sections
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Codex CLI writes these back at runtime; they hold local absolute
+          # paths and must never reach the repository.
+          python3 - "$DEST/.codex/config.toml" <<'PY'
+          import sys, tomllib
+          data = tomllib.load(open(sys.argv[1], 'rb'))
+          banned = ['projects', 'mcp_servers', 'marketplaces', 'plugins',
+                    'tui', 'desktop', 'shell_environment_policy', 'notify']
+          found = [k for k in banned if k in data]
+          if found:
+              sys.exit(f'machine-specific sections must not be committed: {found}')
+          for key in ('model', 'model_reasoning_effort'):
+              if key not in data:
+                  sys.exit(f'expected key missing from config.toml: {key}')
+          print('ok   config.toml keeps only shared settings')
+          PY
+
+      - name: Rendered TOML is valid
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - "$DEST" <<'PY'
+          import os, sys, tomllib
+          dest = sys.argv[1]
+          found = 0
+          for root, _dirs, files in os.walk(dest):
+              for name in files:
+                  if name.endswith('.toml'):
+                      path = os.path.join(root, name)
+                      tomllib.load(open(path, 'rb'))
+                      print('ok  ', os.path.relpath(path, dest))
+                      found += 1
+          if found == 0:
+              sys.exit('expected ~/.codex/config.toml in destination')
           PY
 
       - name: CI must use dummy identity, not the real one

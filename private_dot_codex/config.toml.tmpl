@@ -1,0 +1,33 @@
+{{- /* Managed by chezmoi. Edit with: chezmoi edit ~/.codex/config.toml
+
+       Only hand-written, machine-independent settings live here.
+
+       Codex CLI writes back to this file at runtime. Everything it adds is
+       deliberately absent:
+
+         [projects.'<path>']        trusted project list (local absolute paths)
+         [mcp_servers.*]            runtime paths containing an install hash
+         notify                     absolute path to the installed binary
+         [marketplaces.*]           marketplace registrations with timestamps
+         [plugins.*]                plugin enable/disable state
+         [tui.*], [desktop.*]       UI state and theme
+         [shell_environment_policy] variables injected by the runtime
+
+       Consequence: `chezmoi apply` removes those sections. Trusted projects
+       have to be re-approved. See docs/MANAGED_FILES.md.
+    */ -}}
+model = "gpt-5.6-sol"
+model_reasoning_effort = "low"
+service_tier = "priority"
+
+[features]
+js_repl = false
+{{ if eq .chezmoi.os "windows" }}
+[windows]
+sandbox = "elevated"
+{{ end }}
+# Profile for personal scripts and already-trusted directories.
+# Usage: codex -p vault
+[profiles.vault]
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"

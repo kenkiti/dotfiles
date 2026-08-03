@@ -79,7 +79,6 @@ AppData/**
 .claude/tasks/**
 
 .codex/auth.json
-.codex/config.toml
 .codex/cap_sid
 .codex/installation_id
 .codex/history.jsonl

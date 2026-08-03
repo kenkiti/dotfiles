@@ -127,9 +127,9 @@ chezmoi re-add ~/.zshrc
 ## 移行後にやること
 
 - `~/.gitconfig` の `safe.directory` を `~/.gitconfig.local` へ移す。
-- Codex CLI の設定は `~/.codex/config.toml` を手で編集する
-  （管理対象外の理由は [MANAGED_FILES.md](MANAGED_FILES.md) 参照）。
-  雛形: [`reference/codex-config.reference.toml`](reference/codex-config.reference.toml)
+- `~/.codex/config.toml` を適用すると、Codex CLI が書いていた
+  `[projects.*]`（信頼済みプロジェクト）などが消える。必要なら適用前に退避し、
+  適用後に信頼を再承認する（[MANAGED_FILES.md](MANAGED_FILES.md) 参照）。
 - Windows Terminal を再起動し、動的プロファイル（WSL、Visual Studio など）が
   自動で再生成されることを確認する。
 

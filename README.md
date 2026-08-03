@@ -281,6 +281,7 @@ chezmoi source-path ~/.zshrc
 | `~/.claude/settings.json` | 普通のファイル |
 | `~/.claude/statusline-command.sh` | 普通のファイル |
 | `~/.codex/AGENTS.md` | 普通のファイル |
+| `~/.codex/config.toml` | **テンプレート** |
 
 ### 4-2. テンプレートの場合（`.zshrc` など）
 
@@ -428,6 +429,7 @@ chezmoi apply          # 反映
 | `~/.claude/settings.json` | Claude Code の共通設定（`hooks` は除く。下記の注意を参照） |
 | `~/.claude/statusline-command.sh` | ステータスライン表示スクリプト |
 | `~/.codex/AGENTS.md` | Codex CLI のグローバル指示 |
+| `~/.codex/config.toml` | Codex CLI の共通設定（実行状態セクションは除く。下記の注意を参照） |
 
 ### Windows のみ
 
@@ -448,20 +450,27 @@ chezmoi apply          # 反映
 | ファイル | 理由 |
 | --- | --- |
 | `~/.claude/settings.json` の `hooks` | この PC 専用。ユーザー名入りの絶対パスを含むため |
-| `~/.codex/config.toml` | Codex CLI が信頼済みプロジェクトなどを書き戻すため |
+| `~/.codex/config.toml` の `[projects.*]` `[mcp_servers.*]` `notify` など | この PC 専用。ローカルの絶対パスを含むため |
 | 認証情報・履歴・キャッシュ・ログ・セッション | 秘密情報またはマシン固有 |
+
+`~/.claude/settings.json` と `~/.codex/config.toml` は、**ファイルとしては管理対象**です。
+除外しているのはそのファイルの中の一部のセクションだけです。
 
 判断の根拠と完全な除外リストは [docs/MANAGED_FILES.md](docs/MANAGED_FILES.md) にあります。
 
-> **⚠ `~/.claude/settings.json` の hooks について**
+> **⚠ どちらも include の仕組みを持ちません**
 >
-> Claude Code の `settings.json` には include の仕組みがないため、
-> `chezmoi apply` を実行すると **その PC でローカルに設定した `hooks` は削除されます**。
+> そのため `chezmoi apply` を実行すると、**その PC でローカルに追加された内容は削除されます。**
 >
-> hooks を使っている PC では、apply の前に退避しておいてください。
+> - `~/.claude/settings.json` → ローカルで設定した `hooks` が消える
+> - `~/.codex/config.toml` → 信頼済みプロジェクト `[projects.*]` やプラグイン状態が消える
+>   （信頼はそのディレクトリで作業したときに再承認が必要）
+>
+> apply の前に退避しておくと復元できます。
 >
 > ```powershell
 > Copy-Item "$HOME\.claude\settings.json" "$HOME\.claude\settings.json.bak"
+> Copy-Item "$HOME\.codex\config.toml"    "$HOME\.codex\config.toml.bak"
 > ```
 
 ### PowerShell プロファイルの特殊事情
@@ -627,7 +636,7 @@ chezmoi merge <パス>       手元とソースを 3-way マージ
 
 ## 関連ドキュメント
 
-- [docs/MANAGED_FILES.md](docs/MANAGED_FILES.md) — 管理対象・管理対象外の完全な一覧と理由
+- [docs/MANAGED_FILES.md](docs/MANAGED_FILES.md) — 管理対象・管理対象外の完全な一覧と理由（`settings.json` / `config.toml` で何を除いているかを含む）
 - [docs/SECRETS.md](docs/SECRETS.md) — 秘密情報の扱いと将来の Bitwarden / LastPass 連携
 - [docs/MIGRATION.md](docs/MIGRATION.md) — 旧シンボリックリンク方式からの移行手順
 - [AGENTS.md](AGENTS.md) — このリポジトリを AI エージェントが編集するときの規則
