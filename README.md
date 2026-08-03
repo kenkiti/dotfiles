@@ -196,24 +196,72 @@ chezmoi diff       # 変更内容そのもの（長い）
 | `D` | 削除される |
 | `R` | スクリプトが実行される |
 
-### 3-4. マシン固有の設定を退避する
+### 3-4. マシン固有の git 設定を退避する
 
-このリポジトリの `~/.gitconfig` は `safe.directory` を持ちません（PC ごとに違う値のため）。
-既存の設定を失わないよう、先に `~/.gitconfig.local` へ移します。
+**すでに git を使っている PC だけの手順です。** まっさらな PC では既存設定が無いので飛ばしてください。
 
-**Windows:**
+`chezmoi apply` は `~/.gitconfig` を丸ごと置き換えます。このリポジトリの `~/.gitconfig` は
+`safe.directory` を持たない（PC ごとに違う値のため）ので、既存のものは
+`~/.gitconfig.local` へ移しておきます。
+
+`user.name` と `user.email` は移す必要はありません。`chezmoi init` で入力した値が
+`~/.gitconfig` 本体に入ります。
+
+まず、退避すべき設定があるか確認します。
+
+```powershell
+git config --global --get-all safe.directory
+```
+
+何も出なければこの節は不要です。出た場合は次を実行します。
 
 ```powershell
 $dirs = git config --global --get-all safe.directory | Sort-Object -Unique
-@('# chezmoi 管理外・Git 管理外。このマシン専用の設定。','[safe]') +
-  ($dirs | ForEach-Object { "`tdirectory = $_" }) |
-  Set-Content "$HOME\.gitconfig.local" -Encoding UTF8
 
-Get-Content "$HOME\.gitconfig.local"
+if (Test-Path "$HOME\.gitconfig.local") {
+    # 既存ファイルを壊さない。中身を見て手で統合する。
+    Write-Warning "~/.gitconfig.local は既に存在します。追記せず中身を確認してください。"
+    Get-Content "$HOME\.gitconfig.local"
+}
+elseif ($dirs) {
+    $lines = @('# chezmoi 管理外・Git 管理外。このマシン専用の設定。', '[safe]') +
+             ($dirs | ForEach-Object { "`tdirectory = $_" })
+    # BOM を付けない。Windows PowerShell 5.1 の -Encoding UTF8 は BOM を付けるため使わない。
+    [IO.File]::WriteAllLines("$HOME\.gitconfig.local", $lines)
+    Get-Content "$HOME\.gitconfig.local"
+}
+```
+
+**WSL2 Ubuntu:**
+
+```bash
+git config --global --get-all safe.directory        # 空なら不要
+
+if [ ! -f "$HOME/.gitconfig.local" ]; then
+  { echo '# chezmoi 管理外・Git 管理外。このマシン専用の設定。'
+    echo '[safe]'
+    git config --global --get-all safe.directory | sort -u | sed 's/^/\tdirectory = /'
+  } > "$HOME/.gitconfig.local"
+  cat "$HOME/.gitconfig.local"
+fi
 ```
 
 `~/.gitconfig` の末尾には `[include] path = ~/.gitconfig.local` が入るので、
-退避した設定はそのまま有効になります。
+`chezmoi apply` 後も退避した設定はそのまま有効になります。
+
+> **⚠ 確認方法に注意**
+>
+> 適用後に `git config --global --get-all safe.directory` で確認すると **空に見えます**。
+> `--global` はスコープを `~/.gitconfig` 1 枚に限定するため、`include.path` を展開しません。
+>
+> スコープを付けずに確認してください。
+>
+> ```powershell
+> git config --get-all safe.directory              # 値が出る
+> git config --list --show-origin | Select-String 'safe.directory'
+> ```
+>
+> 由来が `.gitconfig.local` と表示されれば正しく読まれています。
 
 ### 3-5. 適用する
 
@@ -229,7 +277,7 @@ chezmoi apply                        # 本番
 ```powershell
 Get-Content $PROFILE                                          # ローダが 1 個だけある
 Get-ChildItem (Split-Path $PROFILE) -Filter '*.pre-chezmoi*'  # 旧プロファイルのバックアップ
-git config --global --get-all safe.directory                  # 退避した設定が有効
+git config --get-all safe.directory                           # 退避した設定が有効（--global は付けない）
 ```
 
 そのあと**新しい PowerShell を開いて**、`cdd` と `gs` が動けば完了です。
@@ -570,6 +618,7 @@ Bitwarden / LastPass 連携は必須にしていません。未導入でもす�
 | `~/.zshrc` を編集したのに `chezmoi status` に出ない／反映されない | テンプレートを直接編集した。`chezmoi edit ~/.zshrc` を使う（[4-2](#4-2-テンプレートの場合zshrc-など)） |
 | `has changed since chezmoi last wrote it` と聞かれる | 手元で直接編集した。`diff` で確認してから `skip` か `overwrite` を選ぶ |
 | `chezmoi diff` に大量の差分が出る | 手元が正なら `chezmoi re-add`、リポジトリが正なら `chezmoi apply` |
+| `safe.directory` が消えたように見える | `--global` は `include.path` を展開しない。`git config --get-all safe.directory`（スコープ無し）で確認する |
 | テンプレートエラーで落ちる | `chezmoi execute-template < <ソースファイル>` で該当箇所を特定する |
 | ホスト固有設定が効かない | `chezmoi execute-template "{{ .chezmoi.hostname }}"` と `.chezmoidata.yaml` の `hosts:` キーが一致しているか確認 |
 | PowerShell プロファイルが読み込まれない | `Get-Content $PROFILE` にローダがあるか、`Test-Path ~/.config/powershell/Microsoft.PowerShell_profile.ps1` を確認 |
