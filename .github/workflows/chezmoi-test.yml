@@ -21,7 +21,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Validate YAML and TOML
         run: |
@@ -110,7 +110,7 @@ jobs:
         os: [ubuntu-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # -- install chezmoi ---------------------------------------------------
       - name: Install chezmoi (Linux)
@@ -372,16 +372,43 @@ jobs:
           fi
           echo "ok   idempotent"
 
-      - name: Destination is isolated from the real home directory
+      - name: Real home configuration was not touched
         shell: bash
         run: |
           set -euo pipefail
-          echo "HOME=$HOME"
-          echo "DEST=$DEST"
-          case "$DEST" in
-            "$HOME"|"$HOME"/*)
-              echo "::error::destination is inside \$HOME" >&2
-              exit 1
-              ;;
+          # Note: on ubuntu-latest RUNNER_TEMP is /home/runner/work/_temp, i.e.
+          # legitimately *inside* $HOME. "outside $HOME" is therefore the wrong
+          # test. What actually matters is that the destination is the
+          # throwaway directory and that nothing landed in the real dotfile
+          # locations.
+          norm() { printf '%s' "$1" | tr '\\' '/'; }
+          dest=$(norm "$DEST")
+          tmp=$(norm "$RUNNER_TEMP")
+          home=$(norm "$HOME")
+
+          echo "HOME=$home"
+          echo "RUNNER_TEMP=$tmp"
+          echo "DEST=$dest"
+
+          test "$dest" != "$home" || { echo "::error::destination is \$HOME itself"; exit 1; }
+          case "$dest" in
+            "$tmp"/*) ;;
+            *) echo "::error::destination is not under RUNNER_TEMP"; exit 1 ;;
           esac
-          echo "ok   destination is outside \$HOME"
+          echo "ok   destination is a throwaway directory under RUNNER_TEMP"
+
+          # chezmoi init was always given --config under RUNNER_TEMP, so the
+          # default config location must still be untouched.
+          if [ -e "$HOME/.config/chezmoi" ]; then
+            echo "::error::chezmoi wrote to the default config location in \$HOME" >&2
+            ls -la "$HOME/.config/chezmoi"
+            exit 1
+          fi
+          echo "ok   \$HOME/.config/chezmoi was never created"
+
+          # And no managed dotfile was written into the real home directory.
+          if [ -e "$HOME/.zshrc" ] && grep -q 'zshrc.local is NOT managed by chezmoi' "$HOME/.zshrc"; then
+            echo "::error::managed .zshrc was applied to the real \$HOME" >&2
+            exit 1
+          fi
+          echo "ok   real \$HOME dotfiles untouched"
