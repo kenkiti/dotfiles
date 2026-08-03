@@ -13,7 +13,6 @@
 | `dot_gitconfig.tmpl` | `~/.gitconfig` | テンプレート | `safe.directory` などマシン固有設定は `~/.gitconfig.local` へ分離 |
 | `private_dot_claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | 静的 | Claude Code のグローバル指示 |
 | `private_dot_claude/settings.json` | `~/.claude/settings.json` | 静的 | `hooks` を除いた共通設定。下記参照 |
-| `private_dot_claude/executable_statusline-command.sh` | `~/.claude/statusline-command.sh` | 静的 | ステータスライン生成スクリプト |
 | `private_dot_codex/AGENTS.md` | `~/.codex/AGENTS.md` | 静的 | Codex CLI のグローバル指示 |
 | `private_dot_codex/config.toml.tmpl` | `~/.codex/config.toml` | テンプレート | 共有する設定キーのみ。下記参照 |
 
@@ -59,7 +58,6 @@ chezmoi の展開先は静的パスなので、この値をリポジトリに書
 | --- | --- |
 | `CLAUDE.md` | 手書きの静的なグローバル指示。秘密情報なし |
 | `settings.json` | 手書き設定。ただし `hooks` は除く（下記） |
-| `statusline-command.sh` | 手書きシェルスクリプト。stdin の JSON を整形するだけ |
 
 ### `settings.json` から `hooks` を除いている理由
 
@@ -138,8 +136,15 @@ chezmoi の展開先は静的パスなので、この値をリポジトリに書
 ```toml
 model, model_reasoning_effort, service_tier
 [features]        js_repl
+[tui]             status_line, status_line_use_colors
 [windows]         sandbox        # Windows でのみ展開
 [profiles.vault]  approval_policy, sandbox_mode
+```
+
+`[tui] status_line` は Codex CLI 組み込みのステータスライン設定です。
+
+```toml
+status_line = ["model-with-reasoning", "context-used", "five-hour-limit", "weekly-limit", "current-dir", "git-branch"]
 ```
 
 含めないセクションと理由:
@@ -150,7 +155,8 @@ model, model_reasoning_effort, service_tier
 | `[mcp_servers.*]` | インストール先にハッシュを含む絶対パス |
 | `notify` | 同じくインストール先の絶対パス |
 | `[marketplaces.*]`, `[plugins.*]` | アプリが書き戻す登録状態 |
-| `[tui.*]`, `[desktop.*]` | UI の状態とテーマ |
+| `[tui.model_availability_nux]` | モデルごとの表示回数カウンタ（`[tui]` 本体は管理する） |
+| `[desktop.*]` | UI の状態とテーマ |
 | `[shell_environment_policy]` | ランタイムが差し込む環境変数 |
 
 > **⚠ 運用上の注意**

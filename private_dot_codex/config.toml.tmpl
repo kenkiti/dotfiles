@@ -10,7 +10,8 @@
          notify                     absolute path to the installed binary
          [marketplaces.*]           marketplace registrations with timestamps
          [plugins.*]                plugin enable/disable state
-         [tui.*], [desktop.*]       UI state and theme
+         [tui.model_availability_nux]  per-model "seen" counters
+         [desktop.*]                UI state and theme
          [shell_environment_policy] variables injected by the runtime
 
        Consequence: `chezmoi apply` removes those sections. Trusted projects
@@ -22,6 +23,11 @@ service_tier = "priority"
 
 [features]
 js_repl = false
+
+# Built-in status line. Segments are rendered in the order listed.
+[tui]
+status_line = ["model-with-reasoning", "context-used", "five-hour-limit", "weekly-limit", "current-dir", "git-branch"]
+status_line_use_colors = true
 {{ if eq .chezmoi.os "windows" }}
 [windows]
 sandbox = "elevated"

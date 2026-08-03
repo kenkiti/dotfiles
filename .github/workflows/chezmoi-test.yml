@@ -73,10 +73,23 @@ jobs:
               print(f'ok   {path}')
           PY
 
-      - name: Shell syntax
+      - name: Status line command works
         run: |
-          bash -n private_dot_claude/executable_statusline-command.sh
-          echo "ok   statusline-command.sh"
+          set -euo pipefail
+          # statusLine.command is an inline awk program in settings.json.
+          # Run it against a sample payload so a broken quoting/escape change
+          # fails here instead of silently blanking the status line.
+          python3 -c "import json;print(json.load(open('private_dot_claude/settings.json'))['statusLine']['command'])" > /tmp/statusline.sh
+          payload='{"workspace":{"project_dir":"/tmp"},"model":{"display_name":"Opus 5"},"context_window":{"used_percentage":37.4},"rate_limits":{"five_hour":{"used_percentage":68.2},"seven_day":{"used_percentage":12.9}}}'
+          out=$(printf '%s' "$payload" | sh /tmp/statusline.sh | sed 's/\x1b\[[0-9;]*m//g')
+          echo "output: $out"
+          for want in 'Opus 5' 'ctx:37%' '5h:68%' '7d:13%'; do
+            case "$out" in
+              *"$want"*) ;;
+              *) echo "::error::status line is missing '$want'"; exit 1 ;;
+            esac
+          done
+          echo "ok   status line command"
 
       - name: No secret-looking values committed
         run: |
@@ -221,7 +234,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in .zshrc .zprofile .gitconfig \
-                   .claude/CLAUDE.md .claude/settings.json .claude/statusline-command.sh \
+                   .claude/CLAUDE.md .claude/settings.json \
                    .codex/AGENTS.md .codex/config.toml; do
             test -f "$DEST/$f" || { echo "::error::missing $f"; exit 1; }
             echo "ok   $f"
@@ -245,7 +258,7 @@ jobs:
           for f in .gitconfig \
                    .config/powershell/Microsoft.PowerShell_profile.ps1 \
                    "AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json" \
-                   .claude/CLAUDE.md .claude/settings.json .claude/statusline-command.sh \
+                   .claude/CLAUDE.md .claude/settings.json \
                    .codex/AGENTS.md .codex/config.toml; do
             test -f "$DEST/$f" || { echo "::error::missing $f"; exit 1; }
             echo "ok   $f"
@@ -324,8 +337,12 @@ jobs:
           import sys, tomllib
           data = tomllib.load(open(sys.argv[1], 'rb'))
           banned = ['projects', 'mcp_servers', 'marketplaces', 'plugins',
-                    'tui', 'desktop', 'shell_environment_policy', 'notify']
+                    'desktop', 'shell_environment_policy', 'notify']
           found = [k for k in banned if k in data]
+          # [tui] itself is hand-written (status_line), but the nux counters
+          # under it are runtime state.
+          if 'model_availability_nux' in data.get('tui', {}):
+              found.append('tui.model_availability_nux')
           if found:
               sys.exit(f'machine-specific sections must not be committed: {found}')
           for key in ('model', 'model_reasoning_effort'):

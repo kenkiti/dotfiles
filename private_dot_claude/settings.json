@@ -1,7 +1,7 @@
 {
   "statusLine": {
     "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
+    "command": "awk '{j=j $0} END{ n=s(\"project_dir\"); sub(\"^.*/\",\"\",n); sub(\"^.*\\\\\\\\\",\"\",n); if(n==\"\")n=\"-\"; m=s(\"display_name\"); if(m==\"\")m=\"-\"; d=s(\"project_dir\"); b=\"no-git\"; if(d!=\"\"){c=\"git --no-optional-locks -C \\\"\" d \"\\\" rev-parse --abbrev-ref HEAD 2>/dev/null\"; if((c|getline t)>0 && t!=\"\")b=t; close(c)} o=sprintf(\"\\033[1;97;46m %s \\033[0m \\033[2m|\\033[0m \\033[32mgit:%s\\033[0m \\033[2m|\\033[0m \\033[33m%s\\033[0m\",n,b,m); print o seg(\"ctx\",g(\"context_window\",\"used_percentage\")) seg(\"5h\",g(\"five_hour\",\"used_percentage\")) seg(\"7d\",g(\"seven_day\",\"used_percentage\")) } function s(k, r,q){if(match(j,\"\\\"\"k\"\\\"[ \\t]*:[ \\t]*\\\"\")==0)return\"\";r=substr(j,RSTART+RLENGTH);q=index(r,\"\\\"\");return q?substr(r,1,q-1):\"\"} function g(p,k, r,h){if(match(j,\"\\\"\"p\"\\\"[ \\t]*:[ \\t]*[{]\")==0)return\"\";r=substr(j,RSTART+RLENGTH);if(match(r,\"\\\"\"k\"\\\"[ \\t]*:[ \\t]*-?[0-9]+([.][0-9]+)?\")==0)return\"\";h=substr(r,RSTART,RLENGTH);sub(\"^.*:[ \\t]*\",\"\",h);return h} function col(v){return v>=80?\"31\":(v>=50?\"33\":\"32\")} function seg(l,v){if(v==\"\")return l==\"ctx\"?\" \\033[2m|\\033[0m \\033[2mctx:--\\033[0m\":\"\";return sprintf(\" \\033[2m|\\033[0m \\033[%sm%s:%d%%\\033[0m\",col(v+0),l,v+0.5)}'"
   },
   "enabledPlugins": {
     "codex@openai-codex": true

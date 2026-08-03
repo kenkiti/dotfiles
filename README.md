@@ -279,7 +279,6 @@ chezmoi source-path ~/.zshrc
 | Windows Terminal `settings.json` | **テンプレート** |
 | `~/.claude/CLAUDE.md` | 普通のファイル |
 | `~/.claude/settings.json` | 普通のファイル |
-| `~/.claude/statusline-command.sh` | 普通のファイル |
 | `~/.codex/AGENTS.md` | 普通のファイル |
 | `~/.codex/config.toml` | **テンプレート** |
 
@@ -427,7 +426,6 @@ chezmoi apply          # 反映
 | `~/.gitconfig` | git の共通設定。`~/.gitconfig.local` を include |
 | `~/.claude/CLAUDE.md` | Claude Code のグローバル指示 |
 | `~/.claude/settings.json` | Claude Code の共通設定（`hooks` は除く。下記の注意を参照） |
-| `~/.claude/statusline-command.sh` | ステータスライン表示スクリプト |
 | `~/.codex/AGENTS.md` | Codex CLI のグローバル指示 |
 | `~/.codex/config.toml` | Codex CLI の共通設定（実行状態セクションは除く。下記の注意を参照） |
 
