@@ -46,7 +46,14 @@ chezmoi の展開先は静的パスなので、この値をリポジトリに書
 | --- | --- | --- |
 | `dot_zshrc.tmpl` | `~/.zshrc` | テンプレート |
 | `dot_zprofile.tmpl` | `~/.zprofile` | テンプレート |
+| `dot_p10k.zsh` | `~/.p10k.zsh` | 静的 |
 | `.chezmoiscripts/run_once_before_10-check-dependencies.sh.tmpl` | （スクリプト） | 依存ツール確認 |
+
+Oh My Zsh のテーマと有効化するプラグインは `.chezmoidata.yaml` の `defaults.zsh` で管理します。
+現在は Powerlevel10k と `git`、`fzf`、`zsh-autosuggestions`、
+`zsh-syntax-highlighting` を有効にします。テーマと外部プラグインは `.chezmoiexternal.toml` で取得元とコミットを固定し、
+chezmoi の管理下に置きます。`fzf` は Oh My Zsh 本体に同梱されています。
+Powerlevel10k のウィザードが生成した `~/.p10k.zsh` も `dot_p10k.zsh` として管理します。
 
 ---
 

@@ -1,0 +1,22 @@
+{{ if ne .chezmoi.os "windows" -}}
+[".oh-my-zsh/custom/themes/powerlevel10k"]
+    type = "archive"
+    url = "https://github.com/romkatv/powerlevel10k/archive/36f3045d69d1ba402db09d09eb12b42eebe0fa3b.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-autosuggestions/archive/85919cd1ffa7d2d5412f6d3fe437ebdbeeec4fc5.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/5eb677bb0fa9a3e60f0eff031dc13926e093df92.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+{{- end }}

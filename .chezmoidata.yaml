@@ -39,9 +39,13 @@ defaults:
 
   zsh:
     ohMyZsh: true
-    ohMyZshTheme: "robbyrussell"
+    ohMyZshTheme: "powerlevel10k/powerlevel10k"
     ohMyZshPlugins:
       - git
+      - fzf
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+    powerlevel10k: true
     editor: "vim"
     lang: "ja_JP.UTF-8"
 
