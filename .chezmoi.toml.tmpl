@@ -1,0 +1,87 @@
+{{/* -------------------------------------------------------------------------
+     .chezmoi.toml.tmpl
+
+     Generates ~/.config/chezmoi/chezmoi.toml on `chezmoi init`.
+
+     Its only job is to answer questions chezmoi cannot derive on its own
+     (identity, whether this is WSL, whether we are running unattended) and to
+     store them in [data] so every other template can rely on them.
+
+     Values in .chezmoidata.yaml are NOT visible here - chezmoi reads the
+     config before it reads .chezmoidata.* - so the fallbacks below are
+     duplicated intentionally.
+     ------------------------------------------------------------------------- */}}
+
+{{/* --- unattended detection ------------------------------------------------
+     GitHub Actions and most CI systems export CI=true. When set we never
+     prompt, so `chezmoi init` can run fully non-interactively. */}}
+{{- $isCI := or (ne (env "CI") "") (ne (env "DOTFILES_NONINTERACTIVE") "") -}}
+
+{{/* --- WSL detection -------------------------------------------------------
+     Two independent signals, either is sufficient:
+       1. .chezmoi.kernel.osrelease - chezmoi reads /proc/sys/kernel/osrelease,
+          which on WSL2 looks like "5.15.167.4-microsoft-standard-WSL2".
+       2. WSL_DISTRO_NAME - exported by every WSL session.
+     Both are reproducible and need no external commands. */}}
+{{- $isWSL := false -}}
+{{- if eq .chezmoi.os "linux" -}}
+{{-   $osrelease := "" -}}
+{{-   if hasKey .chezmoi "kernel" -}}
+{{-     $osrelease = lower (default "" (get .chezmoi.kernel "osrelease")) -}}
+{{-   end -}}
+{{-   if or (contains "microsoft" $osrelease) (contains "wsl" $osrelease) -}}
+{{-     $isWSL = true -}}
+{{-   end -}}
+{{-   if ne (env "WSL_DISTRO_NAME") "" -}}
+{{-     $isWSL = true -}}
+{{-   end -}}
+{{- end -}}
+
+{{/* --- identity ------------------------------------------------------------
+     promptStringOnce only asks when the value is not already in the config,
+     and `chezmoi init --promptDefaults` / CI takes the default silently. */}}
+{{- $gitName := "Tadashi Inoue" -}}
+{{- $gitEmail := "kenkiti@gmail.com" -}}
+{{- if $isCI -}}
+{{/*   CI must never bake a real identity into its output, so that the
+       workflow can assert the real address never appears in a rendered file. */}}
+{{-   $gitName = "CI User" -}}
+{{-   $gitEmail = "ci@example.invalid" -}}
+{{- else -}}
+{{-   $gitName = promptStringOnce . "git.name" "Git user.name" $gitName -}}
+{{-   $gitEmail = promptStringOnce . "git.email" "Git user.email" $gitEmail -}}
+{{- end -}}
+
+{{/* No encryption configured. Secrets are kept out of this repository entirely
+     rather than encrypted into it - see docs/SECRETS.md. */}}
+encryption = ""
+
+[data]
+    isCI = {{ $isCI }}
+    isWSL = {{ $isWSL }}
+    isWindows = {{ eq .chezmoi.os "windows" }}
+    isLinux = {{ eq .chezmoi.os "linux" }}
+    # Native Linux, i.e. Linux that is not WSL.
+    isLinuxNative = {{ and (eq .chezmoi.os "linux") (not $isWSL) }}
+
+[data.git]
+    name = {{ $gitName | quote }}
+    email = {{ $gitEmail | quote }}
+
+{{- if eq .chezmoi.os "windows" }}
+
+# chezmoi shells out to an interpreter for script files. Prefer PowerShell 7;
+# fall back to Windows PowerShell if pwsh is not on PATH.
+[interpreters.ps1]
+{{-   if lookPath "pwsh" }}
+    command = "pwsh"
+    args = ["-NoLogo", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File"]
+{{-   else }}
+    command = "powershell"
+    args = ["-NoLogo", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File"]
+{{-   end }}
+{{- end }}
+
+# Scripts are deliberately NOT excluded from `chezmoi diff`. The PowerShell
+# profile loader rewrites $PROFILE, so it must be visible when reviewing a
+# diff before applying.
