@@ -50,6 +50,22 @@ AppData/**
 {{- end }}
 
 # ---------------------------------------------------------------------------
+# Machine-local escape hatches.
+#
+# These are read by the managed files but are never managed themselves: they
+# hold this machine's absolute paths and its secrets, and managing them would
+# mean one machine's local settings overwriting another's. Listing them here
+# makes `chezmoi add` refuse them ("warning: ignoring ...") instead of
+# silently pulling a secret into a public repository.
+#
+# See docs/SECRETS.md.
+# ---------------------------------------------------------------------------
+.gitconfig.local
+.zshrc.local
+.zprofile.local
+.config/powershell/profile.local.ps1
+
+# ---------------------------------------------------------------------------
 # Hard deny-list: Claude Code / Codex CLI runtime state.
 #
 # None of these exist in the source directory, and they must never be added.
