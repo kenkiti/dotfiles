@@ -12,7 +12,6 @@
 | --- | --- | --- | --- |
 | `dot_gitconfig.tmpl` | `~/.gitconfig` | テンプレート | `safe.directory` などマシン固有設定は `~/.gitconfig.local` へ分離 |
 | `private_dot_claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | 静的 | Claude Code のグローバル指示 |
-| `private_dot_claude/settings.json` | `~/.claude/settings.json` | 静的 | 下記「Claude Code」参照 |
 | `private_dot_claude/executable_statusline-command.sh` | `~/.claude/statusline-command.sh` | 静的 | ステータスライン生成スクリプト |
 | `private_dot_codex/AGENTS.md` | `~/.codex/AGENTS.md` | 静的 | Codex CLI のグローバル指示 |
 
@@ -57,19 +56,32 @@ chezmoi の展開先は静的パスなので、この値をリポジトリに書
 | ファイル | 理由 |
 | --- | --- |
 | `CLAUDE.md` | 手書きの静的なグローバル指示。秘密情報なし |
-| `settings.json` | 手書き設定。statusLine / theme / model / plugin 有効化のみ |
 | `statusline-command.sh` | 手書きシェルスクリプト。stdin の JSON を整形するだけ |
 
-`settings.json` の `skipDangerousModePermissionPrompt: true` は既存設定をそのまま引き継いでいます。
-この値は権限確認プロンプトを省略するため、新しい PC へ展開する前に意図した設定か確認してください。
+### `settings.json` を管理しない理由
 
-`enabledPlugins` は Claude Code 自身も書き換えるため、プラグインを UI から切り替えると
-`chezmoi diff` に差分が出ます。その場合は `chezmoi re-add ~/.claude/settings.json` で取り込んでください。
+`~/.claude/settings.json` は手書き設定に見えますが、実際には Claude Code 自身と
+外部ツールが書き戻すファイルです。移行作業中にも次の変化が起きました。
+
+- 調査時点: 436 bytes（`statusLine` / `enabledPlugins` / `theme` / `model` など）
+- 数時間後: 2,453 bytes。別ツールが `hooks`（`Notification`、`Stop`、`SessionStart`、
+  `SessionEnd`、`PermissionRequest`、`PreToolUse` の 6 種）を追加していた
+
+さらに hooks のコマンドは `C:\Users\<ユーザー名>\OneDrive\デスクトップ\...` という
+**ユーザー名を含む絶対パス**でした。これを公開リポジトリへ入れることはできず、
+かといって管理すると `chezmoi apply` のたびにツールが追加した hooks が消えます。
+
+そのため **管理対象から外し、`.chezmoiignore` で明示的に除外**しました。
+`~/.claude/settings.json` は各 PC で個別に設定してください。
+
+なお、この PC の `skipDangerousModePermissionPrompt: true` は権限確認プロンプトを
+省略する設定です。新しい PC で設定する際は意図した値か確認してください。
 
 ### 管理しない
 
 | パス | 分類 | 理由 |
 | --- | --- | --- |
+| `settings.json` | 実行状態 + マシン固有 | 上記のとおり |
 | `.credentials.json` | 認証情報 | OAuth トークン |
 | `history.jsonl` | 履歴 | 会話履歴 |
 | `projects/` | 状態 | プロジェクト単位のセッション状態 |

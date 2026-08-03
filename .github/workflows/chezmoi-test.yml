@@ -68,9 +68,6 @@ jobs:
           json.loads(text)
           print(f'ok   {path}')
 
-          for path in ['private_dot_claude/settings.json']:
-              json.load(open(path, encoding='utf-8'))
-              print(f'ok   {path}')
           PY
 
       - name: Shell syntax
@@ -221,7 +218,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in .zshrc .zprofile .gitconfig \
-                   .claude/CLAUDE.md .claude/settings.json .claude/statusline-command.sh \
+                   .claude/CLAUDE.md .claude/statusline-command.sh \
                    .codex/AGENTS.md; do
             test -f "$DEST/$f" || { echo "::error::missing $f"; exit 1; }
             echo "ok   $f"
@@ -245,7 +242,7 @@ jobs:
           for f in .gitconfig \
                    .config/powershell/Microsoft.PowerShell_profile.ps1 \
                    "AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json" \
-                   .claude/CLAUDE.md .claude/settings.json .claude/statusline-command.sh \
+                   .claude/CLAUDE.md .claude/statusline-command.sh \
                    .codex/AGENTS.md; do
             test -f "$DEST/$f" || { echo "::error::missing $f"; exit 1; }
             echo "ok   $f"
@@ -284,8 +281,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for f in .claude/.credentials.json .claude/history.jsonl .codex/auth.json \
-                   .codex/config.toml .codex/cap_sid .codex/installation_id; do
+          for f in .claude/settings.json .claude/.credentials.json .claude/history.jsonl \
+                   .codex/auth.json .codex/config.toml .codex/cap_sid .codex/installation_id; do
             if [ -e "$DEST/$f" ]; then echo "::error::$f was deployed"; exit 1; fi
             echo "ok   absent: $f"
           done
@@ -313,9 +310,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 - "$DEST" <<'PY'
+          # Linux deploys no JSON at all (Windows Terminal is the only JSON
+          # target), so an empty result is valid there but not on Windows.
+          python3 - "$DEST" "$RUNNER_OS" <<'PY'
           import json, os, sys
-          dest = sys.argv[1]
+          dest, runner_os = sys.argv[1], sys.argv[2]
           found = 0
           for root, _dirs, files in os.walk(dest):
               for name in files:
@@ -324,8 +323,9 @@ jobs:
                       json.load(open(path, encoding='utf-8'))
                       print('ok  ', os.path.relpath(path, dest))
                       found += 1
-          if found == 0:
-              sys.exit('no JSON files found in destination')
+          print(f'{found} JSON file(s) checked')
+          if runner_os == 'Windows' and found == 0:
+              sys.exit('expected Windows Terminal settings.json in destination')
           PY
 
       - name: Rendered zsh is syntactically valid

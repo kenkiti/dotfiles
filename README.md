@@ -208,12 +208,16 @@ zsh は正常に起動します。
 
 | ツール | 管理するもの | 管理しないもの |
 | --- | --- | --- |
-| Claude Code | `~/.claude/CLAUDE.md`、`settings.json`、`statusline-command.sh` | `.credentials.json`、`history.jsonl`、`projects/`、`sessions/`、`plugins/`、キャッシュ、ログ |
+| Claude Code | `~/.claude/CLAUDE.md`、`statusline-command.sh` | `settings.json`、`.credentials.json`、`history.jsonl`、`projects/`、`sessions/`、`plugins/`、キャッシュ、ログ |
 | Codex CLI | `~/.codex/AGENTS.md` | `auth.json`、`config.toml`、`*.sqlite`、履歴、ログ、`installation_id` |
 
-`~/.codex/config.toml` は Codex CLI 自身が書き戻す実行状態を含むため、
-管理すると `chezmoi apply` のたびに信頼済みプロジェクトやプラグイン登録が消えます。
-そのため管理対象外にし、手書き相当の値だけを
+`~/.claude/settings.json` と `~/.codex/config.toml` は、どちらもツール自身が
+書き戻すファイルです。管理すると `chezmoi apply` のたびに、後から追加された
+hooks や信頼済みプロジェクトの登録が消えます。加えて両者ともユーザー名を含む
+絶対パスを持つため、公開リポジトリに入れられません。
+そのため管理対象外にしています。
+
+Codex については、手書き相当の値だけを
 [`docs/reference/codex-config.reference.toml`](docs/reference/codex-config.reference.toml)
 に記録しています。
 
