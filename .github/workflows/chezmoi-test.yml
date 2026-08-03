@@ -68,6 +68,9 @@ jobs:
           json.loads(text)
           print(f'ok   {path}')
 
+          for path in ['private_dot_claude/settings.json']:
+              json.load(open(path, encoding='utf-8'))
+              print(f'ok   {path}')
           PY
 
       - name: Shell syntax
@@ -218,7 +221,7 @@ jobs:
         run: |
           set -euo pipefail
           for f in .zshrc .zprofile .gitconfig \
-                   .claude/CLAUDE.md .claude/statusline-command.sh \
+                   .claude/CLAUDE.md .claude/settings.json .claude/statusline-command.sh \
                    .codex/AGENTS.md; do
             test -f "$DEST/$f" || { echo "::error::missing $f"; exit 1; }
             echo "ok   $f"
@@ -242,7 +245,7 @@ jobs:
           for f in .gitconfig \
                    .config/powershell/Microsoft.PowerShell_profile.ps1 \
                    "AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json" \
-                   .claude/CLAUDE.md .claude/statusline-command.sh \
+                   .claude/CLAUDE.md .claude/settings.json .claude/statusline-command.sh \
                    .codex/AGENTS.md; do
             test -f "$DEST/$f" || { echo "::error::missing $f"; exit 1; }
             echo "ok   $f"
@@ -281,7 +284,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for f in .claude/settings.json .claude/.credentials.json .claude/history.jsonl \
+          for f in .claude/.credentials.json .claude/history.jsonl \
                    .codex/auth.json .codex/config.toml .codex/cap_sid .codex/installation_id; do
             if [ -e "$DEST/$f" ]; then echo "::error::$f was deployed"; exit 1; fi
             echo "ok   absent: $f"
@@ -293,6 +296,23 @@ jobs:
             exit 1
           fi
           echo "ok   no secret patterns in output"
+
+      - name: Claude settings must not carry machine-specific hooks
+        shell: bash
+        run: |
+          set -euo pipefail
+          # hooks reference an absolute path containing the user name and are
+          # deliberately kept out of the repository. See docs/MANAGED_FILES.md.
+          python3 - "$DEST/.claude/settings.json" <<'PY'
+          import json, sys
+          data = json.load(open(sys.argv[1], encoding='utf-8'))
+          if 'hooks' in data:
+              sys.exit('hooks must not be committed to the repository')
+          missing = [k for k in ('statusLine', 'theme', 'model') if k not in data]
+          if missing:
+              sys.exit(f'expected keys missing from settings.json: {missing}')
+          print('ok   settings.json has no hooks and keeps the shared keys')
+          PY
 
       - name: CI must use dummy identity, not the real one
         shell: bash

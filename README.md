@@ -1,117 +1,508 @@
 # dotfiles
 
-[chezmoi](https://www.chezmoi.io/) で管理する、Windows / WSL2 Ubuntu 共通の設定リポジトリです。
+Windows 11 と WSL2 Ubuntu の設定ファイルを、1 つのリポジトリで管理します。
+管理には [chezmoi](https://www.chezmoi.io/) を使います。
 
-1 つのリポジトリから、OS・WSL・ホスト名を判定して、その環境に必要な設定だけを展開します。
-
-## 対応環境
-
-| 環境 | 展開されるもの |
-| --- | --- |
-| Windows 11 + PowerShell 7 | PowerShell プロファイル、Windows Terminal 設定、`.gitconfig`、Claude Code / Codex CLI のグローバル設定 |
-| WSL2 Ubuntu | `.zshrc`、`.zprofile`、`.gitconfig`、Claude Code / Codex CLI のグローバル設定 |
-| ネイティブ Linux | WSL 固有設定を除いた上記と同じ |
-
-管理対象の完全な一覧は [docs/MANAGED_FILES.md](docs/MANAGED_FILES.md) を参照してください。
+OS・WSL・ホスト名を自動で判定し、その環境に必要な設定だけを展開します。
 
 ---
 
-## 初回セットアップ
+## 目次
 
-初回は `--apply` を付けず、**差分を確認してから適用**してください。
-既存の設定を上書きするため、何が変わるかを見ずに適用しないでください。
+1. [まず知っておくこと](#1-まず知っておくこと)
+2. [インストール](#2-インストール)
+3. [初期化（初回セットアップ）](#3-初期化初回セットアップ)
+4. [設定を変更して反映する](#4-設定を変更して反映する) ← **日常はここだけ**
+5. [他の PC へ配布する / 受け取る](#5-他の-pc-へ配布する--受け取る)
+6. [管理しているファイル](#6-管理しているファイル)
+7. [OS 別・ホスト別の設定](#7-os-別ホスト別の設定)
+8. [秘密情報の置き場所](#8-秘密情報の置き場所)
+9. [困ったとき](#9-困ったとき)
+10. [コマンド早見表](#10-コマンド早見表)
 
+---
+
+## 1. まず知っておくこと
+
+### 3 つの用語
+
+chezmoi を使ううえで、この 3 つだけ分かれば十分です。
+
+| 用語 | 意味 | 実際の場所 |
+| --- | --- | --- |
+| **ソースディレクトリ** | 設定の原本を置く場所。git リポジトリ | `~/.local/share/chezmoi` |
+| **展開先** | 実際に使われる設定ファイルの場所 | ホームディレクトリ (`~`) |
+| **テンプレート** | PC ごとに中身が変わるファイル。拡張子 `.tmpl` | ソース側にだけ存在 |
+
+chezmoi は「ソースディレクトリ → 展開先」へファイルを書き出す道具です。
+この向きが基本で、逆向き（展開先 → ソース）は明示的に指示したときだけ起きます。
+
+### ファイル名の規則
+
+ソース側のファイル名は、展開先の名前を変形したものです。
+
+| ソース側の名前 | 展開先 |
+| --- | --- |
+| `dot_zshrc` | `~/.zshrc` |
+| `dot_gitconfig.tmpl` | `~/.gitconfig`（テンプレートとして評価される） |
+| `private_dot_claude/CLAUDE.md` | `~/.claude/CLAUDE.md`（パーミッション 0600 相当） |
+| `executable_foo.sh` | `~/foo.sh`（実行ビットあり） |
+
+対応関係は `chezmoi source-path <展開先のパス>` でいつでも確認できます。
+
+```powershell
+chezmoi source-path ~/.zshrc
+# -> .../dot_zshrc.tmpl
 ```
-chezmoi init kenkiti/dotfiles
-chezmoi diff
-chezmoi apply --dry-run --verbose
-chezmoi apply
-```
 
-構成を理解したあと、2 台目以降では次の短縮形が使えます。
+### 何が起きないか
 
-```
-chezmoi init --apply kenkiti/dotfiles
-```
+- 管理していないファイルには一切触りません。
+- `chezmoi apply` は、あなたが手で書き換えたファイルを黙って上書きしません（後述の確認プロンプトが出ます）。
+- シンボリックリンクは作りません。管理者権限も不要です。
 
-`chezmoi init` は `user.name` と `user.email` を対話で聞きます。
-非対話で走らせたい場合は `--promptDefaults` を付けてください。
+---
+
+## 2. インストール
 
 ### Windows
 
 ```powershell
 winget install --id twpayne.chezmoi -e
-
-chezmoi init kenkiti/dotfiles
-chezmoi diff
-chezmoi apply --dry-run --verbose
-chezmoi apply
 ```
 
-適用後、新しい PowerShell を開いて確認します。
+> **⚠ よくあるつまずき**
+> インストール直後の PowerShell では `chezmoi` が見つかりません。
+> winget が PATH に追加した内容は、**新しく開いたシェル**から反映されます。
+>
+> **新しい PowerShell を開いてください。** それが一番簡単です。
+>
+> 今のシェルのまま続けたい場合は、PATH を読み直します。
+>
+> ```powershell
+> $env:PATH = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' +
+>             [Environment]::GetEnvironmentVariable('Path','User')
+> ```
+
+確認します。
 
 ```powershell
-Get-Content $PROFILE          # chezmoi が入れたローダが 1 つだけあること
-cdd                           # 作業ディレクトリへ移動できること
+chezmoi --version
 ```
-
-管理者権限は不要です。シンボリックリンクも作りません。
 
 ### WSL2 Ubuntu
 
 ```bash
-sudo apt-get update && sudo apt-get install -y git zsh curl
+sudo apt-get update
+sudo apt-get install -y git zsh curl
 
 sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
-chezmoi init kenkiti/dotfiles
-chezmoi diff
-chezmoi apply --dry-run --verbose
-chezmoi apply
+chezmoi --version
 ```
 
-zsh をログインシェルにする場合は別途 `chsh -s "$(which zsh)"` を実行してください
-（このリポジトリは自動では変更しません）。
+`~/.local/bin` が PATH に無い場合は、`~/.profile` などに上の `export` を追記してください。
 
 ---
 
-## 日常の使い方
+## 3. 初期化（初回セットアップ）
 
-| やりたいこと | コマンド |
+### 3-1. 先にバックアップを取る
+
+`chezmoi apply` は既存の設定ファイルを置き換えます。**必ず先にバックアップしてください。**
+
+**Windows:**
+
+```powershell
+$stamp  = Get-Date -Format 'yyyyMMdd-HHmmss'
+$backup = "$HOME\dotfiles-backup-$stamp"
+New-Item -ItemType Directory -Path $backup -Force | Out-Null
+
+Copy-Item $PROFILE          $backup -ErrorAction SilentlyContinue
+Copy-Item "$HOME\.gitconfig" $backup -ErrorAction SilentlyContinue
+Copy-Item "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" $backup -ErrorAction SilentlyContinue
+
+$backup
+```
+
+**WSL2 Ubuntu:**
+
+```bash
+stamp=$(date +%Y%m%d-%H%M%S)
+backup="$HOME/dotfiles-backup-$stamp"
+mkdir -p "$backup"
+for f in .zshrc .zprofile .profile .gitconfig; do
+  [ -f "$HOME/$f" ] && cp "$HOME/$f" "$backup/"
+done
+ls -la "$backup"
+```
+
+### 3-2. リポジトリを取得する
+
+```
+chezmoi init kenkiti/dotfiles
+```
+
+これで `~/.local/share/chezmoi` にリポジトリが clone され、
+`~/.config/chezmoi/chezmoi.toml` が生成されます。
+**この時点ではホームディレクトリの設定ファイルは一切変更されません。**
+
+途中で 2 つ質問されます。
+
+```
+Git user.name [Tadashi Inoue]?
+Git user.email [kenkiti@gmail.com]?
+```
+
+そのままでよければ Enter を押します。入力した値は設定ファイルに保存され、次回以降は聞かれません。
+
+> **すでにリポジトリを別の場所に clone している場合**
+>
+> `chezmoi init --source=<パス>` の `--source` は**その 1 回しか効きません**。
+> 後続の `chezmoi diff` などは既定の場所を探しに行って失敗します。
+>
+> 既存の clone を使い続けたいときは、既定の場所からジャンクションを張ります（管理者権限は不要）。
+>
+> ```powershell
+> New-Item -ItemType Directory -Path "$HOME\.local\share" -Force | Out-Null
+> New-Item -ItemType Junction -Path "$HOME\.local\share\chezmoi" -Target "D:\Github\dotfiles"
+>
+> chezmoi source-path      # D:\Github\dotfiles と出れば成功
+> ```
+>
+> Linux / WSL ならシンボリックリンクです。
+>
+> ```bash
+> mkdir -p ~/.local/share
+> ln -s /path/to/dotfiles ~/.local/share/chezmoi
+> ```
+
+### 3-3. 差分を確認する
+
+**いきなり適用しないでください。** 何が変わるか必ず読みます。
+
+```
+chezmoi status     # 変更されるファイルの一覧（短い）
+chezmoi diff       # 変更内容そのもの（長い）
+```
+
+`chezmoi status` の記号の意味は次のとおりです。
+
+| 記号 | 意味 |
 | --- | --- |
-| 管理対象のファイルを編集する | `chezmoi edit ~/.zshrc` |
-| 手元で直接編集した内容を取り込む | `chezmoi re-add ~/.zshrc` |
-| 新しいファイルを管理下に入れる | `chezmoi add ~/.foo` |
-| 適用前に差分を見る | `chezmoi diff` |
-| 適用する | `chezmoi apply` |
-| リポジトリを最新にして適用する | `chezmoi update` |
-| ソースディレクトリへ移動する | `chezmoi cd` |
-| 何が管理されているか見る | `chezmoi managed` |
-| 管理から外す（ファイルは残す） | `chezmoi forget ~/.foo` |
+| `A` | 新しく作られる |
+| `M` | 内容が変更される |
+| `D` | 削除される |
+| `R` | スクリプトが実行される |
 
-ソースディレクトリは既定で `~/.local/share/chezmoi`（Windows は
-`%USERPROFILE%\.local\share\chezmoi`）です。リポジトリをどこに clone しても動きます。
+### 3-4. マシン固有の設定を退避する
+
+このリポジトリの `~/.gitconfig` は `safe.directory` を持ちません（PC ごとに違う値のため）。
+既存の設定を失わないよう、先に `~/.gitconfig.local` へ移します。
+
+**Windows:**
+
+```powershell
+$dirs = git config --global --get-all safe.directory | Sort-Object -Unique
+@('# chezmoi 管理外・Git 管理外。このマシン専用の設定。','[safe]') +
+  ($dirs | ForEach-Object { "`tdirectory = $_" }) |
+  Set-Content "$HOME\.gitconfig.local" -Encoding UTF8
+
+Get-Content "$HOME\.gitconfig.local"
+```
+
+`~/.gitconfig` の末尾には `[include] path = ~/.gitconfig.local` が入るので、
+退避した設定はそのまま有効になります。
+
+### 3-5. 適用する
+
+```
+chezmoi apply --dry-run --verbose    # 予行演習（何も書き換えない）
+chezmoi apply                        # 本番
+```
+
+### 3-6. 適用後の確認
+
+**Windows:**
+
+```powershell
+Get-Content $PROFILE                                          # ローダが 1 個だけある
+Get-ChildItem (Split-Path $PROFILE) -Filter '*.pre-chezmoi*'  # 旧プロファイルのバックアップ
+git config --global --get-all safe.directory                  # 退避した設定が有効
+```
+
+そのあと**新しい PowerShell を開いて**、`cdd` と `gs` が動けば完了です。
+Windows Terminal は再起動すると、消えたように見えるプロファイル（WSL、Visual Studio など）が自動で戻ります。
+
+**WSL2 Ubuntu:**
+
+```bash
+zsh -n ~/.zshrc     # 文法チェック
+exec zsh            # 新しい zsh を起動
+```
+
+### 3-7. 慣れたら短縮形
+
+構成を理解したあと、2 台目以降ではこれで済みます。
+
+```
+chezmoi init --apply kenkiti/dotfiles
+```
+
+**1 台目ではおすすめしません。** 差分を見ずに既存設定が置き換わります。
 
 ---
 
-## OS 別・ホスト別の設定
+## 4. 設定を変更して反映する
 
-判定は chezmoi の標準データを使い、結果を `.chezmoi.toml.tmpl` の `[data]` にまとめています。
-テンプレート側は `.isWindows` などの真偽値だけを見ます。
+**ここが日常の作業です。**
 
-| 変数 | 判定方法 |
+重要なポイントが 1 つあります。**テンプレートかどうかで手順が変わります。**
+
+### 4-1. どちらか調べる
+
+```
+chezmoi source-path ~/.zshrc
+```
+
+出力が `.tmpl` で終わればテンプレート、終わらなければ普通のファイルです。
+
+現在の内訳は次のとおりです。
+
+| 展開先 | 種別 |
 | --- | --- |
-| `.isWindows` | `.chezmoi.os == "windows"` |
-| `.isLinux` | `.chezmoi.os == "linux"` |
-| `.isWSL` | `.chezmoi.kernel.osrelease` に `microsoft` / `wsl` が含まれる、または `WSL_DISTRO_NAME` が設定されている |
-| `.isLinuxNative` | Linux かつ WSL でない |
-| `.isCI` | `CI` または `DOTFILES_NONINTERACTIVE` が設定されている |
+| `~/.zshrc` | **テンプレート** |
+| `~/.zprofile` | **テンプレート** |
+| `~/.gitconfig` | **テンプレート** |
+| `~/.config/powershell/Microsoft.PowerShell_profile.ps1` | **テンプレート** |
+| Windows Terminal `settings.json` | **テンプレート** |
+| `~/.claude/CLAUDE.md` | 普通のファイル |
+| `~/.claude/settings.json` | 普通のファイル |
+| `~/.claude/statusline-command.sh` | 普通のファイル |
+| `~/.codex/AGENTS.md` | 普通のファイル |
 
-`.chezmoi.kernel.osrelease` は chezmoi が `/proc/sys/kernel/osrelease` から読む値で、
-WSL2 では `...-microsoft-standard-WSL2` になります。外部コマンドを呼ばないため再現性があります。
+### 4-2. テンプレートの場合（`.zshrc` など）
 
-ホスト固有の値は設定ファイル本体に書かず、[`.chezmoidata.yaml`](.chezmoidata.yaml) に集約しています。
+**`~/.zshrc` を直接編集しても反映されません。**
+
+`chezmoi re-add` はテンプレートを**スキップ**します。これはテンプレートが壊れるのを防ぐための仕様です。
+安全ではありますが、直接書いた変更は取り込まれず、そのまま消えます。
+
+正しい手順は `chezmoi edit` です。これは**ソース側のテンプレートを開きます**。
+
+```
+chezmoi edit ~/.zshrc      # dot_zshrc.tmpl が開く
+chezmoi diff               # 結果を確認
+chezmoi apply              # 反映
+```
+
+編集と同時に適用してよければ 1 コマンドで済みます。
+
+```
+chezmoi edit --apply ~/.zshrc
+```
+
+エディタは環境変数 `$EDITOR` で決まります。設定しておくと快適です。
+
+```powershell
+# PowerShell（~/.config/powershell/profile.local.ps1 に書くとよい）
+$env:EDITOR = 'code --wait'
+```
+
+```bash
+# zsh
+export EDITOR='vim'
+```
+
+### 4-3. 普通のファイルの場合（`.claude/CLAUDE.md` など）
+
+こちらは直接編集して構いません。あとからソースへ取り込みます。
+
+```powershell
+notepad "$HOME\.claude\CLAUDE.md"    # 普通に編集
+chezmoi re-add                        # 変更をソースへ取り込む
+chezmoi status                        # 差分が消えていることを確認
+```
+
+`chezmoi edit ~/.claude/CLAUDE.md` を使っても同じ結果になります。
+迷ったら `chezmoi edit` を使えば、どちらの種別でも正しく動きます。
+
+### 4-4. 間違えて直接編集してしまったら
+
+安全装置があります。`chezmoi apply` は黙って上書きしません。
+
+```
+.gitconfig has changed since chezmoi last wrote it (diff/overwrite/all-overwrite/skip/quit)?
+```
+
+| 入力 | 動作 |
+| --- | --- |
+| `diff` | 何が違うか表示する（選び直せる） |
+| `skip` | このファイルは今回触らない |
+| `overwrite` | 手元の変更を捨ててソース側で上書き |
+| `all-overwrite` | 以降すべて上書き |
+| `quit` | 中止 |
+
+手元の変更を活かしたい場合は、3-way マージができます。
+
+```
+chezmoi merge ~/.zshrc
+```
+
+既定のマージツールは `vimdiff` です。VS Code を使う場合は
+`~/.config/chezmoi/chezmoi.toml` に追記します。
+
+```toml
+[merge]
+    command = "code"
+    args = ["--wait", "--merge", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+```
+
+### 4-5. 新しいファイルを管理下に入れる
+
+```
+chezmoi add ~/.foo                # そのまま管理する
+chezmoi add --template ~/.foo     # テンプレートとして管理する
+```
+
+### 4-6. 管理をやめる
+
+```
+chezmoi forget ~/.foo    # ソースから外す。~/.foo 自体は残る
+```
+
+### 4-7. リポジトリへコミットする
+
+ソースディレクトリは普通の git リポジトリです。
+
+```
+chezmoi cd        # ソースディレクトリでサブシェルを開く
+
+git status
+git add -A
+git commit -m "変更内容"
+git push
+
+exit              # 元のディレクトリへ戻る
+```
+
+`chezmoi cd` を使わず、直接 `cd D:\Github\dotfiles` しても同じです。
+
+---
+
+## 5. 他の PC へ配布する / 受け取る
+
+### 送る側
+
+上記 4-7 で `git push` するだけです。
+
+### 受け取る側
+
+```
+chezmoi update
+```
+
+これは `git pull` と `chezmoi apply` をまとめて実行します。
+
+差分を先に見たい場合は分けます。**慣れるまではこちらを推奨します。**
+
+```
+chezmoi git pull       # 取得のみ
+chezmoi diff           # 確認
+chezmoi apply          # 反映
+```
+
+---
+
+## 6. 管理しているファイル
+
+`chezmoi managed` を実行すると、その環境で実際に展開されるファイルが一覧できます。
+
+### 全 OS 共通
+
+| 展開先 | 内容 |
+| --- | --- |
+| `~/.gitconfig` | git の共通設定。`~/.gitconfig.local` を include |
+| `~/.claude/CLAUDE.md` | Claude Code のグローバル指示 |
+| `~/.claude/settings.json` | Claude Code の共通設定（`hooks` は除く。下記の注意を参照） |
+| `~/.claude/statusline-command.sh` | ステータスライン表示スクリプト |
+| `~/.codex/AGENTS.md` | Codex CLI のグローバル指示 |
+
+### Windows のみ
+
+| 展開先 | 内容 |
+| --- | --- |
+| `~/.config/powershell/Microsoft.PowerShell_profile.ps1` | PowerShell プロファイル本体 |
+| `AppData/.../Windows Terminal settings.json` | Windows Terminal 設定 |
+
+### Linux / WSL のみ
+
+| 展開先 | 内容 |
+| --- | --- |
+| `~/.zshrc` | zsh の対話設定 |
+| `~/.zprofile` | zsh のログイン環境 |
+
+### 管理していない主なもの
+
+| ファイル | 理由 |
+| --- | --- |
+| `~/.claude/settings.json` の `hooks` | この PC 専用。ユーザー名入りの絶対パスを含むため |
+| `~/.codex/config.toml` | Codex CLI が信頼済みプロジェクトなどを書き戻すため |
+| 認証情報・履歴・キャッシュ・ログ・セッション | 秘密情報またはマシン固有 |
+
+判断の根拠と完全な除外リストは [docs/MANAGED_FILES.md](docs/MANAGED_FILES.md) にあります。
+
+> **⚠ `~/.claude/settings.json` の hooks について**
+>
+> Claude Code の `settings.json` には include の仕組みがないため、
+> `chezmoi apply` を実行すると **その PC でローカルに設定した `hooks` は削除されます**。
+>
+> hooks を使っている PC では、apply の前に退避しておいてください。
+>
+> ```powershell
+> Copy-Item "$HOME\.claude\settings.json" "$HOME\.claude\settings.json.bak"
+> ```
+
+### PowerShell プロファイルの特殊事情
+
+`$PROFILE` は固定パスではありません。OneDrive リダイレクトや日本語ロケールで
+`OneDrive\ドキュメント\PowerShell\...` のように PC ごとに変わります。
+
+そこで本体は `~/.config/powershell/` に置き、`$PROFILE` には
+それを読み込むだけの 1 行のローダを設置します。ローダの設置は
+`chezmoi apply` 時にスクリプトが自動で行い、既存の `$PROFILE` は
+`<$PROFILE>.pre-chezmoi.<日時>.bak` へ退避します。
+
+したがって編集するのは常にこちらです。
+
+```powershell
+chezmoi edit ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+```
+
+---
+
+## 7. OS 別・ホスト別の設定
+
+判定は初期化時に一度だけ行い、結果を `~/.config/chezmoi/chezmoi.toml` に保存します。
+テンプレート側は真偽値を見るだけです。
+
+| 変数 | 内容 |
+| --- | --- |
+| `.isWindows` | Windows か |
+| `.isLinux` | Linux か |
+| `.isWSL` | WSL か（`/proc/sys/kernel/osrelease` または `WSL_DISTRO_NAME` で判定） |
+| `.isLinuxNative` | WSL でない Linux か |
+| `.isCI` | CI 実行中か |
+
+確認方法:
+
+```
+chezmoi execute-template "{{ .isWSL }}"
+chezmoi execute-template "{{ .chezmoi.hostname }}"
+```
+
+PC ごとに違う値は、設定ファイルに直接書かず [`.chezmoidata.yaml`](.chezmoidata.yaml) にまとめます。
 
 ```yaml
 defaults:
@@ -119,211 +510,118 @@ defaults:
     workDir: "~/Github"
 
 hosts:
-  DESKTOP-Corei5-8400:
+  DESKTOP-Corei5-8400:      # chezmoi execute-template "{{ .chezmoi.hostname }}" の値
     powershell:
       workDir: "D:\\Github"
 ```
 
-新しい PC を足すときは `hosts:` にホスト名のブロックを追加し、
-`defaults` と違う値だけ書きます。ホスト名は次で確認できます。
+新しい PC を追加するときは `hosts:` にブロックを足し、`defaults` と違う値だけ書きます。
 
-```
-chezmoi execute-template '{{ .chezmoi.hostname }}'
-```
-
-OS ごとの出し分けは [`.chezmoiignore`](.chezmoiignore) が担当します。
-Windows では `.zshrc` を、Linux では Windows Terminal 設定と
-`.config/powershell` を展開しません。
+どの OS にどのファイルを配るかは [`.chezmoiignore`](.chezmoiignore) が決めています。
 
 ---
 
-## PowerShell
+## 8. 秘密情報の置き場所
 
-プロファイルの実体は `~/.config/powershell/Microsoft.PowerShell_profile.ps1` です。
-`$PROFILE` そのものには 1 行のローダだけを置きます。
+**このリポジトリには秘密値を入れません。** 公開リポジトリです。
 
-`$PROFILE` は固定パスではなく、OneDrive リダイレクトや日本語ロケールで
-`OneDrive\ドキュメント\PowerShell\...` のように変わるため、chezmoi の静的な展開先にできません。
-`.chezmoiscripts/run_onchange_after_20-install-powershell-profile.ps1.tmpl` が
-適用時に `$PROFILE` を解決してローダを設置します。既存の `$PROFILE` は
-`<$PROFILE>.pre-chezmoi.<timestamp>.bak` へ退避してから置き換えます。
+API キーやトークン、その PC 限定の設定は、次のファイルに書きます。
+いずれも **chezmoi 管理外・git 管理外**で、存在しなくても動作します。
 
-編集は次で行います。
+| ファイル | 読み込み元 |
+| --- | --- |
+| `~/.gitconfig.local` | `~/.gitconfig` |
+| `~/.zshrc.local` | `~/.zshrc` |
+| `~/.zprofile.local` | `~/.zprofile` |
+| `~/.config/powershell/profile.local.ps1` | PowerShell プロファイル |
 
-```powershell
-chezmoi edit ~/.config/powershell/Microsoft.PowerShell_profile.ps1
-chezmoi apply
-reload
-```
-
-Windows PowerShell 5.1 にもローダを入れたい場合は、`.chezmoidata.yaml` の
-`powershell.installWindowsPowerShell5Shim` を `true` にしてください。
-
----
-
-## Windows Terminal
-
-`settings.json` 全体を管理します。環境依存の値（既定プロファイル GUID、
-開始ディレクトリ、フォント、配色）は `.chezmoidata.yaml` のテンプレート変数です。
-
-`profiles.list` には、どの PC でも同じ値になる 2 つの GUID
-（Windows PowerShell と PowerShell 7）だけを書いています。
-WSL、Visual Studio、コマンドプロンプトなどの動的プロファイルは
-Windows Terminal が起動時に自動生成するため、リポジトリに固定していません。
-これにより、PC ごとに違う GUID やローカライズされたプロファイル名が混入しません。
-
-旧方式の [`windows-terminal/actions.jsonc`](windows-terminal/actions.jsonc) は
-参照用に残してあります。内容（`Ctrl+Shift+O` / `2` / `3` / `0` と
-`Alt`+方向キーの無効化）は `settings.json` の `keybindings` に反映済みです。
-`actions.jsonc` は JSONC（コメント付き）、`settings.json` は JSON なので、
-コメントは移していません。
-
----
-
-## zsh
-
-`~/.zshrc` と `~/.zprofile` を管理します。内容は次の層に分かれています。
-
-1. 共通の zsh 設定（補完・履歴・キーバインド）
-2. ネイティブ Linux 専用
-3. WSL 専用（`explorer.exe`、`clip.exe`、`/mnt` の警告）
-4. ホスト固有（`.chezmoidata.yaml` の `hosts.<name>.zsh.extraLines`）
-5. `~/.zshrc.local` / `~/.zprofile.local`
-
-最後の層は **chezmoi 管理外・Git 管理外**です。秘密情報やその PC だけの設定はここに書きます。
-
-```zsh
-[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
-```
-
-Oh My Zsh はインストール済みのときだけ読み込みます。未インストールの PC でも
-zsh は正常に起動します。
-
----
-
-## Claude Code / Codex CLI
-
-静的で再利用可能な設定だけを管理します。認証情報・履歴・キャッシュ・
-セッション・ログ・マシン固有 ID は管理しません。
-
-| ツール | 管理するもの | 管理しないもの |
-| --- | --- | --- |
-| Claude Code | `~/.claude/CLAUDE.md`、`statusline-command.sh` | `settings.json`、`.credentials.json`、`history.jsonl`、`projects/`、`sessions/`、`plugins/`、キャッシュ、ログ |
-| Codex CLI | `~/.codex/AGENTS.md` | `auth.json`、`config.toml`、`*.sqlite`、履歴、ログ、`installation_id` |
-
-`~/.claude/settings.json` と `~/.codex/config.toml` は、どちらもツール自身が
-書き戻すファイルです。管理すると `chezmoi apply` のたびに、後から追加された
-hooks や信頼済みプロジェクトの登録が消えます。加えて両者ともユーザー名を含む
-絶対パスを持つため、公開リポジトリに入れられません。
-そのため管理対象外にしています。
-
-Codex については、手書き相当の値だけを
-[`docs/reference/codex-config.reference.toml`](docs/reference/codex-config.reference.toml)
-に記録しています。
-
-判断の根拠と完全な除外リストは [docs/MANAGED_FILES.md](docs/MANAGED_FILES.md) にあります。
-
----
-
-## 秘密情報
-
-このリポジトリに秘密値は入れません。詳細は [docs/SECRETS.md](docs/SECRETS.md) を参照してください。
-
-| ファイル | 用途 | Git 管理 |
-| --- | --- | --- |
-| `~/.gitconfig.local` | `safe.directory`、署名鍵、credential helper | しない |
-| `~/.zshrc.local` | 秘密情報を含むエイリアス | しない |
-| `~/.zprofile.local` | API キーなどの環境変数 | しない |
-| `~/.config/powershell/profile.local.ps1` | Windows のローカル専用設定 | しない |
-
-Bitwarden / LastPass 連携は今回の移行では必須にしていません。
-シークレットマネージャが無くても `chezmoi init --apply` は完走します。
-
----
-
-## 依存ツールのインストール
-
-`chezmoi apply` の前に `.chezmoiscripts/run_once_before_10-check-dependencies.*` が動き、
-不足しているツールを**報告するだけ**です。勝手にインストールも権限昇格もしません。
-
-自動インストールを許可する場合のみ、次のように明示します。
-
-```powershell
-$env:DOTFILES_INSTALL_PACKAGES = '1'; chezmoi apply
-```
+例:
 
 ```bash
-DOTFILES_INSTALL_PACKAGES=1 chezmoi apply
+# ~/.zprofile.local
+export SOME_SERVICE_TOKEN="..."
 ```
 
-一度実行された `run_once_` スクリプトを再実行したい場合。
+```powershell
+# ~/.config/powershell/profile.local.ps1
+$env:SOME_SERVICE_TOKEN = '...'
+```
 
-```
-chezmoi state delete-bucket --bucket=scriptState
-chezmoi apply
-```
+Claude Code と Codex CLI の認証情報は管理していません。PC ごとに各ツールでログインしてください。
+
+Bitwarden / LastPass 連携は必須にしていません。未導入でもすべて動作します。
+詳細は [docs/SECRETS.md](docs/SECRETS.md) を参照してください。
 
 ---
 
-## CI
-
-[`.github/workflows/chezmoi-test.yml`](.github/workflows/chezmoi-test.yml) が
-`ubuntu-latest` と `windows-latest` で次を検証します。
-
-1. YAML / TOML / JSON / JSONC / シェルの構文
-2. chezmoi のインストールとソース状態の検証
-3. すべてのテンプレートの評価
-4. `chezmoi diff` と `chezmoi apply --dry-run`
-5. 一時ディレクトリ（`RUNNER_TEMP` 配下）への適用
-6. 期待するファイルの存在確認
-7. OS 違いのファイルが展開されていないことの確認
-8. 認証ファイルや秘密値パターンが出力に無いことの確認
-9. 展開結果の JSON / zsh / PowerShell / gitconfig の構文検査
-10. 未評価のテンプレート記法が残っていないことの確認
-11. 2 回目の適用が no-op であること
-
-CI は実ホームディレクトリを使いません。Bitwarden / LastPass へのログインもしません。
-`CI=true` のとき `.chezmoi.toml.tmpl` は対話を行わず、ダミーの identity
-(`ci@example.invalid`) を使います。
-
----
-
-## 復旧
-
-適用前に自動で作られるバックアップ:
-
-- `$PROFILE` → `<$PROFILE>.pre-chezmoi.<timestamp>.bak`
-
-それ以外は chezmoi が上書きするだけなので、**適用前に自分でバックアップを取ってください**。
-手順は [docs/MIGRATION.md](docs/MIGRATION.md) にあります。
-
-管理から外す（ファイルは `$HOME` に残る）:
-
-```
-chezmoi forget ~/.zshrc
-```
-
-一時的に元へ戻す:
-
-```
-cp ~/dotfiles-backup-<timestamp>/.zshrc ~/.zshrc
-```
-
----
-
-## トラブルシューティング
+## 9. 困ったとき
 
 | 症状 | 対処 |
 | --- | --- |
-| `chezmoi diff` に大量の差分が出る | 手元のファイルが正なら `chezmoi re-add <path>`、リポジトリが正なら `chezmoi apply` |
-| `chezmoi apply` がテンプレートエラーで落ちる | `chezmoi execute-template < <source file>` で該当箇所を特定する |
-| 新しい PC でホスト固有設定が効かない | `chezmoi execute-template '{{ .chezmoi.hostname }}'` の出力と `.chezmoidata.yaml` の `hosts:` キーが一致しているか確認する |
-| WSL 判定が効かない | `chezmoi execute-template '{{ .isWSL }}'` を確認する。`/proc/sys/kernel/osrelease` に `microsoft` が含まれない環境では `WSL_DISTRO_NAME` で判定する |
-| PowerShell プロファイルが読み込まれない | `Get-Content $PROFILE` にローダがあるか、`Test-Path ~/.config/powershell/Microsoft.PowerShell_profile.ps1` を確認する |
-| `run_once_` スクリプトが動かない | 既に実行済み。`chezmoi state delete-bucket --bucket=scriptState` で再実行できる |
-| Windows Terminal のプロファイルが消えた | 動的プロファイルは再起動時に自動生成される。手動で追加したプロファイルは `.chezmoidata.yaml` 経由でテンプレートに足す |
-| WSL 側で `.zshrc` の改行が壊れる | `.gitattributes` が `eol=lf` を強制している。`git config core.autocrlf` を確認し、必要なら `git rm --cached -r . && git reset --hard` で再チェックアウトする |
-| `chezmoi apply` で `$PROFILE` を壊したくない | `chezmoi apply --exclude=scripts` でスクリプトを除いて適用できる |
+| `chezmoi` コマンドが見つからない | 新しいシェルを開く（インストール直後は PATH が未反映） |
+| `GetFileAttributesEx ...\.local\share\chezmoi` エラー | ソースディレクトリが無い。`chezmoi init` を実行するか、[3-2](#3-2-リポジトリを取得する) のジャンクションを張る |
+| `~/.zshrc` を編集したのに `chezmoi status` に出ない／反映されない | テンプレートを直接編集した。`chezmoi edit ~/.zshrc` を使う（[4-2](#4-2-テンプレートの場合zshrc-など)） |
+| `has changed since chezmoi last wrote it` と聞かれる | 手元で直接編集した。`diff` で確認してから `skip` か `overwrite` を選ぶ |
+| `chezmoi diff` に大量の差分が出る | 手元が正なら `chezmoi re-add`、リポジトリが正なら `chezmoi apply` |
+| テンプレートエラーで落ちる | `chezmoi execute-template < <ソースファイル>` で該当箇所を特定する |
+| ホスト固有設定が効かない | `chezmoi execute-template "{{ .chezmoi.hostname }}"` と `.chezmoidata.yaml` の `hosts:` キーが一致しているか確認 |
+| PowerShell プロファイルが読み込まれない | `Get-Content $PROFILE` にローダがあるか、`Test-Path ~/.config/powershell/Microsoft.PowerShell_profile.ps1` を確認 |
+| Windows Terminal のプロファイルが消えた | 動的プロファイルは再起動で自動再生成される |
+| `run_once_` スクリプトを再実行したい | `chezmoi state delete-bucket --bucket=scriptState` してから `chezmoi apply` |
+| `$PROFILE` を書き換えたくない | `chezmoi apply --exclude=scripts` |
+| 元に戻したい | `chezmoi forget <パス>` で管理から外し、バックアップから復元する |
+
+### 元に戻す
+
+```powershell
+# 管理から外す（ファイルは残る）
+chezmoi forget ~/.gitconfig
+
+# バックアップから復元
+Copy-Item "$HOME\dotfiles-backup-<日時>\.gitconfig" "$HOME\.gitconfig" -Force
+```
+
+`$PROFILE` は `<$PROFILE>.pre-chezmoi.<日時>.bak` に自動退避されています。
+
+---
+
+## 10. コマンド早見表
+
+### 日常
+
+```
+chezmoi edit <パス>        設定を編集する（テンプレートでも安全）
+chezmoi diff               適用前に差分を見る
+chezmoi apply              適用する
+chezmoi update             git pull + apply（他 PC の変更を取り込む）
+```
+
+### 確認
+
+```
+chezmoi status             変更されるファイルの一覧
+chezmoi managed            管理しているファイルの一覧
+chezmoi source-path <パス> 展開先 → ソースの対応
+chezmoi doctor             環境の健全性チェック
+chezmoi execute-template "{{ .chezmoi.hostname }}"
+```
+
+### 管理対象の変更
+
+```
+chezmoi add <パス>              管理下に入れる
+chezmoi add --template <パス>   テンプレートとして管理下に入れる
+chezmoi re-add                  手元の変更をソースへ取り込む（テンプレートは対象外）
+chezmoi forget <パス>           管理から外す（ファイルは残る）
+```
+
+### リポジトリ操作
+
+```
+chezmoi cd                 ソースディレクトリでサブシェルを開く
+chezmoi git pull           取得のみ
+chezmoi merge <パス>       手元とソースを 3-way マージ
+```
 
 ---
 
@@ -331,4 +629,12 @@ cp ~/dotfiles-backup-<timestamp>/.zshrc ~/.zshrc
 
 - [docs/MANAGED_FILES.md](docs/MANAGED_FILES.md) — 管理対象・管理対象外の完全な一覧と理由
 - [docs/SECRETS.md](docs/SECRETS.md) — 秘密情報の扱いと将来の Bitwarden / LastPass 連携
-- [docs/MIGRATION.md](docs/MIGRATION.md) — 旧シンボリックリンク方式からの移行手順と復旧
+- [docs/MIGRATION.md](docs/MIGRATION.md) — 旧シンボリックリンク方式からの移行手順
+- [AGENTS.md](AGENTS.md) — このリポジトリを AI エージェントが編集するときの規則
+
+## CI
+
+[`.github/workflows/chezmoi-test.yml`](.github/workflows/chezmoi-test.yml) が
+`ubuntu-latest` と `windows-latest` で、一時ディレクトリへの適用・構文検査・
+OS 別の出し分け・秘密値の混入チェック・冪等性を検証します。
+実ホームディレクトリは使いません。

@@ -56,12 +56,6 @@ AppData/**
 # Listing them here means that even if one is committed by mistake, chezmoi
 # will refuse to write it into $HOME.
 # ---------------------------------------------------------------------------
-# settings.json is written back by Claude Code itself (enabledPlugins, hooks
-# installed by other tools) and its hook commands are absolute paths that
-# contain the user name. Managing it would delete whatever the tooling added
-# since the last commit. Configure it per machine instead.
-.claude/settings.json
-
 .claude/.credentials.json
 .claude/.last-update-result.json
 .claude/.last-cleanup

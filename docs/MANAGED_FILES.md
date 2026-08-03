@@ -12,6 +12,7 @@
 | --- | --- | --- | --- |
 | `dot_gitconfig.tmpl` | `~/.gitconfig` | テンプレート | `safe.directory` などマシン固有設定は `~/.gitconfig.local` へ分離 |
 | `private_dot_claude/CLAUDE.md` | `~/.claude/CLAUDE.md` | 静的 | Claude Code のグローバル指示 |
+| `private_dot_claude/settings.json` | `~/.claude/settings.json` | 静的 | `hooks` を除いた共通設定。下記参照 |
 | `private_dot_claude/executable_statusline-command.sh` | `~/.claude/statusline-command.sh` | 静的 | ステータスライン生成スクリプト |
 | `private_dot_codex/AGENTS.md` | `~/.codex/AGENTS.md` | 静的 | Codex CLI のグローバル指示 |
 
@@ -56,32 +57,50 @@ chezmoi の展開先は静的パスなので、この値をリポジトリに書
 | ファイル | 理由 |
 | --- | --- |
 | `CLAUDE.md` | 手書きの静的なグローバル指示。秘密情報なし |
+| `settings.json` | 手書き設定。ただし `hooks` は除く（下記） |
 | `statusline-command.sh` | 手書きシェルスクリプト。stdin の JSON を整形するだけ |
 
-### `settings.json` を管理しない理由
+### `settings.json` から `hooks` を除いている理由
 
-`~/.claude/settings.json` は手書き設定に見えますが、実際には Claude Code 自身と
-外部ツールが書き戻すファイルです。移行作業中にも次の変化が起きました。
+管理しているのは、どの PC でも共通の設定だけです。
 
-- 調査時点: 436 bytes（`statusLine` / `enabledPlugins` / `theme` / `model` など）
-- 数時間後: 2,453 bytes。別ツールが `hooks`（`Notification`、`Stop`、`SessionStart`、
-  `SessionEnd`、`PermissionRequest`、`PreToolUse` の 6 種）を追加していた
+`statusLine` / `enabledPlugins` / `extraKnownMarketplaces` /
+`autoUpdatesChannel` / `skipDangerousModePermissionPrompt` / `theme` / `model`
 
-さらに hooks のコマンドは `C:\Users\<ユーザー名>\OneDrive\デスクトップ\...` という
-**ユーザー名を含む絶対パス**でした。これを公開リポジトリへ入れることはできず、
-かといって管理すると `chezmoi apply` のたびにツールが追加した hooks が消えます。
+`hooks` は**意図的に含めていません**。実環境の `hooks` は
+`Notification`、`Stop`、`SessionStart`、`SessionEnd`、`PermissionRequest`、
+`PreToolUse` の 6 種が `AgentSupervisor.App.exe` を呼ぶ構成でしたが、
+そのコマンドは `C:\Users\<ユーザー名>\OneDrive\デスクトップ\...` という
+**ユーザー名を含む絶対パス**で、この PC 固有のものです。
+公開リポジトリに入れられず、他の PC では動きません。
 
-そのため **管理対象から外し、`.chezmoiignore` で明示的に除外**しました。
-`~/.claude/settings.json` は各 PC で個別に設定してください。
+> **⚠ 運用上の注意**
+>
+> Claude Code の `settings.json` には include の仕組みがありません。
+> そのため `chezmoi apply` を実行すると、**その PC でローカルに設定した
+> `hooks` は削除されます**。
+>
+> hooks を使っている PC では、apply のあとに設定し直すか、
+> apply 前に退避してください。
+>
+> ```powershell
+> Copy-Item "$HOME\.claude\settings.json" "$HOME\.claude\settings.json.bak"
+> ```
+>
+> hooks を PC ごとに自動で復元したい場合は、`settings.json` をテンプレート化し
+> `.chezmoidata.yaml` の `hosts:` から注入する構成に変更できます。
 
-なお、この PC の `skipDangerousModePermissionPrompt: true` は権限確認プロンプトを
-省略する設定です。新しい PC で設定する際は意図した値か確認してください。
+`enabledPlugins` は Claude Code 自身も書き換えます。UI からプラグインを
+切り替えた場合は `chezmoi re-add ~/.claude/settings.json` で取り込んでください。
+
+この PC の `skipDangerousModePermissionPrompt: true` は権限確認プロンプトを
+省略する設定です。新しい PC へ展開する前に意図した値か確認してください。
 
 ### 管理しない
 
 | パス | 分類 | 理由 |
 | --- | --- | --- |
-| `settings.json` | 実行状態 + マシン固有 | 上記のとおり |
+| `settings.json` の `hooks` | マシン固有 | 上記のとおり |
 | `.credentials.json` | 認証情報 | OAuth トークン |
 | `history.jsonl` | 履歴 | 会話履歴 |
 | `projects/` | 状態 | プロジェクト単位のセッション状態 |
