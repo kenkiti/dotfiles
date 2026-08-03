@@ -1,4 +1,11 @@
-{{ if ne .chezmoi.os "windows" -}}
+{{ if not .isWindows -}}
+[".oh-my-zsh"]
+    type = "archive"
+    # Pinned to a known Oh My Zsh revision for reproducible applies.
+    url = "https://github.com/ohmyzsh/ohmyzsh/archive/ad586ffecaaeb695cc73ced4d643c6727d47f535.tar.gz"
+    stripComponents = 1
+    refreshPeriod = "168h"
+
 [".oh-my-zsh/custom/themes/powerlevel10k"]
     type = "archive"
     url = "https://github.com/romkatv/powerlevel10k/archive/36f3045d69d1ba402db09d09eb12b42eebe0fa3b.tar.gz"

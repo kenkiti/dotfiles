@@ -52,7 +52,8 @@ chezmoi の展開先は静的パスなので、この値をリポジトリに書
 Oh My Zsh のテーマと有効化するプラグインは `.chezmoidata.yaml` の `defaults.zsh` で管理します。
 現在は Powerlevel10k と `git`、`fzf`、`zsh-autosuggestions`、
 `zsh-syntax-highlighting` を有効にします。テーマと外部プラグインは `.chezmoiexternal.toml` で取得元とコミットを固定し、
-chezmoi の管理下に置きます。`fzf` は Oh My Zsh 本体に同梱されています。
+chezmoi の管理下に置きます。Oh My Zsh 本体は `.chezmoiexternal.toml` から取得し、
+`fzf` は Ubuntu のパッケージとして依存ツール確認スクリプトで扱います。
 Powerlevel10k のウィザードが生成した `~/.p10k.zsh` も `dot_p10k.zsh` として管理します。
 
 ---

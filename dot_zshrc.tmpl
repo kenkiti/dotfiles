@@ -32,7 +32,7 @@ fi
 # shell before the installer has run.
 # ---------------------------------------------------------------------------
 export ZSH="${ZSH:-$HOME/.oh-my-zsh}"
-if [[ -d "$ZSH" ]]; then
+if [[ -r "$ZSH/oh-my-zsh.sh" ]]; then
   ZSH_THEME={{ $cfg.zsh.ohMyZshTheme | quote }}
   plugins=({{ range $i, $p := $cfg.zsh.ohMyZshPlugins }}{{ if $i }} {{ end }}{{ $p }}{{ end }})
 
@@ -163,6 +163,9 @@ alias gl='git log --oneline --decorate --graph -20'
 alias gco='git checkout'
 alias gp='git push'
 alias gpull='git pull'
+# The Oh My Zsh git plugin defines `gcm` as an alias. Remove it before
+# defining the repository's function with the same name.
+unalias gcm 2>/dev/null || true
 gcm() {
   if [[ $# -lt 1 ]]; then
     print -u2 "usage: gcm <message>"

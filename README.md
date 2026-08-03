@@ -93,7 +93,7 @@ Ubuntu / WSL2:
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y git zsh curl
+sudo apt-get install -y git zsh curl fzf
 sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin"
 export PATH="$HOME/.local/bin:$PATH"
 ```
@@ -198,7 +198,8 @@ git config --get-all safe.directory
 ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 ```
 
-`git` と `fzf` はOh My Zsh本体に同梱されています。テーマやプラグインを更新するときは、
+Oh My Zsh本体も `.chezmoiexternal.toml` から取得されます。`fzf` はUbuntuのパッケージとして
+別途インストールが必要です。テーマやプラグインを更新するときは、
 `.chezmoiexternal.toml` のURLに含まれるコミットを変更します。
 
 ## PC・OSごとの設定
