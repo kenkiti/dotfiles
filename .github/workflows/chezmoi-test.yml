@@ -1,0 +1,387 @@
+name: chezmoi
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  # Pinned so a chezmoi release cannot break CI on an unrelated day.
+  # Bump deliberately.
+  CHEZMOI_VERSION: "2.72.0"
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Static syntax checks that do not need chezmoi at all.
+  # ---------------------------------------------------------------------------
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate YAML and TOML
+        run: |
+          python3 - <<'PY'
+          import os, sys, tomllib, yaml
+
+          def walk(*suffixes):
+              for root, dirs, files in os.walk('.'):
+                  dirs[:] = [d for d in dirs if d != '.git']
+                  for name in files:
+                      # .tmpl files are not valid YAML/TOML until rendered;
+                      # they are checked by the `apply` job instead.
+                      if name.endswith(suffixes):
+                          yield os.path.join(root, name)
+
+          bad = 0
+          for path in sorted(walk('.yaml', '.yml')):
+              try:
+                  yaml.safe_load(open(path, encoding='utf-8'))
+                  print(f'ok   {path}')
+              except Exception as exc:
+                  print(f'FAIL {path}: {exc}', file=sys.stderr)
+                  bad += 1
+
+          for path in sorted(walk('.toml')):
+              try:
+                  tomllib.load(open(path, 'rb'))
+                  print(f'ok   {path}')
+              except Exception as exc:
+                  print(f'FAIL {path}: {exc}', file=sys.stderr)
+                  bad += 1
+
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: Validate JSON / JSONC sources
+        run: |
+          python3 - <<'PY'
+          import json, re, sys
+          # actions.jsonc is the pre-chezmoi keybinding file; strip // comments.
+          path = 'windows-terminal/actions.jsonc'
+          text = open(path, encoding='utf-8').read()
+          text = re.sub(r'^\s*//.*$', '', text, flags=re.M)
+          json.loads(text)
+          print(f'ok   {path}')
+
+          for path in ['private_dot_claude/settings.json']:
+              json.load(open(path, encoding='utf-8'))
+              print(f'ok   {path}')
+          PY
+
+      - name: Shell syntax
+        run: |
+          bash -n private_dot_claude/executable_statusline-command.sh
+          echo "ok   statusline-command.sh"
+
+      - name: No secret-looking values committed
+        run: |
+          set -o pipefail
+          pattern='(BEGIN [A-Z ]*PRIVATE KEY|sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_|AKIA[0-9A-Z]{16}|xox[baprs]-[A-Za-z0-9-]{10,})'
+          # This workflow and docs/SECRETS.md contain the detection pattern
+          # itself, so they would always match. Everything else is scanned.
+          if grep -rInE "$pattern" \
+               --exclude-dir=.git \
+               --exclude-dir=workflows \
+               --exclude=SECRETS.md \
+               . ; then
+            echo "::error::possible secret committed" >&2
+            exit 1
+          fi
+          echo "ok   no secret patterns"
+
+      - name: Credential files must never be tracked
+        run: |
+          forbidden='(\.claude/\.credentials\.json|\.codex/auth\.json|\.codex/cap_sid|id_rsa|id_ed25519|\.pem$|\.p12$)'
+          if git ls-files | grep -E "$forbidden"; then
+            echo "::error::credential file is tracked" >&2
+            exit 1
+          fi
+          echo "ok   no credential files tracked"
+
+  # ---------------------------------------------------------------------------
+  # Real chezmoi run against a throwaway destination directory.
+  # ---------------------------------------------------------------------------
+  apply:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # -- install chezmoi ---------------------------------------------------
+      - name: Install chezmoi (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          set -euo pipefail
+          url="https://github.com/twpayne/chezmoi/releases/download/v${CHEZMOI_VERSION}/chezmoi_${CHEZMOI_VERSION}_linux_amd64.tar.gz"
+          mkdir -p "$HOME/.local/bin"
+          curl -fsSL "$url" | tar -xz -C "$HOME/.local/bin" chezmoi
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Install chezmoi (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $url = "https://github.com/twpayne/chezmoi/releases/download/v$env:CHEZMOI_VERSION/chezmoi_${env:CHEZMOI_VERSION}_windows_amd64.zip"
+          $dest = Join-Path $env:RUNNER_TEMP 'chezmoi-bin'
+          New-Item -ItemType Directory -Force -Path $dest | Out-Null
+          Invoke-WebRequest -Uri $url -OutFile "$dest\chezmoi.zip" -UseBasicParsing
+          Expand-Archive "$dest\chezmoi.zip" -DestinationPath $dest -Force
+          Add-Content -Path $env:GITHUB_PATH -Value $dest
+
+      - name: chezmoi --version
+        run: chezmoi --version
+
+      # -- init into an isolated destination ---------------------------------
+      # $HOME is never used as the destination: --config, --destination and
+      # --source are all pointed at throwaway paths under RUNNER_TEMP.
+      - name: Set isolated paths (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          echo "DEST=$RUNNER_TEMP/dest" >> "$GITHUB_ENV"
+          echo "CHEZMOI_CONFIG=$RUNNER_TEMP/chezmoi.toml" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/dest"
+
+      - name: Set isolated paths (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $dest = Join-Path $env:RUNNER_TEMP 'dest'
+          New-Item -ItemType Directory -Force -Path $dest | Out-Null
+          # Forward slashes so the same paths work in the `shell: bash` steps
+          # below; chezmoi.exe accepts them on Windows.
+          $destFwd = $dest -replace '\\', '/'
+          $cfgFwd  = (Join-Path $env:RUNNER_TEMP 'chezmoi.toml') -replace '\\', '/'
+          "DEST=$destFwd"          | Add-Content $env:GITHUB_ENV
+          "CHEZMOI_CONFIG=$cfgFwd" | Add-Content $env:GITHUB_ENV
+
+      # CI=true is always set by GitHub Actions, which makes .chezmoi.toml.tmpl
+      # skip every prompt and use dummy identity values.
+      - name: chezmoi init (non-interactive)
+        run: chezmoi --config="$CHEZMOI_CONFIG" --source="." --destination="$DEST" init --promptDefaults --no-tty
+        shell: bash
+
+      - name: chezmoi doctor
+        continue-on-error: true
+        run: chezmoi --config="$CHEZMOI_CONFIG" --source="." --destination="$DEST" doctor
+        shell: bash
+
+      - name: Source state must be valid
+        run: chezmoi --config="$CHEZMOI_CONFIG" --source="." --destination="$DEST" source-path >/dev/null
+        shell: bash
+
+      - name: List what would be managed
+        run: chezmoi --config="$CHEZMOI_CONFIG" --source="." --destination="$DEST" managed
+        shell: bash
+
+      - name: Evaluate every template
+        shell: bash
+        run: |
+          set -euo pipefail
+          # `cat` renders each managed file through the template engine; any
+          # template error fails here rather than half way through an apply.
+          # --path-style=absolute keeps this working with Windows paths too.
+          chezmoi --config="$CHEZMOI_CONFIG" --source="." --destination="$DEST" \
+                  managed --include=files --path-style=absolute |
+            while IFS= read -r target; do
+              chezmoi --config="$CHEZMOI_CONFIG" --source="." --destination="$DEST" cat "$target" >/dev/null
+              echo "ok   $target"
+            done
+
+      - name: chezmoi diff
+        run: chezmoi --config="$CHEZMOI_CONFIG" --source="." --destination="$DEST" diff
+        shell: bash
+
+      - name: chezmoi apply --dry-run
+        run: chezmoi --config="$CHEZMOI_CONFIG" --source="." --destination="$DEST" apply --dry-run --verbose
+        shell: bash
+
+      - name: chezmoi apply
+        run: chezmoi --config="$CHEZMOI_CONFIG" --source="." --destination="$DEST" apply --verbose
+        shell: bash
+
+      - name: Show result tree
+        shell: bash
+        run: |
+          cd "$DEST"
+          find . -type f | sort
+
+      # -- assertions --------------------------------------------------------
+      - name: Expected files exist (Linux)
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in .zshrc .zprofile .gitconfig \
+                   .claude/CLAUDE.md .claude/settings.json .claude/statusline-command.sh \
+                   .codex/AGENTS.md; do
+            test -f "$DEST/$f" || { echo "::error::missing $f"; exit 1; }
+            echo "ok   $f"
+          done
+
+      - name: Windows-only files must NOT exist on Linux
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in AppData .config/powershell; do
+            if [ -e "$DEST/$f" ]; then echo "::error::$f leaked onto Linux"; exit 1; fi
+            echo "ok   absent: $f"
+          done
+
+      - name: Expected files exist (Windows)
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in .gitconfig \
+                   .config/powershell/Microsoft.PowerShell_profile.ps1 \
+                   "AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json" \
+                   .claude/CLAUDE.md .claude/settings.json .claude/statusline-command.sh \
+                   .codex/AGENTS.md; do
+            test -f "$DEST/$f" || { echo "::error::missing $f"; exit 1; }
+            echo "ok   $f"
+          done
+
+      - name: Unix-only files must NOT exist on Windows
+        if: runner.os == 'Windows'
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in .zshrc .zprofile .profile; do
+            if [ -e "$DEST/$f" ]; then echo "::error::$f leaked onto Windows"; exit 1; fi
+            echo "ok   absent: $f"
+          done
+
+      - name: Repository docs must never be deployed
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in README.md TODO.md AGENTS.md docs powershell windows-terminal; do
+            if [ -e "$DEST/$f" ]; then echo "::error::$f was deployed to the destination"; exit 1; fi
+            echo "ok   absent: $f"
+          done
+
+      - name: No unrendered template markers in output
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -rIn -e '{{' -e '}}' "$DEST"; then
+            echo "::error::unrendered template markers found" >&2
+            exit 1
+          fi
+          echo "ok   all templates fully rendered"
+
+      - name: No credentials or secret patterns in output
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in .claude/.credentials.json .claude/history.jsonl .codex/auth.json \
+                   .codex/config.toml .codex/cap_sid .codex/installation_id; do
+            if [ -e "$DEST/$f" ]; then echo "::error::$f was deployed"; exit 1; fi
+            echo "ok   absent: $f"
+          done
+
+          pattern='(BEGIN [A-Z ]*PRIVATE KEY|sk-[A-Za-z0-9]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_|AKIA[0-9A-Z]{16}|xox[baprs]-[A-Za-z0-9-]{10,})'
+          if grep -rIEn "$pattern" "$DEST"; then
+            echo "::error::secret pattern in rendered output" >&2
+            exit 1
+          fi
+          echo "ok   no secret patterns in output"
+
+      - name: CI must use dummy identity, not the real one
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q 'ci@example.invalid' "$DEST/.gitconfig" || { echo "::error::CI identity not applied"; exit 1; }
+          if grep -rIn 'kenkiti@gmail.com' "$DEST"; then
+            echo "::error::real email rendered in CI output" >&2
+            exit 1
+          fi
+          echo "ok   CI used dummy identity"
+
+      # -- rendered-output syntax --------------------------------------------
+      - name: Rendered JSON is valid
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - "$DEST" <<'PY'
+          import json, os, sys
+          dest = sys.argv[1]
+          found = 0
+          for root, _dirs, files in os.walk(dest):
+              for name in files:
+                  if name.endswith('.json'):
+                      path = os.path.join(root, name)
+                      json.load(open(path, encoding='utf-8'))
+                      print('ok  ', os.path.relpath(path, dest))
+                      found += 1
+          if found == 0:
+              sys.exit('no JSON files found in destination')
+          PY
+
+      - name: Rendered zsh is syntactically valid
+        if: runner.os == 'Linux'
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq zsh
+          zsh -n "$DEST/.zshrc"
+          zsh -n "$DEST/.zprofile"
+          echo "ok   zsh -n"
+
+      - name: Rendered git config is parseable
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config --file "$DEST/.gitconfig" --list
+          echo "ok   gitconfig parses"
+
+      - name: Rendered PowerShell is syntactically valid
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $path = Join-Path $env:DEST '.config/powershell/Microsoft.PowerShell_profile.ps1'
+          $errs = $null; $toks = $null
+          [System.Management.Automation.Language.Parser]::ParseFile($path, [ref]$toks, [ref]$errs) | Out-Null
+          if ($errs -and $errs.Count -gt 0) {
+              $errs | ForEach-Object { Write-Error $_.ToString() }
+              exit 1
+          }
+          Write-Host 'ok   PowerShell profile parses'
+
+      # -- idempotency -------------------------------------------------------
+      - name: Second apply is a no-op
+        shell: bash
+        run: |
+          set -euo pipefail
+          out=$(chezmoi --config="$CHEZMOI_CONFIG" --source="." --destination="$DEST" apply --dry-run --verbose)
+          if [ -n "$out" ]; then
+            echo "::error::apply is not idempotent" >&2
+            echo "$out"
+            exit 1
+          fi
+          echo "ok   idempotent"
+
+      - name: Destination is isolated from the real home directory
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "HOME=$HOME"
+          echo "DEST=$DEST"
+          case "$DEST" in
+            "$HOME"|"$HOME"/*)
+              echo "::error::destination is inside \$HOME" >&2
+              exit 1
+              ;;
+          esac
+          echo "ok   destination is outside \$HOME"

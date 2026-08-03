@@ -1,0 +1,75 @@
+{{- if and (ne .chezmoi.os "windows") (not .isCI) -}}
+#!/bin/sh
+# ---------------------------------------------------------------------------
+# Dependency check for Linux / WSL.
+#
+# By default this only REPORTS what is missing. Nothing is installed and sudo
+# is never invoked, because `chezmoi init --apply` on a new machine should not
+# silently escalate privileges.
+#
+# To let it install the missing packages:
+#     DOTFILES_INSTALL_PACKAGES=1 chezmoi apply
+#
+# Re-run after changing that:
+#     chezmoi state delete-bucket --bucket=scriptState && chezmoi apply
+# ---------------------------------------------------------------------------
+set -eu
+
+required="git zsh curl"
+optional="chezmoi"
+
+missing=""
+for cmd in $required; do
+    if ! command -v "$cmd" >/dev/null 2>&1; then
+        missing="$missing $cmd"
+    fi
+done
+
+if [ -z "$missing" ]; then
+    echo "dotfiles: all required tools present ($required)"
+else
+    echo "dotfiles: missing required tools:$missing"
+fi
+
+for cmd in $optional; do
+    command -v "$cmd" >/dev/null 2>&1 || echo "dotfiles: optional tool not found: $cmd"
+done
+
+# Optional secret managers. Never required, never installed automatically.
+# See docs/SECRETS.md for how they would be wired in later.
+for cmd in bw lpass; do
+    if command -v "$cmd" >/dev/null 2>&1; then
+        echo "dotfiles: secret manager available: $cmd"
+    fi
+done
+
+if [ -z "$missing" ]; then
+    exit 0
+fi
+
+if [ "${DOTFILES_INSTALL_PACKAGES:-0}" != "1" ]; then
+    cat <<EOF
+
+dotfiles: not installing anything (DOTFILES_INSTALL_PACKAGES is not 1).
+dotfiles: install manually, for example:
+
+    sudo apt-get update && sudo apt-get install -y$missing
+
+dotfiles: or re-run with DOTFILES_INSTALL_PACKAGES=1 chezmoi apply
+
+EOF
+    exit 0
+fi
+
+if ! command -v apt-get >/dev/null 2>&1; then
+    echo "dotfiles: DOTFILES_INSTALL_PACKAGES=1 but apt-get is not available." >&2
+    echo "dotfiles: install these manually:$missing" >&2
+    exit 1
+fi
+
+echo "dotfiles: installing:$missing"
+# Errors are intentionally not suppressed: a failed install must fail the apply.
+sudo apt-get update
+# shellcheck disable=SC2086
+sudo apt-get install -y $missing
+{{- end -}}

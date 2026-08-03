@@ -1,0 +1,107 @@
+{{- $host := default (dict) (get .hosts .chezmoi.hostname) -}}
+{{- $cfg := mergeOverwrite (deepCopy .defaults) $host -}}
+{{- if and (eq .chezmoi.os "windows") (not .isCI) -}}
+# ---------------------------------------------------------------------------
+# Install a loader into the real $PROFILE.
+#
+# Why this exists: $PROFILE is not a fixed path. It lives under the user's
+# Documents folder, which may be redirected to OneDrive and may be localized
+# ("ドキュメント"). chezmoi's target paths are static, so instead of trying to
+# manage $PROFILE directly we manage
+#
+#     ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+#
+# and write a one-line loader into whatever $PROFILE resolves to on this
+# machine.
+#
+# Any pre-existing $PROFILE (including the old symlink into the dotfiles repo)
+# is copied to a timestamped .bak next to it before being replaced. Nothing is
+# ever deleted without a backup.
+#
+# Managed profile version marker: {{ include "dot_config/powershell/Microsoft.PowerShell_profile.ps1.tmpl" | sha256sum }}
+# ---------------------------------------------------------------------------
+$ErrorActionPreference = 'Stop'
+
+$managedRelative = '.config\powershell\Microsoft.PowerShell_profile.ps1'
+$managedPath = Join-Path $HOME $managedRelative
+
+if (-not (Test-Path -LiteralPath $managedPath)) {
+    Write-Error "dotfiles: managed profile not found at $managedPath"
+    exit 1
+}
+
+$shim = @"
+# ---------------------------------------------------------------------------
+# Loader installed by chezmoi. Do not edit.
+#
+# The real profile is managed at:
+#     ~\$managedRelative
+# Edit it with:
+#     chezmoi edit ~/$($managedRelative -replace '\\','/')
+# ---------------------------------------------------------------------------
+`$managedProfile = Join-Path `$HOME '$managedRelative'
+if (Test-Path -LiteralPath `$managedProfile) {
+    . `$managedProfile
+}
+else {
+    Write-Warning "chezmoi-managed PowerShell profile not found: `$managedProfile"
+}
+"@
+
+function Install-ProfileShim {
+    param(
+        [Parameter(Mandatory = $true)][string]$Path,
+        [Parameter(Mandatory = $true)][string]$Content
+    )
+
+    $dir = Split-Path -Parent $Path
+    if (-not (Test-Path -LiteralPath $dir)) {
+        New-Item -ItemType Directory -Path $dir -Force | Out-Null
+    }
+
+    if (Test-Path -LiteralPath $Path) {
+        $item = Get-Item -LiteralPath $Path -Force
+
+        $existing = ''
+        try { $existing = Get-Content -LiteralPath $Path -Raw -ErrorAction Stop } catch { $existing = '' }
+
+        if ($existing.Trim() -eq $Content.Trim()) {
+            Write-Host "dotfiles: loader already current: $Path"
+            return
+        }
+
+        $stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+        $backup = "$Path.pre-chezmoi.$stamp.bak"
+
+        if ($item.LinkType) {
+            # Record where the old symlink pointed, then remove only the link.
+            Set-Content -LiteralPath $backup -Value @(
+                "# Previous `$PROFILE was a $($item.LinkType) to:",
+                "#   $($item.Target -join ', ')",
+                '# Its content at migration time follows.',
+                $existing
+            ) -Encoding UTF8
+            Write-Host "dotfiles: previous $($item.LinkType) backed up to $backup"
+            Remove-Item -LiteralPath $Path -Force
+        }
+        else {
+            Copy-Item -LiteralPath $Path -Destination $backup -Force
+            Write-Host "dotfiles: previous profile backed up to $backup"
+        }
+    }
+
+    Set-Content -LiteralPath $Path -Value $Content -Encoding UTF8
+    Write-Host "dotfiles: loader installed: $Path"
+}
+
+# PowerShell 7 (and whichever host is running this script).
+Install-ProfileShim -Path $PROFILE.CurrentUserCurrentHost -Content $shim
+
+{{ if $cfg.powershell.installWindowsPowerShell5Shim }}
+# Windows PowerShell 5.1 uses a different Documents subfolder.
+$ps5Profile = Join-Path ([Environment]::GetFolderPath('MyDocuments')) 'WindowsPowerShell\Microsoft.PowerShell_profile.ps1'
+Install-ProfileShim -Path $ps5Profile -Content $shim
+{{ else }}
+Write-Host 'dotfiles: skipping Windows PowerShell 5.1 loader (powershell.installWindowsPowerShell5Shim is false)'
+{{ end }}
+{{- end -}}

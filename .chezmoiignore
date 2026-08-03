@@ -1,0 +1,112 @@
+{{/* -------------------------------------------------------------------------
+     .chezmoiignore
+
+     Patterns are TARGET paths relative to $HOME, not source paths.
+
+     Note: chezmoi already ignores every source entry whose name starts with a
+     dot (.git, .github, .gitattributes, ...), so those need no entry here.
+     ------------------------------------------------------------------------- */}}
+
+# ---------------------------------------------------------------------------
+# Repository documentation and legacy layout - never deployed to $HOME.
+# ---------------------------------------------------------------------------
+README.md
+TODO.md
+AGENTS.md
+LICENSE
+docs
+docs/**
+
+# Pre-chezmoi layout, kept in git so the old symlink setup keeps working until
+# the user has migrated. See docs/MIGRATION.md.
+powershell
+powershell/**
+windows-terminal
+windows-terminal/**
+
+# ---------------------------------------------------------------------------
+# OS-specific exclusions
+# ---------------------------------------------------------------------------
+{{ if ne .chezmoi.os "windows" -}}
+# Windows-only targets
+AppData
+AppData/**
+.config/powershell
+.config/powershell/**
+{{- end }}
+
+{{ if eq .chezmoi.os "windows" -}}
+# Unix-only targets
+.zshrc
+.zprofile
+.profile
+{{- end }}
+
+{{ if .isCI -}}
+# ---------------------------------------------------------------------------
+# CI: nothing in this repository requires credentials, but keep this block as
+# the single place to exclude anything that ever would.
+# ---------------------------------------------------------------------------
+{{- end }}
+
+# ---------------------------------------------------------------------------
+# Hard deny-list: Claude Code / Codex CLI runtime state.
+#
+# None of these exist in the source directory, and they must never be added.
+# Listing them here means that even if one is committed by mistake, chezmoi
+# will refuse to write it into $HOME.
+# ---------------------------------------------------------------------------
+.claude/.credentials.json
+.claude/.last-update-result.json
+.claude/.last-cleanup
+.claude/history.jsonl
+.claude/stats-cache.json
+.claude/daemon.log
+.claude/backups/**
+.claude/cache/**
+.claude/chrome/**
+.claude/daemon/**
+.claude/debug/**
+.claude/downloads/**
+.claude/file-history/**
+.claude/jobs/**
+.claude/paste-cache/**
+.claude/plugins/**
+.claude/projects/**
+.claude/session-env/**
+.claude/sessions/**
+.claude/shell-snapshots/**
+.claude/tasks/**
+
+.codex/auth.json
+.codex/config.toml
+.codex/cap_sid
+.codex/installation_id
+.codex/history.jsonl
+.codex/session_index.jsonl
+.codex/transcription-history.jsonl
+.codex/models_cache.json
+.codex/version.json
+.codex/.codex-global-state.json
+.codex/.codex-global-state.json.bak
+.codex/chrome-native-hosts.json
+.codex/chrome-native-hosts-v2.json
+.codex/*.sqlite
+.codex/*.sqlite-shm
+.codex/*.sqlite-wal
+.codex/*.log
+.codex/.sandbox/**
+.codex/.sandbox-bin/**
+.codex/.sandbox-secrets/**
+.codex/.tmp/**
+.codex/tmp/**
+.codex/cache/**
+.codex/sessions/**
+.codex/logs/**
+.codex/memories/**
+.codex/plugins/**
+.codex/rules/**
+.codex/skills/**
+.codex/browser/**
+.codex/attachments/**
+.codex/vendor_imports/**

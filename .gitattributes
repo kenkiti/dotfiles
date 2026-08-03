@@ -1,0 +1,26 @@
+# Normalize line endings so chezmoi writes correct bytes on every platform.
+# chezmoi copies source bytes verbatim; it does not translate EOLs.
+
+* text=auto eol=lf
+
+# Shell scripts and Unix dotfiles must always be LF, even on Windows checkouts
+# (Git for Windows ships core.autocrlf=true in the system config).
+*.sh          text eol=lf
+*.bash        text eol=lf
+*.zsh         text eol=lf
+dot_zshrc*    text eol=lf
+dot_zprofile* text eol=lf
+dot_profile*  text eol=lf
+
+# PowerShell is happy with either, but CRLF matches native Windows editors.
+# Note this deliberately does NOT cover *.ps1.tmpl: chezmoi source templates
+# stay LF so the same bytes are hashed on every platform. PowerShell 5.1 and 7
+# both read LF-only scripts without complaint.
+*.ps1     text eol=crlf
+*.psm1    text eol=crlf
+*.psd1    text eol=crlf
+
+# Binary-ish
+*.png binary
+*.jpg binary
+*.ico binary

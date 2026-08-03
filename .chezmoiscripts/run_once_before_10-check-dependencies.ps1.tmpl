@@ -1,0 +1,71 @@
+{{- if and (eq .chezmoi.os "windows") (not .isCI) -}}
+# ---------------------------------------------------------------------------
+# Dependency check for Windows.
+#
+# Reports missing tools only. Nothing is installed and no elevation is
+# requested unless you opt in:
+#
+#     $env:DOTFILES_INSTALL_PACKAGES = '1'; chezmoi apply
+#
+# Re-run after changing that:
+#     chezmoi state delete-bucket --bucket=scriptState; chezmoi apply
+# ---------------------------------------------------------------------------
+$ErrorActionPreference = 'Stop'
+
+# winget id -> command name used to detect an existing installation
+$required = [ordered]@{
+    'Git.Git'                = 'git'
+    'twpayne.chezmoi'        = 'chezmoi'
+    'Microsoft.PowerShell'   = 'pwsh'
+}
+
+$missing = [ordered]@{}
+foreach ($id in $required.Keys) {
+    $cmd = $required[$id]
+    if (Get-Command $cmd -ErrorAction SilentlyContinue) {
+        Write-Host "dotfiles: found $cmd"
+    }
+    else {
+        Write-Host "dotfiles: missing $cmd (winget id: $id)"
+        $missing[$id] = $cmd
+    }
+}
+
+# Optional secret managers. Never required, never installed automatically.
+foreach ($cmd in @('bw', 'lpass')) {
+    if (Get-Command $cmd -ErrorAction SilentlyContinue) {
+        Write-Host "dotfiles: secret manager available: $cmd"
+    }
+}
+
+if ($missing.Count -eq 0) {
+    Write-Host 'dotfiles: all required tools present.'
+    exit 0
+}
+
+if ($env:DOTFILES_INSTALL_PACKAGES -ne '1') {
+    Write-Host ''
+    Write-Host 'dotfiles: not installing anything (DOTFILES_INSTALL_PACKAGES is not 1).'
+    Write-Host 'dotfiles: install manually, for example:'
+    foreach ($id in $missing.Keys) {
+        Write-Host "    winget install --id $id -e"
+    }
+    Write-Host ''
+    exit 0
+}
+
+if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
+    Write-Error 'dotfiles: DOTFILES_INSTALL_PACKAGES=1 but winget is not available.'
+    exit 1
+}
+
+foreach ($id in $missing.Keys) {
+    Write-Host "dotfiles: installing $id"
+    # --scope user avoids requiring an elevated prompt where the package allows it.
+    winget install --id $id -e --scope user --accept-package-agreements --accept-source-agreements
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error "dotfiles: winget install failed for $id (exit $LASTEXITCODE)"
+        exit $LASTEXITCODE
+    }
+}
+{{- end -}}

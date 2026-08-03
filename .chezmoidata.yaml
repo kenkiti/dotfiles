@@ -1,0 +1,58 @@
+# ---------------------------------------------------------------------------
+# .chezmoidata.yaml
+#
+# Environment-dependent values live here, NOT scattered through the config
+# files themselves. Templates read `.defaults` and overlay `.hosts.<hostname>`
+# on top of it, so adding a new machine means adding one block below.
+#
+# NEVER put secrets in this file - it is committed to a public repository.
+# See docs/SECRETS.md for where secrets belong instead.
+# ---------------------------------------------------------------------------
+
+defaults:
+  git:
+    # Overridden per machine by the `chezmoi init` prompts (see .chezmoi.toml.tmpl).
+    # These are only fallbacks for --promptDefaults / CI runs.
+    name: "Tadashi Inoue"
+    email: "kenkiti@gmail.com"
+    defaultBranch: "main"
+    # Machine-local extras (safe.directory, credential helpers, work identities)
+    # go in ~/.gitconfig.local, which is NOT managed by chezmoi.
+    localConfig: true
+
+  powershell:
+    # Target of the `cdd` function and the default working directory.
+    workDir: "~/Github"
+    # Also drop a loader into the Windows PowerShell 5.1 profile path.
+    installWindowsPowerShell5Shim: false
+
+  windowsTerminal:
+    # PowerShell 7 ("Windows.Terminal.PowershellCore"). This GUID is derived
+    # deterministically by Windows Terminal from the profile source, so it is
+    # the same on every machine.
+    defaultProfileGuid: "{574e775e-4f2a-5b96-ac1e-a2962a402336}"
+    startingDirectory: "%USERPROFILE%"
+    fontFace: "Cascadia Mono"
+    fontSize: 12
+    colorScheme: "Campbell"
+    copyOnSelect: true
+
+  zsh:
+    ohMyZsh: true
+    ohMyZshTheme: "robbyrussell"
+    ohMyZshPlugins:
+      - git
+    editor: "vim"
+    lang: "ja_JP.UTF-8"
+
+# ---------------------------------------------------------------------------
+# Per-host overrides. Keys are `.chezmoi.hostname` exactly as chezmoi reports
+# it (check with `chezmoi execute-template '{{ .chezmoi.hostname }}'`).
+# Only list the keys that differ from `defaults`; the rest is inherited.
+# ---------------------------------------------------------------------------
+hosts:
+  DESKTOP-Corei5-8400:
+    powershell:
+      workDir: "D:\\Github"
+    windowsTerminal:
+      startingDirectory: "D:\\Github"

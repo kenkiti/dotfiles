@@ -1,0 +1,62 @@
+{{- /* Managed by chezmoi. Edit with: chezmoi edit ~/.gitconfig */ -}}
+[user]
+	name = {{ .git.name }}
+	email = {{ .git.email }}
+
+[init]
+	defaultBranch = {{ .defaults.git.defaultBranch }}
+
+[core]
+	quotepath = false
+{{- if eq .chezmoi.os "windows" }}
+	# Matches the Git for Windows system default; stated explicitly so a fresh
+	# machine behaves the same as an existing one.
+	autocrlf = true
+	fscache = true
+{{- else }}
+	autocrlf = input
+{{- end }}
+
+[pull]
+	ff = only
+
+[push]
+	default = simple
+	autoSetupRemote = true
+
+[fetch]
+	prune = true
+
+[diff]
+	renames = copies
+
+[log]
+	date = iso
+
+[color]
+	ui = auto
+
+{{ if .isWSL -}}
+# Credential helpers are deliberately NOT set here. Sharing the Windows
+# credential store from WSL requires an absolute path to
+# git-credential-manager.exe that differs per machine, and a wrong path makes
+# every git operation fail. Configure it in ~/.gitconfig.local instead - see
+# docs/SECRETS.md.
+{{ end -}}
+
+# ---------------------------------------------------------------------------
+# Machine-local configuration.
+#
+# ~/.gitconfig.local is NOT managed by chezmoi and NOT committed. Put anything
+# machine-specific or sensitive there, for example:
+#
+#   [safe]
+#       directory = D:/some/local/path
+#   [user]
+#       signingkey = ...
+#
+# `include.path` is silently ignored when the file does not exist, so this is
+# safe on a brand new machine.
+# ---------------------------------------------------------------------------
+[include]
+	path = ~/.gitconfig.local
